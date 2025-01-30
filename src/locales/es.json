@@ -1,0 +1,29 @@
+{
+    "general": {
+      "loading": "Cargando...",
+      "close": "Cerrar"
+    },
+    "header": {
+      "welcome": "Bienvenidos a Blow Up",
+      "experience": "Una experiencia única e innovadora",
+      "nav": {
+        "learnMore": "Saber Más",
+        "contact": "Contacto"
+      }
+    },
+    "about": {
+      "title": "Sobre Nosotros",
+      "mica": {
+        "name": "Mica",
+        "description": "Mica es una artista con amplia trayectoria en circo y danza."
+      },
+      "mauro": {
+        "name": "Mauro",
+        "description": "Mauro es un acróbata y coreógrafo con experiencia internacional."
+      }
+    },
+    "footer": {
+      "copyright": "© 2025 Blow Up - Todos los derechos reservados"
+    }
+  }
+  

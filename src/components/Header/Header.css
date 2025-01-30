@@ -1,0 +1,60 @@
+/* Header */
+.header-container {
+    width: 100%;
+    text-align: center;
+    padding-top: 70px; /* Espacio para evitar que el navbar cubra contenido */
+  }
+  
+  /* Banner */
+  .banner-container {
+    height: 60vh;
+    background-image: url('/path/to/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .banner-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .banner-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .banner-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .banner-title {
+      font-size: 2.5rem;
+    }
+  
+    .banner-subtitle {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

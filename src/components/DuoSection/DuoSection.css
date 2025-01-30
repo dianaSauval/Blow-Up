@@ -1,0 +1,130 @@
+.duo-section {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4E1C1;
+  padding: 4rem 0;
+}
+
+.duo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1400px;
+  gap: 2rem;
+  position: relative;
+}
+
+.duo-image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagen */
+.duo-image {
+  flex: 1;
+  max-width: 500px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Bordes personalizados */
+.shaped-left {
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.shaped-right {
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Contorno de las imágenes */
+.duo-border {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  border: 3px solid #D72638;
+  z-index: 1;
+}
+
+.shaped-left.duo-border {
+  border-top-left-radius: 55px;
+  border-bottom-right-radius: 55px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.shaped-right.duo-border {
+  border-top-right-radius: 55px;
+  border-bottom-left-radius: 55px;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Placeholder temporal */
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #D72638;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Logo central */
+.duo-logo {
+  flex: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  max-width: 150px;
+  height: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .duo-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .duo-image {
+    max-width: 350px;
+    height: 250px;
+  }
+
+  .duo-border {
+    width: calc(100% + 15px);
+    height: calc(100% + 15px);
+    top: -7px;
+    left: -7px;
+  }
+
+  .logo-img {
+    max-width: 100px;
+  }
+}
