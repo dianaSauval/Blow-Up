@@ -1,0 +1,41 @@
+{
+    "festivals": [
+      {
+        "name": "Festival Internacional de Circo de Buenos Aires",
+        "description": "Uno de los eventos circenses más importantes de Argentina, donde artistas de todo el mundo presentan sus espectáculos.",
+        "url": "https://www.festivalcirco.gob.ar",
+        "image": "https://example.com/festival-buenos-aires.jpg"
+      },
+      {
+        "name": "Festival de Circo de Bahía",
+        "description": "Un festival que reúne a los mejores exponentes del circo contemporáneo en Brasil.",
+        "url": "https://www.festivaldecircobahia.com",
+        "image": "https://example.com/festival-bahia.jpg"
+      },
+      {
+        "name": "Festival Circuba",
+        "description": "El evento circense más grande de Cuba, donde participan compañías de toda Latinoamérica.",
+        "url": "https://www.circuba.cu",
+        "image": "https://example.com/festival-circuba.jpg"
+      },
+      {
+        "name": "Festival Mondial du Cirque de Demain",
+        "description": "Un prestigioso festival en París que presenta a jóvenes talentos del circo mundial.",
+        "url": "https://www.cirquededemain.paris",
+        "image": "https://example.com/festival-demain.jpg"
+      },
+      {
+        "name": "European Juggling Convention",
+        "description": "Uno de los encuentros más grandes de malabaristas y artistas circenses en Europa.",
+        "url": "https://www.ejc2024.org",
+        "image": "https://example.com/festival-ejc.jpg"
+      },
+      {
+        "name": "Festival de Circo de Bogotá",
+        "description": "Un espacio donde los mejores exponentes del circo latinoamericano se presentan anualmente en Colombia.",
+        "url": "https://www.festivaldecircobogota.com",
+        "image": "https://example.com/festival-bogota.jpg"
+      }
+    ]
+  }
+  

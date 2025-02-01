@@ -1,0 +1,24 @@
+/* About Section */
+#about {
+    text-align: center;
+    padding: 4rem 0;
+  }
+  
+  #about h2 {
+    font-size: 2.5rem;
+    color: #D72638;
+    margin-bottom: 2rem;
+  }
+  
+  /* DuoSection dentro de About */
+  #about .duo-section {
+    margin-top: 2rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    #about h2 {
+      font-size: 2rem;
+    }
+  }
+  

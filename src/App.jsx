@@ -6,7 +6,9 @@ import './i18n';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import About from './components/About/About';
-import DuoSection from './components/DuoSection/DuoSection';
+import CircoSection from './components/CircoSection/CircoSection';
+import BreakingSection from './components/BreakingSection/BreakingSection';
+import ServicesSection from './components/ServicesSection/ServicesSection';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -25,8 +27,10 @@ function App() {
   return (
     <div className='landing-page text-center' style={{ backgroundColor: '#F4E1C1', color: '#151515' }}>
       <Header />
-      <DuoSection/>
       <About />
+      <CircoSection/>
+      <BreakingSection/>
+      <ServicesSection/>
       <Footer />
     </div>
   );

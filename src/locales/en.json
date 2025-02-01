@@ -22,6 +22,78 @@
         "description": "Mauro is an acrobat and choreographer with international experience."
       }
     },
+    "circo": {
+      "title": "Circus - Festivals",
+      "see_more": "See more",
+      "festivals": [
+        {
+          "name": "Buenos Aires International Circus Festival",
+          "description": "One of the most important circus events in Argentina, where artists from all over the world showcase their performances.",
+          "url": "https://www.festivalcirco.gob.ar",
+          "image": "https://example.com/festival-buenos-aires.jpg"
+        },
+        {
+          "name": "Bahia Circus Festival",
+          "description": "A festival that brings together the best exponents of contemporary circus in Brazil.",
+          "url": "https://www.festivaldecircobahia.com",
+          "image": "https://example.com/festival-bahia.jpg"
+        },
+        {
+          "name": "Circuba Festival",
+          "description": "The biggest circus event in Cuba, where companies from all over Latin America participate.",
+          "url": "https://www.circuba.cu",
+          "image": "https://example.com/festival-circuba.jpg"
+        },
+        {
+          "name": "Festival Mondial du Cirque de Demain",
+          "description": "A prestigious festival in Paris that presents young circus talents from around the world.",
+          "url": "https://www.cirquededemain.paris",
+          "image": "https://example.com/festival-demain.jpg"
+        },
+        {
+          "name": "European Juggling Convention",
+          "description": "One of the largest gatherings of jugglers and circus artists in Europe.",
+          "url": "https://www.ejc2024.org",
+          "image": "https://example.com/festival-ejc.jpg"
+        },
+        {
+          "name": "Bogotá Circus Festival",
+          "description": "A space where the best exponents of Latin American circus present themselves annually in Colombia.",
+          "url": "https://www.festivaldecircobogota.com",
+          "image": "https://example.com/festival-bogota.jpg"
+        }
+      ]
+    },"breaking": {
+    "title": "Breaking - Competitions",
+    "watch_video": "Watch Video",
+    "competitions": [
+      {
+        "name": "Red Bull BC One",
+        "year": "2023",
+        "description": "One of the most prestigious breaking competitions worldwide.",
+        "url": "https://www.redbull.com/int-en/event-series/bc-one",
+        "image": "https://example.com/redbull-bc-one.jpg",
+        "video": "https://youtu.be/example"
+      },
+      {
+        "name": "Battle of the Year",
+        "year": "2022",
+        "description": "An international competition where the best breaking crews compete for the title.",
+        "url": "https://www.battleoftheyear.de",
+        "image": "https://example.com/battle-of-the-year.jpg",
+        "video": "https://youtu.be/example"
+      }
+    ]
+  },"services": {
+    "title": "Our Services",
+    "subtitle": "Find the best option for you and enjoy a unique experience",
+    "private_classes": "Private Classes",
+    "private_classes_desc": "Learn breaking with personalized classes adapted to your level.",
+    "performances": "Performances & Shows",
+    "performances_desc": "High-level shows for events and special presentations.",
+    "workshops": "Workshops",
+    "workshops_desc": "Intensive workshops for groups and organizations."
+  },
     "footer": {
       "copyright": "© 2025 Blow Up - All rights reserved"
     }

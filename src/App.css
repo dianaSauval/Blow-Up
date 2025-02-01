@@ -88,6 +88,10 @@ footer {
   color: #E2E2E2;
   padding: 1.5rem 0;
   font-size: 1rem;
+  width: 100vw; /* Ahora ocupará toda la pantalla */
+  left: 0;
+  bottom: 0;
+  position: relative;
 }
 
 /* Loading Screen */
