@@ -1,0 +1,14 @@
+name: Deploy Blow Up
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, Linux, X64]
+
+    steps:
+      - name: Deploy Blow Up to production
+        run: /home/githubrunner/scripts/deploy-blowup.sh
