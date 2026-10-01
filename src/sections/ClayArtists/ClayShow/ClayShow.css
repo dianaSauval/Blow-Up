@@ -1,0 +1,1021 @@
+/* =========================================
+   THE CLAY ARTISTS — SHOW
+   RESPONSIVE SYSTEM
+   ========================================= */
+
+.clay-show {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+
+  overflow-x: clip;
+  overflow-y: visible;
+
+  --show-progress: 0;
+
+  background: transparent;
+  color: var(--color-black);
+}
+
+/* =========================================
+   CONTAINER
+   ========================================= */
+
+.clay-show__container {
+  position: relative;
+  z-index: 5;
+
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-width));
+
+  min-width: 0;
+
+  margin-inline: auto;
+
+  padding-top: clamp(3rem, 5vw, 5rem);
+  padding-bottom: clamp(4rem, 7vw, 7rem);
+}
+
+/* =========================================
+   LAYOUT
+   ========================================= */
+
+.clay-show__layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(340px, 1fr);
+
+  align-items: center;
+
+  gap: clamp(3rem, 6vw, 7rem);
+
+  width: 100%;
+}
+
+/* =========================================
+   CONTENT
+   ========================================= */
+
+.clay-show__content {
+  position: relative;
+  z-index: 8;
+
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================================
+   EYEBROW
+   ========================================= */
+
+.clay-show__eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: clamp(0.65rem, 1vw, 0.9rem);
+
+  margin-bottom: clamp(0.9rem, 1.5vw, 1.4rem);
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.56rem, 0.6vw, 0.66rem);
+
+  font-weight: 700;
+
+  line-height: 1.3;
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  color: var(--clay-pink);
+}
+
+.clay-show__eyebrow::before {
+  content: "";
+
+  width: clamp(26px, 3vw, 42px);
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: var(--clay-pink);
+}
+
+/* =========================================
+   TITLE
+   ========================================= */
+
+.clay-show__title {
+  width: 100%;
+  max-width: 680px;
+
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(3.4rem, 5vw, 5.8rem);
+
+  font-weight: 700;
+
+  line-height: 0.84;
+  letter-spacing: -0.045em;
+
+  text-transform: uppercase;
+
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.clay-show__title span {
+  display: block;
+
+  max-width: 100%;
+}
+
+/* =========================================
+   "MEETS"
+   ========================================= */
+
+.clay-show__meets {
+  margin: 0.15em 0 0.1em clamp(2rem, 28%, 7rem);
+
+  font-family: var(--font-primary);
+
+  font-size: 0.34em;
+
+  font-weight: 500;
+
+  font-style: italic;
+
+  line-height: 1;
+  letter-spacing: 0.02em;
+
+  text-transform: lowercase;
+
+  color: var(--clay-pink);
+}
+
+/* =========================================
+   COPY
+   ========================================= */
+
+.clay-show__copy {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: clamp(0.9rem, 1.3vw, 1.2rem);
+
+  margin-top: clamp(1.5rem, 2.5vw, 2.4rem);
+}
+
+.clay-show__copy-line {
+  width: clamp(28px, 3vw, 42px);
+  height: 1px;
+
+  margin-top: 0.65rem;
+
+  flex-shrink: 0;
+
+  background: var(--clay-pink);
+}
+
+.clay-show__copy p {
+  width: min(100%, 360px);
+
+  margin: 0;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.92rem, 1vw, 1.06rem);
+
+  font-weight: 400;
+
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+
+  color: var(--color-text-soft);
+}
+
+/* =========================================
+   KEYWORDS
+   ========================================= */
+
+.clay-show__keywords {
+  display: flex;
+  flex-direction: column;
+
+  width: max-content;
+  max-width: 100%;
+
+  margin: clamp(1.8rem, 3vw, 3rem) 0 0 clamp(1.5rem, 3vw, 3rem);
+
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+
+  font-size: clamp(1.15rem, 1.5vw, 1.7rem);
+
+  line-height: 1.12;
+
+  color: #68775f;
+
+  transform: rotate(-5deg);
+  transform-origin: center;
+}
+
+.clay-show__keywords span:nth-child(2) {
+  margin-left: 0.9rem;
+}
+
+.clay-show__keywords span:nth-child(3) {
+  margin-left: 1.8rem;
+}
+
+/* =========================================
+   GALLERY
+   ========================================= */
+
+.clay-show__gallery {
+  position: relative;
+
+  width: min(100%, 620px);
+
+  min-width: 0;
+
+  /*
+   * La proporción controla el espacio de la
+   * composición completa. Mucho más estable
+   * que depender de alturas arbitrarias.
+   */
+
+  aspect-ratio: 1 / 1.05;
+
+  margin-inline: auto;
+}
+
+/* =========================================
+   MAIN PHOTO
+   ========================================= */
+
+.clay-show__main-figure {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  z-index: 5;
+
+  width: min(74%, 450px);
+
+  margin: 0;
+
+  opacity: clamp(0, calc((var(--show-progress) - 0.12) * 7), 1);
+
+  transform: translateY(
+    clamp(0px, calc((0.32 - var(--show-progress)) * 100px), 42px)
+  );
+
+  transition:
+    opacity 0.15s linear,
+    transform 0.15s linear;
+}
+
+.clay-show__main-image-wrapper {
+  overflow: hidden;
+
+  border-radius: 48% 52% 44% 56% / 35% 40% 60% 65%;
+
+  background: #e8c6ba;
+
+  box-shadow: 0 30px 70px rgba(75, 51, 35, 0.12);
+}
+
+.clay-show__main-image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================
+   MAIN CAPTION
+   ========================================= */
+
+.clay-show__main-figure figcaption {
+  position: relative;
+  z-index: 2;
+
+  width: 58%;
+
+  margin-top: 0.8rem;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.48rem, 0.45vw, 0.55rem);
+
+  font-weight: 700;
+
+  line-height: 1.4;
+  letter-spacing: 0.15em;
+
+  text-align: left;
+  text-transform: uppercase;
+
+  color: var(--clay-pink);
+}
+
+/* =========================================
+   MASK PHOTO
+   ========================================= */
+
+.clay-show__mask-figure {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  z-index: 7;
+
+  width: min(40%, 245px);
+
+  margin: 0;
+
+  opacity: clamp(0, calc((var(--show-progress) - 0.28) * 7), 1);
+
+  transform: translateY(
+    clamp(0px, calc((0.46 - var(--show-progress)) * 90px), 38px)
+  );
+
+  transition:
+    opacity 0.15s linear,
+    transform 0.15s linear;
+}
+
+.clay-show__mask-image-wrapper {
+  overflow: hidden;
+
+  aspect-ratio: 3 / 4;
+
+  border-radius: 50% 50% 45% 55% / 45% 42% 58% 55%;
+
+  background: var(--clay-pink);
+}
+
+.clay-show__mask-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================
+   MASK CAPTION
+   ========================================= */
+
+.clay-show__mask-figure figcaption {
+  position: relative;
+  z-index: 8;
+
+  width: 100%;
+
+  margin-top: 0.8rem;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.47rem, 0.43vw, 0.52rem);
+
+  font-weight: 700;
+
+  line-height: 1.45;
+  letter-spacing: 0.14em;
+
+  text-align: left;
+  text-transform: uppercase;
+
+  color: var(--color-text-soft);
+}
+
+/* =========================================
+   HOVER — ONLY REAL HOVER DEVICES
+   ========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+  .clay-show__main-figure:hover .clay-show__main-image,
+  .clay-show__mask-figure:hover .clay-show__mask-image {
+    transform: scale(1.025);
+  }
+}
+
+/* ==========================================================
+   LARGE DESKTOP
+   >= 1600px
+   ========================================================== */
+
+@media (min-width: 1600px) {
+  .clay-show__container {
+    padding-top: clamp(4rem, 5vw, 6rem);
+    padding-bottom: clamp(6rem, 7vw, 8rem);
+  }
+
+  .clay-show__layout {
+    grid-template-columns:
+      minmax(0, 0.82fr)
+      minmax(450px, 1fr);
+
+    gap: clamp(7rem, 8vw, 10rem);
+  }
+
+  .clay-show__title {
+    font-size: clamp(4.8rem, 5vw, 6.2rem);
+  }
+
+  .clay-show__copy p {
+    max-width: 410px;
+  }
+
+  .clay-show__gallery {
+    width: min(100%, 680px);
+  }
+
+  .clay-show__main-figure {
+    width: min(76%, 510px);
+  }
+
+  .clay-show__mask-figure {
+    width: min(41%, 285px);
+  }
+}
+
+/* ==========================================================
+   NOTEBOOK
+   1024px — 1366px
+   ========================================================== */
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .clay-show__container {
+    padding-top: clamp(2.8rem, 4vw, 4rem);
+    padding-bottom: clamp(3.5rem, 5vw, 5rem);
+  }
+
+  .clay-show__layout {
+    grid-template-columns:
+      minmax(0, 0.92fr)
+      minmax(330px, 1fr);
+
+    gap: clamp(2.5rem, 4vw, 4.5rem);
+  }
+
+  .clay-show__title {
+    font-size: clamp(3.2rem, 5vw, 4.6rem);
+
+    line-height: 0.86;
+  }
+
+  .clay-show__meets {
+    margin-left: 27%;
+  }
+
+  .clay-show__copy {
+    margin-top: clamp(1.4rem, 2vw, 2rem);
+  }
+
+  .clay-show__copy p {
+    font-size: clamp(0.9rem, 1vw, 1rem);
+  }
+
+  .clay-show__keywords {
+    margin-top: clamp(1.8rem, 2.5vw, 2.5rem);
+
+    font-size: clamp(1.15rem, 1.5vw, 1.5rem);
+  }
+
+  .clay-show__gallery {
+    width: min(100%, 520px);
+  }
+}
+
+/* ==========================================================
+   TABLET LANDSCAPE / SMALL LAPTOP
+   769px — 1023px
+   ========================================================== */
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .clay-show__container {
+    padding-top: 3.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .clay-show__layout {
+    grid-template-columns:
+      minmax(0, 0.92fr)
+      minmax(280px, 1fr);
+
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+
+  .clay-show__title {
+    font-size: clamp(2.9rem, 5.5vw, 3.8rem);
+
+    line-height: 0.88;
+  }
+
+  .clay-show__meets {
+    margin-left: 25%;
+  }
+
+  .clay-show__copy {
+    margin-top: 1.5rem;
+  }
+
+  .clay-show__copy p {
+    font-size: 0.92rem;
+  }
+
+  .clay-show__keywords {
+    margin-top: 2rem;
+    margin-left: 1rem;
+
+    font-size: 1.3rem;
+  }
+
+  .clay-show__gallery {
+    width: min(100%, 430px);
+  }
+
+  .clay-show__main-figure {
+    width: 76%;
+  }
+
+  .clay-show__mask-figure {
+    width: 42%;
+  }
+}
+
+/* ==========================================================
+   TABLET PORTRAIT
+   <= 768px
+   ========================================================== */
+
+@media (max-width: 768px) {
+  .clay-show__container {
+    padding-top: clamp(3.5rem, 8vw, 5rem);
+    padding-bottom: clamp(4rem, 9vw, 6rem);
+  }
+
+  .clay-show__layout {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: clamp(3.5rem, 8vw, 5rem);
+  }
+
+  .clay-show__content {
+    width: 100%;
+  }
+
+  .clay-show__eyebrow {
+    margin-bottom: clamp(1.3rem, 3vw, 1.8rem);
+  }
+
+  .clay-show__title {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(3.2rem, 10.5vw, 5rem);
+
+    line-height: 0.87;
+  }
+
+  .clay-show__meets {
+    margin-left: 25%;
+  }
+
+  .clay-show__copy {
+    margin-top: clamp(1.8rem, 4vw, 2.5rem);
+  }
+
+  .clay-show__copy p {
+    width: min(100%, 430px);
+
+    font-size: clamp(0.95rem, 2vw, 1.08rem);
+  }
+
+  .clay-show__keywords {
+    margin-top: clamp(2.2rem, 5vw, 3rem);
+
+    margin-left: clamp(1.5rem, 7vw, 4rem);
+
+    font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  }
+
+  .clay-show__gallery {
+    width: min(88vw, 580px);
+
+    aspect-ratio: 1 / 1.12;
+
+    margin-inline: auto;
+  }
+
+  .clay-show__main-figure {
+    width: 76%;
+  }
+
+  .clay-show__mask-figure {
+    width: 42%;
+  }
+}
+
+/* ==========================================================
+   MOBILE
+   <= 600px
+   ========================================================== */
+
+@media (max-width: 600px) {
+  .clay-show__container {
+    /*
+     * IMPORTANTE:
+     * Ya NO modificamos el width.
+     * Usa --page-padding del global.
+     */
+
+    padding-top: clamp(3rem, 10vw, 4rem);
+    padding-bottom: clamp(4rem, 12vw, 5rem);
+  }
+
+  .clay-show__layout {
+    gap: clamp(3rem, 9vw, 4rem);
+  }
+
+  .clay-show__eyebrow {
+    gap: 0.7rem;
+
+    margin-bottom: 1.5rem;
+
+    font-size: 0.54rem;
+  }
+
+  .clay-show__eyebrow::before {
+    width: 28px;
+  }
+
+  .clay-show__title {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(2.6rem, 11.5vw, 3.8rem);
+
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .clay-show__meets {
+    margin: 0.16em 0 0.12em 22%;
+
+    font-size: 0.4em;
+  }
+
+  .clay-show__copy {
+    gap: 0.9rem;
+
+    margin-top: 1.8rem;
+  }
+
+  .clay-show__copy-line {
+    width: 26px;
+  }
+
+  .clay-show__copy p {
+    width: min(100%, 330px);
+
+    font-size: clamp(0.93rem, 3.7vw, 1.03rem);
+
+    line-height: 1.58;
+  }
+
+  .clay-show__keywords {
+    margin-top: 2.5rem;
+    margin-left: 6vw;
+
+    font-size: clamp(1.3rem, 5vw, 1.7rem);
+  }
+
+  .clay-show__gallery {
+    width: min(92vw, 470px);
+
+    /*
+     * Un poquito más alta en móvil porque
+     * la máscara baja respecto de la principal.
+     */
+
+    aspect-ratio: 1 / 1.22;
+  }
+
+  .clay-show__main-figure {
+    width: 78%;
+  }
+
+  .clay-show__mask-figure {
+    width: 43%;
+  }
+
+  .clay-show__main-figure figcaption {
+    width: 50%;
+
+    margin-top: 0.65rem;
+
+    font-size: 0.47rem;
+
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+  }
+
+  .clay-show__mask-figure figcaption {
+    margin-top: 0.65rem;
+
+    font-size: 0.46rem;
+
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* ==========================================================
+   SMALL MOBILE
+   <= 430px
+   ========================================================== */
+
+@media (max-width: 430px) {
+  .clay-show__container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .clay-show__title {
+    font-size: clamp(2.4rem, 11vw, 3rem);
+
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+  }
+
+  .clay-show__meets {
+    margin-left: 20%;
+    font-size: 0.42em;
+  }
+
+  .clay-show__copy {
+    gap: 0.8rem;
+  }
+
+  .clay-show__copy-line {
+    width: 23px;
+  }
+
+  .clay-show__copy p {
+    width: min(100%, 295px);
+  }
+
+  .clay-show__keywords {
+    margin-left: 5vw;
+
+    font-size: clamp(1.2rem, 5.3vw, 1.5rem);
+  }
+
+  .clay-show__gallery {
+    width: 100%;
+
+    aspect-ratio: 1 / 1.25;
+  }
+
+  .clay-show__main-figure {
+    width: 79%;
+  }
+
+  .clay-show__mask-figure {
+    width: 44%;
+  }
+
+  .clay-show__main-figure figcaption {
+    width: 46%;
+
+    font-size: 0.44rem;
+
+    letter-spacing: 0.1em;
+  }
+
+  .clay-show__mask-figure figcaption {
+    font-size: 0.44rem;
+
+    letter-spacing: 0.1em;
+  }
+}
+
+/* ==========================================================
+   EXTRA SMALL MOBILE / IPHONE SE
+   <= 380px
+   ========================================================== */
+
+@media (max-width: 380px) {
+  .clay-show__container {
+    padding-top: 2.7rem;
+  }
+
+  .clay-show__title {
+    font-size: clamp(2.2rem, 10.5vw, 2.55rem);
+
+    line-height: 0.91;
+    letter-spacing: -0.045em;
+  }
+
+  .clay-show__meets {
+    margin-left: 19%;
+  }
+
+  .clay-show__copy {
+    gap: 0.7rem;
+  }
+
+  .clay-show__copy-line {
+    width: 20px;
+  }
+
+  .clay-show__copy p {
+    font-size: 0.91rem;
+  }
+
+  .clay-show__keywords {
+    margin-left: 4vw;
+
+    font-size: 1.2rem;
+  }
+
+  .clay-show__gallery {
+    aspect-ratio: 1 / 1.27;
+  }
+
+  .clay-show__main-figure {
+    width: 79%;
+  }
+
+  .clay-show__mask-figure {
+    width: 43%;
+  }
+
+  .clay-show__main-figure figcaption {
+    width: 44%;
+
+    font-size: 0.42rem;
+  }
+
+  .clay-show__mask-figure figcaption {
+    font-size: 0.42rem;
+  }
+}
+
+/* ==========================================================
+   VERY SMALL MOBILE
+   320px — 350px
+   ========================================================== */
+
+@media (max-width: 350px) {
+   .clay-show__title {
+    font-size: clamp(2rem, 10.2vw, 2.3rem);
+
+    letter-spacing: -0.04em;
+  }
+}
+
+  .clay-show__copy p {
+    font-size: 0.88rem;
+  }
+
+  .clay-show__keywords {
+    margin-left: 2vw;
+
+    font-size: 1.12rem;
+  }
+
+  .clay-show__gallery {
+    aspect-ratio: 1 / 1.3;
+  }
+
+  .clay-show__main-figure {
+    width: 80%;
+  }
+
+  .clay-show__mask-figure {
+    width: 42%;
+  }
+}
+
+/* ==========================================================
+   SHORT NOTEBOOKS
+   1366 × 768 / 1280 × 720
+   ========================================================== */
+
+@media (min-width: 901px) and (max-height: 820px) {
+  .clay-show__container {
+    padding-top: clamp(2.2rem, 4vh, 3.2rem);
+    padding-bottom: clamp(2.8rem, 5vh, 4rem);
+  }
+
+  .clay-show__eyebrow {
+    margin-bottom: clamp(0.8rem, 2vh, 1.2rem);
+  }
+
+  .clay-show__title {
+    font-size: clamp(3rem, 4.6vw, 4.2rem);
+  }
+
+  .clay-show__copy {
+    margin-top: clamp(1.2rem, 2.5vh, 1.7rem);
+  }
+
+  .clay-show__keywords {
+    margin-top: clamp(1.5rem, 3vh, 2.2rem);
+  }
+
+  .clay-show__gallery {
+    width: min(100%, 470px);
+  }
+}
+
+/* ==========================================================
+   PHONE LANDSCAPE
+   ========================================================== */
+
+@media (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+  .clay-show__container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .clay-show__layout {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(230px, 0.85fr);
+
+    align-items: center;
+
+    gap: 2rem;
+  }
+
+  .clay-show__title {
+    font-size: clamp(2.3rem, 6vw, 3.3rem);
+  }
+
+  .clay-show__copy {
+    margin-top: 1.2rem;
+  }
+
+  .clay-show__copy p {
+    font-size: 0.88rem;
+  }
+
+  .clay-show__keywords {
+    margin-top: 1.4rem;
+
+    font-size: 1.1rem;
+  }
+
+  .clay-show__gallery {
+    width: min(100%, 330px);
+
+    aspect-ratio: 1 / 1.08;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .clay-show__main-figure,
+  .clay-show__mask-figure {
+    opacity: 1 !important;
+
+    transform: none !important;
+
+    transition: none !important;
+  }
+
+  .clay-show__main-image,
+  .clay-show__mask-image {
+    transition: none !important;
+  }
+}

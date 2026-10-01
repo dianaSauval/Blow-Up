@@ -1,0 +1,1184 @@
+/* =========================================
+   FREAKY TANGO — PRESS
+   ========================================= */
+
+.freaky-press {
+  position: relative;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  min-height: 105svh;
+
+  overflow-x: clip;
+  overflow-y: visible;
+
+  --press-progress: 0;
+
+  color: var(--freaky-cream);
+}
+
+/* =========================================
+   RESPONSIVE SAFETY
+   ========================================= */
+
+.freaky-press *,
+.freaky-press *::before,
+.freaky-press *::after {
+  box-sizing: border-box;
+}
+
+.freaky-press__container,
+.freaky-press__header,
+.freaky-press__layout,
+.freaky-press__location,
+.freaky-press__card,
+.freaky-press__card-content,
+.freaky-press__card-bottom {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* =========================================
+   CONTAINER
+   ========================================= */
+
+.freaky-press__container {
+  position: relative;
+
+  z-index: 5;
+
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-width));
+
+  margin-inline: auto;
+
+  padding-top: clamp(6rem, 10vw, 11rem);
+
+  padding-bottom: clamp(6rem, 9vw, 10rem);
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.freaky-press__header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  width: 100%;
+
+  padding-bottom: 1rem;
+
+  border-bottom: 1px solid var(--freaky-line);
+}
+
+.freaky-press__eyebrow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  min-width: 0;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.5rem, 0.55vw, 0.62rem);
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  color: var(--freaky-text-soft);
+}
+
+.freaky-press__eyebrow i {
+  width: clamp(1.5rem, 2vw, 1.9rem);
+
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: var(--tango-pink);
+}
+
+.freaky-press__edition {
+  flex-shrink: 0;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.5rem, 0.55vw, 0.62rem);
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.2em;
+
+  color: var(--tango-pink);
+}
+
+/* =========================================
+   MAIN LAYOUT
+   ========================================= */
+
+.freaky-press__layout {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(20rem, 0.75fr);
+
+  align-items: center;
+
+  gap: clamp(3rem, 7vw, 8rem);
+
+  width: 100%;
+
+  min-height: clamp(34rem, 62vw, 44rem);
+}
+
+/* =========================================
+   LOCATION
+   ========================================= */
+
+.freaky-press__location {
+  position: relative;
+
+  z-index: 5;
+
+  opacity: clamp(0, calc((var(--press-progress) - 0.04) * 8), 1);
+
+  transform: translateX(
+    clamp(-3.5rem, calc((0.18 - var(--press-progress)) * -18rem), 0rem)
+  );
+
+  will-change: transform, opacity;
+}
+
+.freaky-press__location-small {
+  display: block;
+
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.52rem, 0.58vw, 0.64rem);
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.24em;
+
+  text-transform: uppercase;
+
+  color: var(--tango-pink);
+}
+
+.freaky-press__location h2 {
+  width: fit-content;
+
+  max-width: 100%;
+
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(4.8rem, 11vw, 11rem);
+
+  font-weight: 900;
+
+  line-height: 0.76;
+
+  letter-spacing: -0.075em;
+
+  text-transform: uppercase;
+
+  color: var(--freaky-cream);
+}
+
+.freaky-press__year {
+  display: block;
+
+  width: fit-content;
+
+  max-width: 100%;
+
+  margin-top: 0.18em;
+
+  margin-left: 40%;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(3rem, 7vw, 7rem);
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  letter-spacing: -0.06em;
+
+  color: var(--tango-pink);
+}
+
+/* =========================================
+   PRESS CARD
+   ========================================= */
+
+.freaky-press__card {
+  position: relative;
+
+  z-index: 8;
+
+  width: 100%;
+
+  padding: clamp(1.75rem, 3vw, 3rem);
+
+  border: 1px solid color-mix(in srgb, var(--tango-pink) 32%, transparent);
+
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--tango-red) 22%, var(--freaky-dark)),
+    color-mix(in srgb, var(--tango-black) 96%, transparent)
+  );
+
+  box-shadow: clamp(1rem, 2vw, 1.75rem) clamp(1rem, 2vw, 1.75rem) 0
+    color-mix(in srgb, var(--tango-red) 16%, transparent);
+
+  opacity: clamp(0, calc((var(--press-progress) - 0.13) * 8), 1);
+
+  transform: rotate(
+      clamp(-2deg, calc((var(--press-progress) - 1) * 2deg), 0deg)
+    )
+    translateY(clamp(0rem, calc((0.3 - var(--press-progress)) * 11rem), 3.5rem));
+
+  transition:
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
+
+  will-change: transform, opacity;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .freaky-press__card:hover {
+    border-color: color-mix(in srgb, var(--tango-pink) 70%, transparent);
+
+    box-shadow: clamp(1.2rem, 2.3vw, 2rem) clamp(1.2rem, 2.3vw, 2rem) 0
+      color-mix(in srgb, var(--tango-red) 22%, transparent);
+  }
+}
+
+/* =========================================
+   CARD TOP
+   ========================================= */
+
+.freaky-press__card-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  padding-bottom: 1rem;
+
+  border-bottom: 1px solid var(--freaky-line);
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.45rem, 0.5vw, 0.56rem);
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--freaky-text-soft);
+}
+
+/* =========================================
+   CARD CONTENT
+   ========================================= */
+
+.freaky-press__card-content {
+  padding-top: clamp(2.5rem, 4vw, 4.5rem);
+
+  padding-bottom: clamp(2.5rem, 4vw, 4.5rem);
+}
+
+.freaky-press__featured {
+  display: block;
+
+  margin-bottom: 1.2rem;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.48rem, 0.52vw, 0.58rem);
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  color: var(--tango-pink);
+}
+
+.freaky-press__card-content h3 {
+  max-width: 100%;
+
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(2.6rem, 4.6vw, 5.2rem);
+
+  font-weight: 900;
+
+  line-height: 0.84;
+
+  letter-spacing: -0.06em;
+
+  text-transform: uppercase;
+}
+
+.freaky-press__card-content h3 em {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  letter-spacing: -0.05em;
+
+  text-transform: none;
+
+  color: var(--tango-pink);
+}
+
+.freaky-press__card-content p {
+  width: min(100%, 20rem);
+
+  margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.92rem, 1vw, 1.05rem);
+
+  line-height: 1.65;
+
+  color: var(--freaky-text-soft);
+}
+
+/* =========================================
+   CARD BOTTOM
+   ========================================= */
+
+.freaky-press__card-bottom {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  padding-top: 1.25rem;
+
+  border-top: 1px solid var(--freaky-line);
+}
+
+.freaky-press__card-bottom > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.35rem;
+
+  min-width: 0;
+}
+
+.freaky-press__card-bottom > div span {
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.44rem, 0.48vw, 0.52rem);
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--freaky-text-soft);
+}
+
+.freaky-press__card-bottom strong {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 0.95rem;
+
+  font-weight: 400;
+
+  line-height: 1.2;
+
+  color: var(--freaky-cream);
+}
+
+/* =========================================
+   LINK
+   ========================================= */
+
+.freaky-press__card-bottom a {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+
+  flex-shrink: 0;
+
+  padding-bottom: 0.45rem;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.5rem, 0.55vw, 0.6rem);
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--freaky-cream);
+}
+
+.freaky-press__card-bottom a::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+
+  height: 1px;
+
+  background: var(--tango-pink);
+
+  transform: scaleX(0.25);
+
+  transform-origin: right;
+
+  transition: transform var(--transition-normal);
+}
+
+.freaky-press__card-bottom a i {
+  font-family: var(--font-primary);
+
+  font-size: 1.1rem;
+
+  font-style: normal;
+
+  color: var(--tango-pink);
+
+  transition: transform var(--transition-normal);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .freaky-press__card-bottom a:hover::after {
+    transform: scaleX(1);
+
+    transform-origin: left;
+  }
+
+  .freaky-press__card-bottom a:hover i {
+    transform: translate(0.2rem, -0.2rem);
+  }
+}
+
+/* =========================================
+   PINK LINE
+   ========================================= */
+
+.freaky-press__line {
+  position: relative;
+
+  z-index: 8;
+
+  width: 100%;
+
+  transform: rotate(-1deg);
+
+  transform-origin: left center;
+}
+
+.freaky-press__line span {
+  display: block;
+
+  width: clamp(0%, calc((var(--press-progress) - 0.28) * 180%), 100%);
+
+  height: 2px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--tango-pink) 7%,
+    #ff245e 75%,
+    var(--tango-pink)
+  );
+
+  box-shadow: 0 0 0.85rem color-mix(in srgb, var(--tango-pink) 50%, transparent);
+}
+
+/* =========================================
+   BACKGROUND WORD
+   ========================================= */
+
+.freaky-press__ghost {
+  position: absolute;
+
+  top: 48%;
+  left: 50%;
+
+  z-index: 1;
+
+  max-width: none;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(10rem, 23vw, 25rem);
+
+  font-weight: 900;
+
+  line-height: 0.7;
+
+  letter-spacing: -0.08em;
+
+  white-space: nowrap;
+
+  color: transparent;
+
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--tango-pink) 8%, transparent);
+
+  transform: translate(-50%, -50%)
+    translateX(
+      clamp(-2.5rem, calc((0.5 - var(--press-progress)) * 5rem), 2.5rem)
+    );
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   DECORATION
+   ========================================= */
+
+.freaky-press__decor {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.freaky-press__glow {
+  position: absolute;
+
+  top: 45%;
+  right: 8%;
+
+  width: clamp(14rem, 24vw, 24rem);
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  background: color-mix(in srgb, var(--tango-red) 13%, transparent);
+
+  filter: blur(4rem);
+}
+
+.freaky-press__slash {
+  position: absolute;
+
+  width: 1px;
+
+  background: linear-gradient(
+    transparent,
+    color-mix(in srgb, var(--tango-pink) 50%, transparent),
+    transparent
+  );
+
+  opacity: clamp(0, calc((var(--press-progress) - 0.2) * 6), 0.7);
+}
+
+.freaky-press__slash--1 {
+  top: 18%;
+  right: 9%;
+
+  height: clamp(6rem, 9vw, 8rem);
+
+  transform: rotate(42deg);
+}
+
+.freaky-press__slash--2 {
+  bottom: 15%;
+  left: 6%;
+
+  height: clamp(4.5rem, 7vw, 6rem);
+
+  transform: rotate(-38deg);
+}
+
+/* =========================================================
+   NOTEBOOK WIDTH
+   1001px — 1300px
+   ========================================================= */
+
+@media (min-width: 1001px) and (max-width: 1300px) {
+  .freaky-press {
+    min-height: auto;
+  }
+
+  .freaky-press__container {
+    padding-top: clamp(5rem, 7vw, 7rem);
+
+    padding-bottom: clamp(5rem, 7vw, 7rem);
+  }
+
+  .freaky-press__layout {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(18rem, 0.72fr);
+
+    gap: clamp(2.5rem, 5vw, 5rem);
+
+    min-height: clamp(31rem, 54vw, 38rem);
+  }
+
+  .freaky-press__location h2 {
+    font-size: clamp(4.5rem, 8.5vw, 7.5rem);
+  }
+
+  .freaky-press__year {
+    margin-left: 34%;
+
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  }
+
+  .freaky-press__card {
+    padding: clamp(1.5rem, 2.5vw, 2.2rem);
+  }
+
+  .freaky-press__card-content h3 {
+    font-size: clamp(2.35rem, 3.8vw, 3.8rem);
+  }
+
+  .freaky-press__ghost {
+    font-size: clamp(9rem, 21vw, 21rem);
+  }
+}
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   701px — 1000px
+   ========================================================= */
+
+@media (min-width: 701px) and (max-width: 1000px) {
+  .freaky-press {
+    min-height: auto;
+  }
+
+  .freaky-press__container {
+    padding-top: clamp(5rem, 9vw, 7rem);
+
+    padding-bottom: clamp(5rem, 9vw, 7rem);
+  }
+
+  .freaky-press__layout {
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(17rem, 0.8fr);
+
+    gap: clamp(2rem, 4vw, 3rem);
+
+    min-height: clamp(30rem, 62vw, 38rem);
+  }
+
+  .freaky-press__location h2 {
+    font-size: clamp(3.9rem, 9.5vw, 6.2rem);
+  }
+
+  .freaky-press__year {
+    margin-left: 27%;
+
+    font-size: clamp(2.6rem, 6.5vw, 4.2rem);
+  }
+
+  .freaky-press__card {
+    padding: clamp(1.4rem, 2.8vw, 2rem);
+  }
+
+  .freaky-press__card-content {
+    padding-block: clamp(2rem, 4vw, 3rem);
+  }
+
+  .freaky-press__card-content h3 {
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  }
+
+  .freaky-press__card-content p {
+    font-size: clamp(0.9rem, 1.6vw, 1rem);
+  }
+
+  .freaky-press__ghost {
+    font-size: clamp(8rem, 27vw, 16rem);
+  }
+}
+
+/* =========================================================
+   MOBILE
+   <= 700px
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .freaky-press {
+    min-height: auto;
+  }
+
+  /* =======================================
+     CONTAINER
+     ======================================= */
+
+  .freaky-press__container {
+    width: min(calc(100% - (var(--page-padding) * 2)), var(--container-width));
+
+    padding-top: clamp(4.5rem, 14vw, 6rem);
+
+    padding-bottom: clamp(4.5rem, 14vw, 6rem);
+  }
+
+  /* =======================================
+     HEADER
+     ======================================= */
+
+  .freaky-press__header {
+    gap: 0.8rem;
+
+    padding-bottom: 0.9rem;
+  }
+
+  .freaky-press__eyebrow {
+    gap: 0.7rem;
+
+    font-size: clamp(0.44rem, 1.7vw, 0.5rem);
+
+    letter-spacing: 0.16em;
+  }
+
+  .freaky-press__eyebrow i {
+    width: clamp(1rem, 5vw, 1.4rem);
+  }
+
+  .freaky-press__edition {
+    font-size: clamp(0.44rem, 1.7vw, 0.5rem);
+
+    letter-spacing: 0.16em;
+  }
+
+  /* =======================================
+     MAIN LAYOUT
+     ======================================= */
+
+  .freaky-press__layout {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: clamp(3rem, 11vw, 4rem);
+
+    min-height: auto;
+
+    padding-top: clamp(3.5rem, 11vw, 4.5rem);
+
+    padding-bottom: clamp(3.5rem, 11vw, 4.5rem);
+  }
+
+  /* =======================================
+     LOCATION
+     ======================================= */
+
+  .freaky-press__location {
+    width: 100%;
+  }
+
+  .freaky-press__location-small {
+    margin-bottom: 0.9rem;
+
+    font-size: clamp(0.48rem, 1.8vw, 0.55rem);
+
+    letter-spacing: 0.18em;
+  }
+
+  .freaky-press__location h2 {
+    max-width: 100%;
+
+    font-size: clamp(3.3rem, 16.5vw, 5.2rem);
+
+    line-height: 0.8;
+
+    letter-spacing: -0.065em;
+  }
+
+  .freaky-press__year {
+    margin-top: 0.15em;
+
+    margin-left: 28%;
+
+    font-size: clamp(2.5rem, 12.5vw, 4rem);
+
+    letter-spacing: -0.05em;
+  }
+
+  /* =======================================
+     CARD
+     ======================================= */
+
+  .freaky-press__card {
+    width: calc(100% - 0.65rem);
+
+    max-width: 100%;
+
+    padding: clamp(1.3rem, 5vw, 1.7rem);
+
+    box-shadow: 0.65rem 0.65rem 0
+      color-mix(in srgb, var(--tango-red) 18%, transparent);
+  }
+
+  .freaky-press__card-top {
+    gap: 0.8rem;
+
+    font-size: clamp(0.4rem, 1.6vw, 0.46rem);
+
+    letter-spacing: 0.14em;
+  }
+
+  .freaky-press__card-content {
+    padding-top: clamp(2.1rem, 7vw, 2.8rem);
+
+    padding-bottom: clamp(2.1rem, 7vw, 2.8rem);
+  }
+
+  .freaky-press__featured {
+    margin-bottom: 1rem;
+
+    font-size: clamp(0.44rem, 1.7vw, 0.5rem);
+
+    letter-spacing: 0.18em;
+  }
+
+  .freaky-press__card-content h3 {
+    font-size: clamp(2.15rem, 10.5vw, 3.5rem);
+
+    line-height: 0.86;
+
+    letter-spacing: -0.055em;
+  }
+
+  .freaky-press__card-content p {
+    width: min(100%, 21rem);
+
+    margin-top: 1.4rem;
+
+    font-size: clamp(0.9rem, 3.7vw, 0.97rem);
+
+    line-height: 1.6;
+  }
+
+  /* =======================================
+     CARD BOTTOM
+     ======================================= */
+
+  .freaky-press__card-bottom {
+    align-items: center;
+
+    gap: 1rem;
+  }
+
+  .freaky-press__card-bottom > div span {
+    font-size: 0.42rem;
+
+    letter-spacing: 0.14em;
+  }
+
+  .freaky-press__card-bottom strong {
+    font-size: 0.9rem;
+  }
+
+  .freaky-press__card-bottom a {
+    gap: 0.55rem;
+
+    font-size: 0.46rem;
+
+    letter-spacing: 0.14em;
+  }
+
+  .freaky-press__card-bottom a i {
+    font-size: 1rem;
+  }
+
+  /* =======================================
+     BACKGROUND
+     ======================================= */
+
+  .freaky-press__ghost {
+    top: 38%;
+
+    font-size: clamp(7rem, 34vw, 11rem);
+  }
+
+  .freaky-press__slash {
+    opacity: clamp(0, calc((var(--press-progress) - 0.2) * 4), 0.45);
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   <= 420px
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .freaky-press__container {
+    padding-top: 4rem;
+
+    padding-bottom: 4.5rem;
+  }
+
+  .freaky-press__eyebrow {
+    gap: 0.55rem;
+
+    font-size: 0.42rem;
+
+    letter-spacing: 0.13em;
+  }
+
+  .freaky-press__edition {
+    font-size: 0.42rem;
+
+    letter-spacing: 0.13em;
+  }
+
+  .freaky-press__eyebrow i {
+    width: 1rem;
+  }
+
+  .freaky-press__layout {
+    gap: 3rem;
+
+    padding-top: 3.2rem;
+
+    padding-bottom: 3.2rem;
+  }
+
+  .freaky-press__location h2 {
+    font-size: clamp(3rem, 15.5vw, 4.3rem);
+  }
+
+  .freaky-press__year {
+    margin-left: 24%;
+
+    font-size: clamp(2.3rem, 11.8vw, 3.5rem);
+  }
+
+  .freaky-press__card {
+    width: calc(100% - 0.55rem);
+
+    padding: 1.25rem;
+
+    box-shadow: 0.55rem 0.55rem 0
+      color-mix(in srgb, var(--tango-red) 18%, transparent);
+  }
+
+  .freaky-press__card-top {
+    font-size: 0.39rem;
+
+    letter-spacing: 0.12em;
+  }
+
+  .freaky-press__card-content {
+    padding-block: 2rem;
+  }
+
+  .freaky-press__card-content h3 {
+    font-size: clamp(2rem, 10vw, 2.95rem);
+  }
+
+  .freaky-press__card-content p {
+    font-size: 0.9rem;
+  }
+
+  .freaky-press__card-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 1.2rem;
+  }
+
+  .freaky-press__ghost {
+    font-size: clamp(6rem, 33vw, 8.5rem);
+  }
+}
+
+/* =========================================================
+   NOTEBOOK — LOW HEIGHT
+   ========================================================= */
+
+@media (min-width: 1001px) and (max-height: 900px) {
+  .freaky-press {
+    min-height: auto;
+  }
+
+  .freaky-press__container {
+    padding-top: clamp(4.5rem, 8vh, 6rem);
+
+    padding-bottom: clamp(3.5rem, 7vh, 5rem);
+  }
+
+  .freaky-press__layout {
+    min-height: clamp(28rem, 68vh, 36rem);
+
+    gap: clamp(2.5rem, 5vw, 5rem);
+  }
+
+  .freaky-press__location h2 {
+    font-size: clamp(4.3rem, 12vh, 7.2rem);
+  }
+
+  .freaky-press__year {
+    font-size: clamp(2.7rem, 7.5vh, 4.8rem);
+  }
+
+  .freaky-press__card {
+    padding: clamp(1.5rem, 2.5vh, 2rem);
+  }
+
+  .freaky-press__card-content {
+    padding-block: clamp(1.7rem, 3.5vh, 2.8rem);
+  }
+
+  .freaky-press__card-content h3 {
+    font-size: clamp(2.3rem, 6vh, 3.8rem);
+  }
+
+  .freaky-press__card-content p {
+    margin-top: clamp(1rem, 2vh, 1.6rem);
+  }
+}
+
+/* =========================================================
+   VERY SHORT NOTEBOOK
+   1366x768 AND SIMILAR
+   ========================================================= */
+
+@media (min-width: 1001px) and (max-height: 780px) {
+  .freaky-press__container {
+    padding-top: 3.5rem;
+
+    padding-bottom: 3rem;
+  }
+
+  .freaky-press__layout {
+    min-height: 29rem;
+
+    gap: 2.5rem;
+  }
+
+  .freaky-press__location h2 {
+    font-size: clamp(4rem, 11vh, 6rem);
+  }
+
+  .freaky-press__year {
+    font-size: clamp(2.4rem, 6.8vh, 3.8rem);
+  }
+
+  .freaky-press__card {
+    padding: 1.5rem;
+  }
+
+  .freaky-press__card-content {
+    padding-block: 1.6rem;
+  }
+
+  .freaky-press__card-content h3 {
+    font-size: clamp(2.15rem, 5.5vh, 3.2rem);
+  }
+
+  .freaky-press__card-content p {
+    margin-top: 1rem;
+
+    font-size: 0.9rem;
+
+    line-height: 1.5;
+  }
+
+  .freaky-press__ghost {
+    font-size: clamp(8rem, 20vw, 18rem);
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .freaky-press__location,
+  .freaky-press__card {
+    opacity: 1 !important;
+
+    transform: none !important;
+  }
+
+  .freaky-press__line span {
+    width: 100% !important;
+  }
+
+  .freaky-press__ghost {
+    transform: translate(-50%, -50%) !important;
+  }
+}

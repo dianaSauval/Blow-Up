@@ -1,0 +1,437 @@
+/* =========================================
+   BLOW UP — SOCIAL BUTTONS
+   ========================================= */
+
+.blow-socials {
+  --blow-black: #050505;
+  --blow-white: #f7f7f2;
+
+  --blow-red: #ff1728;
+  --blow-orange: #ff7a00;
+  --blow-yellow: #ffe000;
+  --blow-green: #00a85a;
+  --blow-blue: #0668d8;
+  --blow-purple: #8d2b91;
+
+  width: min(100%, 1100px);
+
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: clamp(0.8rem, 1.6vw, 1.4rem);
+}
+
+/* =========================================
+   BUTTON
+   ========================================= */
+
+.blow-social {
+  position: relative;
+
+  min-width: 0;
+  min-height: 125px;
+
+  display: flex;
+  align-items: center;
+
+  gap: clamp(0.8rem, 1.5vw, 1.2rem);
+
+  padding: clamp(1rem, 2vw, 1.45rem) clamp(1rem, 2vw, 1.5rem);
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  color: var(--blow-white);
+
+  background: linear-gradient(
+    135deg,
+    rgba(48, 44, 39, 0.92) 0%,
+    rgba(24, 23, 21, 0.94) 100%
+  );
+
+  border: 2px solid rgba(255, 255, 255, 0.78);
+
+  text-decoration: none;
+
+  box-shadow:
+    7px 7px 0 rgba(5, 5, 5, 0.78),
+    10px 10px 0 rgba(5, 5, 5, 0.08);
+
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* pequeñas diferencias geométricas
+   para que no parezcan cards genéricas */
+
+.blow-social--facebook {
+  border-radius: 4px 20px 4px 20px;
+}
+
+.blow-social--instagram {
+  border-radius: 20px 4px 20px 4px;
+}
+
+.blow-social--youtube {
+  border-radius: 4px 20px 4px 20px;
+}
+
+/* =========================================
+   MOSAICO DEL LOGO
+   ========================================= */
+
+.blow-social__mosaic {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-rows: repeat(2, 1fr);
+
+  opacity: 0.1;
+
+  transform: scale(1.08) rotate(-2deg);
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.blow-social__mosaic span:nth-child(1) {
+  background: var(--blow-yellow);
+}
+
+.blow-social__mosaic span:nth-child(2) {
+  background: var(--blow-red);
+}
+
+.blow-social__mosaic span:nth-child(3) {
+  background: var(--blow-green);
+}
+
+.blow-social__mosaic span:nth-child(4) {
+  background: var(--blow-purple);
+}
+
+.blow-social__mosaic span:nth-child(5) {
+  background: var(--blow-blue);
+}
+
+.blow-social__mosaic span:nth-child(6) {
+  background: var(--blow-orange);
+}
+
+/* capa oscura para mantener
+   siempre buena lectura */
+
+.blow-social::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(24, 22, 20, 0.72) 0%,
+    rgba(24, 22, 20, 0.54) 58%,
+    rgba(24, 22, 20, 0.36) 100%
+  );
+
+  transition: background 0.4s ease;
+}
+
+/* =========================================
+   ICON
+   ========================================= */
+
+.blow-social__icon {
+  position: relative;
+
+  flex: 0 0 auto;
+
+  width: clamp(52px, 5vw, 66px);
+  height: clamp(52px, 5vw, 66px);
+
+  display: grid;
+  place-items: center;
+
+  background: var(--blow-white);
+
+  color: var(--blow-black);
+
+  border: 4px solid var(--blow-black);
+
+  box-shadow: 4px 4px 0 var(--blow-yellow);
+
+  transform: rotate(-3deg);
+
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.4s ease,
+    background-color 0.3s ease;
+}
+
+.blow-social__icon svg {
+  width: 48%;
+  height: 48%;
+}
+
+/* cada red recibe un acento distinto */
+
+.blow-social--facebook .blow-social__icon {
+  box-shadow: 4px 4px 0 var(--blow-blue);
+}
+
+.blow-social--instagram .blow-social__icon {
+  box-shadow: 4px 4px 0 var(--blow-purple);
+}
+
+.blow-social--youtube .blow-social__icon {
+  box-shadow: 4px 4px 0 var(--blow-red);
+}
+
+/* =========================================
+   TEXT
+   ========================================= */
+
+.blow-social__content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.18rem;
+}
+
+.blow-social__name {
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: 0.02em;
+
+  text-transform: uppercase;
+}
+
+.blow-social__handle {
+  overflow: hidden;
+
+  color: rgba(255, 255, 255, 0.64);
+
+  font-size: clamp(0.68rem, 1vw, 0.8rem);
+
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  transition: color 0.3s ease;
+}
+
+/* =========================================
+   ARROW
+   ========================================= */
+
+.blow-social__arrow {
+  position: absolute;
+
+  top: 0.65rem;
+  right: 0.8rem;
+
+  font-size: 1.25rem;
+  font-weight: 900;
+
+  line-height: 1;
+
+  color: var(--blow-white);
+
+  opacity: 0.45;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s ease;
+}
+
+/* =========================================
+   DESKTOP HOVER
+   ========================================= */
+
+@media (hover: hover) {
+  .blow-social:hover {
+    transform: translateY(-7px) rotate(-0.5deg);
+
+    box-shadow:
+      9px 11px 0 var(--blow-black),
+      13px 15px 0 rgba(255, 255, 255, 0.13);
+  }
+
+  .blow-social:hover .blow-social__mosaic {
+    opacity: 0.88;
+
+    transform: scale(1.03) rotate(0deg);
+  }
+
+  .blow-social:hover::after {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.78),
+      rgba(0, 0, 0, 0.48)
+    );
+  }
+
+  .blow-social:hover .blow-social__icon {
+    transform: rotate(4deg) scale(1.08);
+
+    background: #ffffff;
+  }
+
+  .blow-social:hover .blow-social__handle {
+    color: #ffffff;
+  }
+
+  .blow-social:hover .blow-social__arrow {
+    opacity: 1;
+
+    transform: translate(3px, -3px);
+  }
+}
+
+/* =========================================
+   KEYBOARD ACCESSIBILITY
+   ========================================= */
+
+.blow-social:focus-visible {
+  outline: 4px solid var(--blow-yellow);
+
+  outline-offset: 5px;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+  .blow-socials {
+    grid-template-columns: 1fr;
+    max-width: 620px;
+
+    gap: 0.85rem;
+  }
+
+  .blow-social {
+    min-height: 100px;
+
+    padding: 1rem 1.15rem;
+  }
+
+  .blow-social__mosaic {
+    grid-template-columns: repeat(6, 1fr);
+
+    grid-template-rows: 1fr;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 520px) {
+  .blow-socials {
+    width: 100%;
+
+    gap: 0.7rem;
+  }
+
+  .blow-social {
+    min-height: 82px;
+
+    padding: 0.8rem 2.8rem 0.8rem 0.85rem;
+
+    gap: 0.8rem;
+
+    border-width: 2px;
+
+    box-shadow:
+      5px 5px 0 var(--blow-black),
+      7px 7px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .blow-social__icon {
+    width: 48px;
+    height: 48px;
+
+    border-width: 3px;
+
+    box-shadow: 3px 3px 0 var(--blow-yellow);
+  }
+
+  .blow-social--facebook .blow-social__icon {
+    box-shadow: 3px 3px 0 var(--blow-blue);
+  }
+
+  .blow-social--instagram .blow-social__icon {
+    box-shadow: 3px 3px 0 var(--blow-purple);
+  }
+
+  .blow-social--youtube .blow-social__icon {
+    box-shadow: 3px 3px 0 var(--blow-red);
+  }
+
+  .blow-social__name {
+    font-size: 1rem;
+  }
+
+  .blow-social__handle {
+    font-size: 0.65rem;
+  }
+
+  .blow-social__arrow {
+    top: 0.55rem;
+    right: 0.65rem;
+
+    font-size: 1rem;
+  }
+
+  /* En celular no dependemos del hover:
+     dejamos el mosaico algo más visible */
+
+  .blow-social__mosaic {
+    opacity: 0.25;
+  }
+
+  .blow-social:active {
+    transform: scale(0.975);
+
+    box-shadow: 2px 2px 0 var(--blow-black);
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .blow-social,
+  .blow-social__mosaic,
+  .blow-social__icon,
+  .blow-social__arrow,
+  .blow-social__handle {
+    transition: none;
+  }
+}

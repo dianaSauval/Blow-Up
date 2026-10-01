@@ -1,0 +1,1362 @@
+/* =========================================
+   THE CLAY ARTISTS — CONCEPT
+   Responsive system:
+   desktop / laptop / tablet / mobile
+   ========================================= */
+
+/* =========================================
+   CONTAINER
+   ========================================= */
+
+.clay-concept__container {
+  position: relative;
+  z-index: 5;
+
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-width));
+
+  margin-inline: auto;
+
+  padding-top: clamp(4rem, 7vw, 7rem);
+  padding-bottom: clamp(4rem, 7vw, 7rem);
+}
+
+/* =========================================
+   RESPONSIVE SAFETY
+   ========================================= */
+
+.clay-concept__top,
+.clay-concept__bottom,
+.clay-concept__copy,
+.clay-concept__experience,
+.clay-concept__fire-figure,
+.clay-concept__together-figure,
+.clay-concept__audience-figure {
+  min-width: 0;
+}
+
+.clay-concept__title,
+.clay-concept__text,
+.clay-concept__experience > p,
+.clay-concept__creators {
+  max-width: 100%;
+}
+
+.clay-concept img {
+  max-width: 100%;
+}
+
+/* =========================================
+   MEANING / TOP
+   ========================================= */
+
+.clay-concept__top {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.92fr)
+    minmax(340px, 1.08fr);
+
+  align-items: center;
+
+  gap: clamp(3rem, 5vw, 6rem);
+}
+
+/* =========================================
+   COPY
+   ========================================= */
+
+.clay-concept__copy {
+  position: relative;
+  z-index: 8;
+
+  min-width: 0;
+}
+
+/* =========================================
+   EYEBROW
+   ========================================= */
+
+.clay-concept__eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  gap: clamp(0.65rem, 1vw, 0.9rem);
+
+  margin-bottom: clamp(0.9rem, 1.5vw, 1.4rem);
+
+  font-family: var(--font-primary);
+  font-size: clamp(0.56rem, 0.6vw, 0.66rem);
+  font-weight: 700;
+
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  color: #748961;
+}
+
+.clay-concept__eyebrow::before {
+  content: "";
+
+  width: clamp(26px, 3vw, 42px);
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: #748961;
+}
+
+/* =========================================
+   TITLE
+   ========================================= */
+
+.clay-concept__title {
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0;
+
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 5.1vw, 5.9rem);
+  font-weight: 700;
+
+  line-height: 0.84;
+  letter-spacing: -0.045em;
+
+  text-transform: uppercase;
+
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.clay-concept__title span {
+  display: block;
+  max-width: 100%;
+}
+
+.clay-concept__title-accent {
+  margin-left: 10%;
+
+  font-family: var(--font-primary);
+
+  font-size: 0.78em;
+  font-weight: 500;
+  font-style: italic;
+
+  letter-spacing: -0.02em;
+
+  text-transform: none;
+
+  color: var(--clay-pink);
+}
+
+/* =========================================
+   TEXT
+   ========================================= */
+
+.clay-concept__text {
+  width: min(100%, 440px);
+
+  margin-top: clamp(1.5rem, 2.5vw, 2.4rem);
+  margin-left: clamp(1rem, 3vw, 3rem);
+}
+
+.clay-concept__text p {
+  margin: 0;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.92rem, 1vw, 1.06rem);
+  font-weight: 400;
+
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+
+  color: var(--color-text-soft);
+}
+
+.clay-concept__text p + p {
+  margin-top: 1rem;
+}
+
+/* =========================================
+   FIRE IMAGE
+   ========================================= */
+
+.clay-concept__fire-figure {
+  position: relative;
+  z-index: 5;
+
+  width: min(100%, 620px);
+  min-width: 0;
+
+  margin: 0 0 0 auto;
+
+  opacity: clamp(0, calc((var(--concept-progress) - 0.04) * 9), 1);
+
+  transform: translateY(
+    clamp(0px, calc((0.18 - var(--concept-progress)) * 110px), 42px)
+  );
+
+  transition:
+    opacity 0.15s linear,
+    transform 0.15s linear;
+}
+
+.clay-concept__fire-frame {
+  position: relative;
+
+  overflow: hidden;
+
+  aspect-ratio: 16 / 10;
+
+  border-radius: 48% 52% 45% 55% / 40% 42% 58% 60%;
+
+  box-shadow: 0 30px 80px rgba(85, 55, 39, 0.12);
+}
+
+.clay-concept__fire-frame::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background: linear-gradient(to top, rgba(83, 43, 30, 0.1), transparent 40%);
+}
+
+.clay-concept__fire-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .clay-concept__fire-figure:hover .clay-concept__fire-image {
+    transform: scale(1.02);
+  }
+}
+
+/* =========================================
+   FIRE CAPTION
+   ========================================= */
+
+.clay-concept__fire-figure figcaption {
+  margin-top: 0.75rem;
+
+  text-align: right;
+
+  font-size: clamp(0.48rem, 0.43vw, 0.52rem);
+  font-weight: 700;
+
+  line-height: 1.4;
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: #9b766a;
+}
+
+/* =========================================
+   EXPERIENCE / BOTTOM
+   ========================================= */
+
+.clay-concept__bottom {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(180px, 0.7fr)
+    minmax(280px, 1.15fr)
+    minmax(150px, 0.5fr);
+
+  align-items: center;
+
+  gap: clamp(1.8rem, 3.5vw, 3.5rem);
+
+  margin-top: clamp(3.5rem, 5vw, 5rem);
+}
+
+/* =========================================
+   TOGETHER PHOTO
+   ========================================= */
+
+.clay-concept__together-figure {
+  position: relative;
+  z-index: 6;
+
+  min-width: 0;
+
+  margin: 0;
+
+  opacity: clamp(0, calc((var(--concept-progress) - 0.2) * 9), 1);
+
+  transform: translateY(
+    clamp(0px, calc((0.34 - var(--concept-progress)) * 90px), 40px)
+  );
+
+  transition:
+    opacity 0.15s linear,
+    transform 0.15s linear;
+}
+
+.clay-concept__together-frame {
+  overflow: hidden;
+
+  aspect-ratio: 4 / 3;
+
+  border-radius: 47% 53% 42% 58% / 54% 45% 55% 46%;
+}
+
+.clay-concept__together-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .clay-concept__together-figure:hover .clay-concept__together-image {
+    transform: scale(1.025);
+  }
+}
+
+/* =========================================
+   EXPERIENCE COPY
+   ========================================= */
+
+.clay-concept__experience {
+  min-width: 0;
+}
+
+.clay-concept__experience-small {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.7rem;
+
+  margin-bottom: 0.9rem;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.54rem, 0.55vw, 0.62rem);
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  color: var(--clay-pink);
+}
+
+.clay-concept__experience-small::after {
+  content: "";
+
+  width: 30px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: var(--clay-pink);
+}
+
+.clay-concept__experience > p {
+  margin: 0;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(1.15rem, 1.45vw, 1.55rem);
+  font-weight: 500;
+
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+
+  color: var(--color-black);
+}
+
+/* =========================================
+   TRAITS
+   ========================================= */
+
+.clay-concept__traits {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 0.65rem;
+
+  margin-top: 1.5rem;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.54rem, 0.62vw, 0.66rem);
+  font-weight: 700;
+
+  line-height: 1.4;
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+}
+
+.clay-concept__traits i {
+  width: 5px;
+  height: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--clay-pink);
+}
+
+.clay-concept__audience-label {
+  display: inline-block;
+
+  margin-top: 0.9rem;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.78rem, 0.75vw, 0.86rem);
+  font-weight: 500;
+  font-style: italic;
+
+  color: #748961;
+}
+
+/* =========================================
+   AUDIENCE PHOTO
+   ========================================= */
+
+.clay-concept__audience-figure {
+  position: relative;
+  z-index: 7;
+
+  min-width: 0;
+
+  margin: 0;
+
+  opacity: clamp(0, calc((var(--concept-progress) - 0.32) * 9), 1);
+
+  transform: translateY(
+    clamp(0px, calc((0.46 - var(--concept-progress)) * 90px), 40px)
+  );
+
+  transition:
+    opacity 0.15s linear,
+    transform 0.15s linear;
+}
+
+.clay-concept__audience-frame {
+  overflow: hidden;
+
+  aspect-ratio: 3 / 4;
+
+  border-radius: 50% 50% 44% 56% / 38% 42% 58% 62%;
+}
+
+.clay-concept__audience-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .clay-concept__audience-figure:hover .clay-concept__audience-image {
+    transform: scale(1.03);
+  }
+}
+
+.clay-concept__audience-figure figcaption {
+  margin-top: 0.7rem;
+
+  font-size: clamp(0.46rem, 0.42vw, 0.5rem);
+  font-weight: 700;
+
+  line-height: 1.4;
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  color: #9b766a;
+}
+
+/* =========================================
+   CREATORS / CLOSING
+   ========================================= */
+
+.clay-concept__creators {
+  position: relative;
+  z-index: 8;
+
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 0.7rem;
+
+  margin-top: clamp(2.8rem, 4vw, 4rem);
+
+  padding-top: 1.5rem;
+
+  border-top: 1px solid rgba(80, 62, 49, 0.18);
+
+  text-align: center;
+
+  opacity: clamp(0, calc((var(--concept-progress) - 0.4) * 9), 1);
+
+  transform: translateY(
+    clamp(0px, calc((0.52 - var(--concept-progress)) * 55px), 25px)
+  );
+
+  transition:
+    opacity 0.15s linear,
+    transform 0.15s linear;
+}
+
+.clay-concept__creators > span {
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.52rem, 0.48vw, 0.57rem);
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: #88786d;
+}
+
+.clay-concept__creators p {
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  font-weight: 600;
+
+  letter-spacing: -0.025em;
+}
+
+.clay-concept__creators p i {
+  margin-inline: 0.12em;
+
+  font-family: var(--font-display);
+
+  font-size: 0.78em;
+  font-weight: 700;
+  font-style: normal;
+
+  color: var(--clay-pink);
+}
+
+.clay-concept__creators small {
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.5rem, 0.46vw, 0.55rem);
+  font-weight: 700;
+
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+
+  color: #748961;
+}
+
+/* =========================================
+   LARGE DESKTOP
+   1600px+
+   ========================================= */
+
+@media (min-width: 1600px) {
+  .clay-concept__container {
+    padding-top: clamp(6rem, 7vw, 8rem);
+    padding-bottom: clamp(6rem, 7vw, 8rem);
+  }
+
+  .clay-concept__top {
+    grid-template-columns:
+      minmax(0, 0.85fr)
+      minmax(500px, 1.15fr);
+
+    gap: clamp(7rem, 8vw, 10rem);
+  }
+
+  .clay-concept__text {
+    max-width: 520px;
+  }
+
+  .clay-concept__bottom {
+    grid-template-columns:
+      minmax(240px, 0.72fr)
+      minmax(360px, 1.15fr)
+      minmax(210px, 0.52fr);
+
+    gap: clamp(3rem, 4.5vw, 5rem);
+  }
+
+  .clay-concept__experience > p {
+    font-size: clamp(1.7rem, 1.8vw, 2.1rem);
+  }
+}
+
+/* =========================================
+   DESKTOP / LARGE LAPTOP
+   1280px — 1599px
+   ========================================= */
+
+@media (min-width: 1280px) and (max-width: 1599px) {
+  .clay-concept__top {
+    grid-template-columns:
+      minmax(0, 0.88fr)
+      minmax(400px, 1.12fr);
+
+    gap: clamp(4.5rem, 6vw, 7rem);
+  }
+
+  .clay-concept__bottom {
+    grid-template-columns:
+      minmax(200px, 0.7fr)
+      minmax(300px, 1.1fr)
+      minmax(170px, 0.5fr);
+
+    gap: clamp(2rem, 3.5vw, 4rem);
+  }
+}
+
+/* =========================================
+   SMALL / MEDIUM LAPTOP
+   1024px — 1279px
+   ========================================= */
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .clay-concept__container {
+    padding-top: clamp(4rem, 6vw, 5rem);
+    padding-bottom: clamp(4rem, 6vw, 5rem);
+  }
+
+  .clay-concept__top {
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(340px, 1.1fr);
+
+    gap: clamp(2.5rem, 4vw, 4.5rem);
+  }
+
+  .clay-concept__eyebrow {
+    margin-bottom: 1.7rem;
+  }
+
+  .clay-concept__title {
+    font-size: clamp(4rem, 6.3vw, 5.2rem);
+    line-height: 0.85;
+  }
+
+  .clay-concept__text {
+    margin-top: 2rem;
+    margin-left: clamp(1rem, 3vw, 2.5rem);
+  }
+
+  .clay-concept__text p {
+    font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+  }
+
+  .clay-concept__bottom {
+    grid-template-columns:
+      minmax(180px, 0.7fr)
+      minmax(270px, 1.1fr)
+      minmax(150px, 0.52fr);
+
+    gap: clamp(1.5rem, 2.8vw, 2.8rem);
+
+    margin-top: 4.5rem;
+  }
+
+  .clay-concept__experience > p {
+    font-size: clamp(1.2rem, 1.7vw, 1.55rem);
+  }
+}
+
+/* =========================================
+   TABLET LANDSCAPE
+   901px — 1023px
+   ========================================= */
+
+@media (min-width: 901px) and (max-width: 1023px) {
+  .clay-concept__container {
+    padding-top: 4rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .clay-concept__top {
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(320px, 1.1fr);
+
+    gap: 2.5rem;
+  }
+
+  .clay-concept__eyebrow {
+    margin-bottom: 1.5rem;
+  }
+
+  .clay-concept__title {
+    font-size: clamp(3.7rem, 6.7vw, 4.5rem);
+    line-height: 0.86;
+  }
+
+  .clay-concept__text {
+    margin-top: 1.8rem;
+    margin-left: 1rem;
+  }
+
+  .clay-concept__text p {
+    font-size: 0.96rem;
+  }
+
+  .clay-concept__bottom {
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(0, 1.2fr);
+
+    align-items: center;
+
+    gap: 2.5rem 3rem;
+
+    margin-top: 4.5rem;
+  }
+
+  .clay-concept__together-figure {
+    grid-column: 1;
+    grid-row: 1;
+
+    width: 100%;
+  }
+
+  .clay-concept__experience {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .clay-concept__audience-figure {
+    grid-column: 2;
+    grid-row: 2;
+
+    width: min(45%, 190px);
+
+    justify-self: end;
+  }
+
+  .clay-concept__experience > p {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+  }
+}
+
+/* =========================================
+   TABLET / IPAD PORTRAIT
+   <= 900px
+   ========================================= */
+
+@media (max-width: 900px) {
+  .clay-concept__container {
+    padding-top: clamp(4rem, 8vw, 5.5rem);
+    padding-bottom: clamp(4.5rem, 8vw, 6rem);
+  }
+
+  .clay-concept__top {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: clamp(3.5rem, 8vw, 5rem);
+  }
+
+  .clay-concept__copy {
+    width: 100%;
+  }
+
+  .clay-concept__eyebrow {
+    margin-bottom: clamp(1.8rem, 4vw, 2.3rem);
+  }
+
+  .clay-concept__title {
+    font-size: clamp(4.4rem, 11.5vw, 6.5rem);
+    line-height: 0.85;
+  }
+
+  .clay-concept__title-accent {
+    margin-left: 10%;
+  }
+
+  .clay-concept__text {
+    width: min(100%, 520px);
+
+    margin-top: clamp(2rem, 5vw, 3rem);
+    margin-left: clamp(1rem, 6vw, 3rem);
+  }
+
+  .clay-concept__text p {
+    font-size: clamp(1rem, 2.3vw, 1.15rem);
+  }
+
+  .clay-concept__fire-figure {
+    width: min(100%, 650px);
+
+    margin-inline: auto;
+  }
+
+  .clay-concept__bottom {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(180px, 0.55fr);
+
+    align-items: center;
+
+    gap: clamp(3rem, 7vw, 4rem) clamp(1.5rem, 5vw, 3rem);
+
+    margin-top: clamp(5rem, 9vw, 6rem);
+  }
+
+  .clay-concept__together-figure {
+    grid-column: 1 / -1;
+
+    width: min(72%, 500px);
+  }
+
+  .clay-concept__experience {
+    grid-column: 1;
+  }
+
+  .clay-concept__audience-figure {
+    grid-column: 2;
+
+    align-self: end;
+
+    width: 100%;
+  }
+
+  .clay-concept__experience > p {
+    font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+  }
+
+  .clay-concept__creators {
+    margin-top: clamp(4rem, 8vw, 5rem);
+  }
+}
+
+/* =========================================
+   MOBILE
+   <= 600px
+   ========================================= */
+
+@media (max-width: 600px) {
+  .clay-concept__container {
+    padding-top: clamp(3.5rem, 10vw, 4.5rem);
+    padding-bottom: clamp(4rem, 12vw, 5rem);
+  }
+
+  .clay-concept__top {
+    gap: clamp(3rem, 10vw, 4rem);
+  }
+
+  .clay-concept__eyebrow {
+    gap: 0.7rem;
+
+    margin-bottom: 1.7rem;
+
+    font-size: 0.56rem;
+  }
+
+  .clay-concept__eyebrow::before {
+    width: 30px;
+  }
+
+  .clay-concept__title {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(3rem, 12vw, 4.25rem);
+
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+  }
+
+  .clay-concept__title-accent {
+    margin-left: 8%;
+  }
+
+  .clay-concept__text {
+    width: min(100%, 360px);
+
+    margin-top: 2.2rem;
+    margin-left: 0;
+  }
+
+  .clay-concept__text p {
+    font-size: clamp(0.96rem, 4vw, 1.05rem);
+    line-height: 1.6;
+  }
+
+  .clay-concept__fire-figure {
+    width: 100%;
+  }
+
+  .clay-concept__fire-frame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .clay-concept__fire-figure figcaption {
+    margin-top: 0.65rem;
+
+    font-size: 0.47rem;
+    letter-spacing: 0.14em;
+  }
+
+  /* -----------------------------------------
+     EXPERIENCE
+     ----------------------------------------- */
+
+  .clay-concept__bottom {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(105px, 0.56fr);
+
+    gap: clamp(2.8rem, 10vw, 3.8rem) clamp(1rem, 5vw, 1.8rem);
+
+    margin-top: clamp(4.5rem, 13vw, 5.5rem);
+  }
+
+  .clay-concept__together-figure {
+    grid-column: 1 / -1;
+
+    width: 80%;
+  }
+
+  .clay-concept__experience {
+    grid-column: 1;
+  }
+
+  .clay-concept__audience-figure {
+    grid-column: 2;
+
+    align-self: end;
+
+    width: 100%;
+  }
+
+  .clay-concept__experience-small {
+    gap: 0.6rem;
+
+    margin-bottom: 1rem;
+
+    font-size: 0.53rem;
+  }
+
+  .clay-concept__experience-small::after {
+    width: 25px;
+  }
+
+  .clay-concept__experience > p {
+    font-size: clamp(1.1rem, 4.7vw, 1.4rem);
+    line-height: 1.42;
+  }
+
+  .clay-concept__traits {
+    gap: 0.55rem;
+
+    margin-top: 1.5rem;
+
+    font-size: clamp(0.5rem, 2vw, 0.6rem);
+
+    letter-spacing: 0.13em;
+  }
+
+  .clay-concept__traits i {
+    width: 4px;
+    height: 4px;
+  }
+
+  .clay-concept__audience-label {
+    margin-top: 1rem;
+
+    font-size: 0.82rem;
+  }
+
+  .clay-concept__audience-figure figcaption {
+    margin-top: 0.6rem;
+
+    font-size: 0.44rem;
+
+    line-height: 1.35;
+    letter-spacing: 0.12em;
+  }
+
+  /* -----------------------------------------
+     CREATORS
+     ----------------------------------------- */
+
+  .clay-concept__creators {
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0.5rem;
+
+    margin-top: clamp(3.5rem, 11vw, 4.5rem);
+
+    padding-top: 1.7rem;
+  }
+
+  .clay-concept__creators > span {
+    font-size: 0.52rem;
+  }
+
+  .clay-concept__creators p {
+    font-size: clamp(1rem, 4vw, 1.15rem);
+  }
+
+  .clay-concept__creators small {
+    font-size: 0.5rem;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   <= 430px
+   ========================================= */
+
+@media (max-width: 430px) {
+  .clay-concept__container {
+    padding-top: 3.2rem;
+    padding-bottom: 4rem;
+  }
+
+  /* =========================================
+     TITLE
+     ========================================= */
+
+  .clay-concept__title {
+    font-size: clamp(2.7rem, 11.5vw, 3.35rem);
+
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+  }
+
+  .clay-concept__title-accent {
+    margin-left: 7%;
+  }
+
+  .clay-concept__text {
+    margin-top: 2rem;
+  }
+
+  /* =========================================
+     EXPERIENCE — MOBILE COMPOSITION
+     ========================================= */
+
+  .clay-concept__bottom {
+    display: flex;
+    flex-direction: column;
+
+    align-items: stretch;
+
+    /*
+     * Más compacto.
+     * Antes teníamos 2.8rem entre TODOS
+     * los elementos.
+     */
+    gap: 1.8rem;
+
+    margin-top: 4.5rem;
+  }
+
+  /* =========================================
+     TOGETHER PHOTO
+     ========================================= */
+
+  .clay-concept__together-figure {
+    width: 86%;
+
+    align-self: flex-start;
+
+    margin-bottom: 0.4rem;
+  }
+
+  /* =========================================
+     EXPERIENCE TEXT
+     ========================================= */
+
+  .clay-concept__experience {
+    position: relative;
+
+    z-index: 4;
+
+    width: 100%;
+
+    /*
+     * Dejamos espacio interno abajo para que
+     * la foto pueda acercarse sin tocar
+     * "For children & adults".
+     */
+    padding-bottom: 0.7rem;
+  }
+
+  .clay-concept__experience > p {
+    font-size: clamp(1.05rem, 4.8vw, 1.25rem);
+  }
+
+  .clay-concept__traits {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 0.35rem;
+
+    margin-top: 1.3rem;
+  }
+
+  .clay-concept__traits i {
+    display: none;
+  }
+
+  .clay-concept__audience-label {
+    display: block;
+
+    margin-top: 1rem;
+
+    font-size: 0.78rem;
+  }
+
+  /* =========================================
+     AUDIENCE PHOTO
+     ========================================= */
+
+  .clay-concept__audience-figure {
+    position: relative;
+
+    z-index: 6;
+
+    width: min(54%, 180px);
+
+    align-self: flex-end;
+
+    /*
+     * CLAVE:
+     * hacemos subir la imagen hacia
+     * el bloque de texto.
+     */
+    margin-top: -1.5rem;
+
+    /*
+     * Un poquito hacia la derecha para
+     * reforzar la composición editorial.
+     */
+    margin-right: 0.15rem;
+  }
+
+  .clay-concept__audience-figure figcaption {
+    margin-top: 0.55rem;
+
+    font-size: 0.42rem;
+
+    line-height: 1.35;
+    letter-spacing: 0.1em;
+  }
+}
+
+/* =========================================
+   EXTRA SMALL MOBILE
+   <= 380px
+   ========================================= */
+
+@media (max-width: 380px) {
+  .clay-concept__container {
+    padding-top: 2.8rem;
+  }
+
+  .clay-concept__eyebrow {
+    font-size: 0.53rem;
+  }
+
+  .clay-concept__title {
+    font-size: clamp(2.45rem, 11vw, 2.85rem);
+
+    line-height: 0.91;
+    letter-spacing: -0.04em;
+  }
+
+  .clay-concept__title-accent {
+    margin-left: 6%;
+  }
+
+  .clay-concept__text p {
+    font-size: 0.94rem;
+  }
+
+  .clay-concept__together-figure {
+    width: 88%;
+  }
+
+  .clay-concept__experience-small {
+    font-size: 0.5rem;
+    letter-spacing: 0.16em;
+  }
+
+  .clay-concept__experience-small::after {
+    width: 20px;
+  }
+
+  .clay-concept__experience > p {
+    font-size: 1.02rem;
+    line-height: 1.4;
+  }
+
+  .clay-concept__traits {
+    font-size: 0.49rem;
+  }
+
+  .clay-concept__audience-label {
+    font-size: 0.74rem;
+  }
+
+  .clay-concept__audience-figure {
+    width: min(54%, 165px);
+  }
+
+  .clay-concept__audience-figure figcaption {
+    font-size: 0.4rem;
+    letter-spacing: 0.09em;
+  }
+
+  .clay-concept__creators {
+    margin-top: 3.5rem;
+  }
+
+  .clay-concept__creators p {
+    font-size: 1rem;
+  }
+}
+
+/* =========================================
+   VERY SMALL MOBILE
+   <= 350px
+   ========================================= */
+
+@media (max-width: 350px) {
+  .clay-concept__title {
+    font-size: clamp(2.25rem, 10.7vw, 2.55rem);
+
+    letter-spacing: -0.035em;
+  }
+
+  .clay-concept__title-accent {
+    margin-left: 4%;
+  }
+
+  .clay-concept__text p {
+    font-size: 0.9rem;
+  }
+
+  .clay-concept__experience > p {
+    font-size: 0.98rem;
+  }
+
+  .clay-concept__audience-figure {
+    width: min(56%, 155px);
+  }
+}
+
+/* =========================================
+   SHORT LAPTOP
+   1366x768 / 1280x720 etc.
+   ========================================= */
+
+@media (min-width: 901px) and (max-height: 820px) {
+  .clay-concept__container {
+    padding-top: clamp(3rem, 6vh, 4rem);
+    padding-bottom: clamp(3.5rem, 6vh, 4.5rem);
+  }
+
+  .clay-concept__eyebrow {
+    margin-bottom: clamp(1.2rem, 2.5vh, 1.8rem);
+  }
+
+  .clay-concept__text {
+    margin-top: clamp(1.5rem, 3vh, 2rem);
+  }
+
+  .clay-concept__bottom {
+    margin-top: clamp(3.5rem, 6vh, 4.5rem);
+  }
+
+  .clay-concept__creators {
+    margin-top: clamp(3rem, 5vh, 4rem);
+  }
+}
+
+/* =========================================
+   EXTRA SHORT LAPTOP
+   ========================================= */
+
+@media (min-width: 901px) and (max-height: 700px) {
+  .clay-concept__container {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .clay-concept__top {
+    gap: clamp(2.5rem, 4vw, 4rem);
+  }
+
+  .clay-concept__eyebrow {
+    margin-bottom: 1.1rem;
+  }
+
+  .clay-concept__text {
+    margin-top: 1.4rem;
+  }
+
+  .clay-concept__bottom {
+    margin-top: 3rem;
+  }
+
+  .clay-concept__creators {
+    margin-top: 3rem;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .clay-concept__fire-figure,
+  .clay-concept__together-figure,
+  .clay-concept__experience,
+  .clay-concept__audience-figure,
+  .clay-concept__creators {
+    opacity: 1 !important;
+
+    transform: none !important;
+
+    transition: none !important;
+  }
+
+  .clay-concept__fire-image,
+  .clay-concept__together-image,
+  .clay-concept__audience-image {
+    transition: none !important;
+  }
+}

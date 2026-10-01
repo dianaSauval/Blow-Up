@@ -1,0 +1,225 @@
+/* =========================================
+   FREAKY TANGO — GLOBAL WORLD
+   ========================================= */
+
+.freaky-tango {
+  position: relative;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  /*
+   * Clip horizontal evita que títulos,
+   * líneas o decoración generen scroll
+   * lateral, pero permite crecimiento
+   * vertical normal.
+   */
+  overflow-x: clip;
+  overflow-y: visible;
+
+  /* =======================================
+     LOCAL FREAKY TOKENS
+     ======================================= */
+
+  --freaky-dark: #1c0a10;
+
+  --freaky-cream: #f3e7dc;
+
+  --freaky-soft-pink: #ef9fbd;
+
+  --freaky-line: rgba(243, 231, 220, 0.18);
+
+  --freaky-text-soft: rgba(243, 231, 220, 0.7);
+
+  /* =======================================
+     BACKGROUND
+     ======================================= */
+
+  background:
+    radial-gradient(
+      circle at 78% 18%,
+      color-mix(in srgb, var(--tango-red) 28%, transparent),
+      transparent 34rem
+    ),
+    radial-gradient(
+      circle at 12% 52%,
+      color-mix(in srgb, var(--tango-pink) 8%, transparent),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 82% 82%,
+      color-mix(in srgb, var(--tango-red) 18%, transparent),
+      transparent 32rem
+    ),
+    var(--tango-black);
+
+  color: var(--freaky-cream);
+
+  isolation: isolate;
+}
+
+/* =========================================
+   DIRECT CHILDREN SAFETY
+   ========================================= */
+
+.freaky-tango > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* =========================================
+   SELECTION
+   ========================================= */
+
+.freaky-tango ::selection {
+  background: var(--tango-pink);
+
+  color: var(--tango-black);
+}
+
+/* =========================================
+   GLOBAL CLOSING
+   ========================================= */
+
+.freaky-tango__closing {
+  position: relative;
+
+  z-index: 5;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, auto)
+    minmax(0, 1fr)
+    minmax(0, auto);
+
+  align-items: center;
+
+  gap: clamp(1rem, 3vw, 2rem);
+
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-width));
+
+  max-width: 100%;
+
+  margin-inline: auto;
+
+  padding-top: clamp(2rem, 4vw, 3rem);
+
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+
+  border-top: 1px solid var(--freaky-line);
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.48rem, 0.55vw, 0.6rem);
+
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--freaky-text-soft);
+}
+
+.freaky-tango__closing span {
+  min-width: 0;
+
+  overflow-wrap: anywhere;
+}
+
+.freaky-tango__closing span:last-child {
+  text-align: right;
+}
+
+.freaky-tango__closing p {
+  min-width: 0;
+
+  margin: 0;
+
+  text-align: center;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(0.85rem, 1vw, 1rem);
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  line-height: 1.2;
+
+  letter-spacing: 0;
+
+  text-transform: none;
+
+  color: var(--tango-pink);
+}
+
+/* =========================================
+   TABLET / SMALL LAPTOP
+   ========================================= */
+
+@media (max-width: 1000px) {
+  .freaky-tango__closing {
+    gap: 1rem;
+
+    padding-top: 2rem;
+
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+
+    font-size: 0.5rem;
+
+    letter-spacing: 0.14em;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+  .freaky-tango__closing {
+    grid-template-columns: 1fr;
+
+    align-items: start;
+
+    gap: 0.65rem;
+
+    padding-top: 2rem;
+
+    padding-bottom: clamp(3.5rem, 15vw, 5rem);
+
+    text-align: left;
+  }
+
+  .freaky-tango__closing span,
+  .freaky-tango__closing span:last-child {
+    text-align: left;
+  }
+
+  .freaky-tango__closing p {
+    order: -1;
+
+    margin-bottom: 0.5rem;
+
+    text-align: left;
+
+    font-size: clamp(0.9rem, 4vw, 1rem);
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 420px) {
+  .freaky-tango__closing {
+    font-size: 0.45rem;
+
+    letter-spacing: 0.12em;
+  }
+}

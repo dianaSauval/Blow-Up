@@ -1,0 +1,88 @@
+/* =========================================
+   SHOWS & ANIMATIONS — GLOBAL WORLD
+   ========================================= */
+
+.shows {
+  position: relative;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  overflow-x: clip;
+  overflow-y: visible;
+
+  background:
+    radial-gradient(
+      circle at 18% 12%,
+      color-mix(in srgb, var(--entertainment-blue) 42%, transparent),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 83% 38%,
+      color-mix(in srgb, var(--entertainment-gold) 7%, transparent),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 45% 78%,
+      color-mix(in srgb, var(--entertainment-silver) 8%, transparent),
+      transparent 34rem
+    ),
+    var(--entertainment-black);
+
+  color: var(--entertainment-white);
+
+  isolation: isolate;
+
+  /* =======================================
+     LOCAL SEMANTIC TOKENS
+     ======================================= */
+
+  --shows-text: var(--entertainment-white);
+
+  --shows-text-soft: color-mix(
+    in srgb,
+    var(--entertainment-silver) 58%,
+    transparent
+  );
+
+  --shows-text-muted: color-mix(
+    in srgb,
+    var(--entertainment-silver) 36%,
+    transparent
+  );
+
+  --shows-line: color-mix(
+    in srgb,
+    var(--entertainment-silver) 15%,
+    transparent
+  );
+
+  --shows-line-gold: color-mix(
+    in srgb,
+    var(--entertainment-gold) 55%,
+    transparent
+  );
+
+  --shows-surface: var(--entertainment-dark);
+}
+
+/* =========================================
+   DIRECT CHILD SAFETY
+   ========================================= */
+
+.shows > * {
+  min-width: 0;
+
+  max-width: 100%;
+}
+
+/* =========================================
+   TEXT SELECTION
+   ========================================= */
+
+.shows ::selection {
+  background: var(--entertainment-gold);
+
+  color: var(--entertainment-black);
+}

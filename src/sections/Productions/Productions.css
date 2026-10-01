@@ -1,0 +1,1061 @@
+/* =========================================
+   PRODUCTIONS — BLOW UP COMPANY
+   RESPONSIVE SYSTEM
+   ========================================= */
+
+.productions {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 100svh;
+
+  padding: clamp(4.5rem, 7vw, 7rem) var(--page-padding) clamp(4.5rem, 7vw, 7rem);
+
+  overflow-x: clip;
+  overflow-y: visible;
+
+  background: var(--color-bg);
+  color: var(--color-black);
+}
+
+/* =========================================
+   INNER
+   ========================================= */
+
+.productions__inner {
+  position: relative;
+  z-index: 2;
+
+  width: min(100%, var(--container-width));
+  min-width: 0;
+
+  margin-inline: auto;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.productions__header {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.45fr)
+    minmax(190px, 0.55fr);
+
+  align-items: end;
+
+  gap: clamp(2rem, 5vw, 6rem);
+
+  margin-bottom: clamp(2rem, 4vw, 4rem);
+}
+
+.productions__heading {
+  min-width: 0;
+}
+
+.productions__heading .blow-eyebrow {
+  margin-bottom: clamp(0.6rem, 1vw, 1rem);
+}
+
+/* =========================================
+   MAIN TITLE
+   ========================================= */
+
+.blow-title.productions__title {
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(2.7rem, calc(1.7rem + 3vw), 5.5rem);
+
+  font-weight: 900;
+
+  line-height: 0.84;
+  letter-spacing: -0.055em;
+
+  text-transform: uppercase;
+
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.productions__intro {
+  width: 100%;
+  max-width: 310px;
+
+  padding-top: 0.65rem;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.35rem;
+
+  border-top: 1px solid rgba(5, 5, 5, 0.75);
+}
+
+.productions__intro-small {
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.55rem, 0.65vw, 0.68rem);
+
+  font-weight: 600;
+
+  line-height: 1.4;
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
+
+  color: var(--color-text-soft);
+}
+
+.productions__intro-editorial {
+  max-width: 280px;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(0.95rem, 1.3vw, 1.35rem);
+
+  font-weight: 600;
+
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+
+  text-transform: uppercase;
+
+  color: var(--color-black);
+}
+
+/* =========================================
+   TOP MOSAIC
+   ========================================= */
+
+.productions__mosaic {
+  position: absolute;
+
+  top: clamp(5rem, 8vw, 8rem);
+  right: 0;
+
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, clamp(34px, 3.8vw, 60px));
+
+  grid-template-rows: repeat(2, clamp(34px, 3.8vw, 60px));
+
+  transform: translateX(22%) rotate(2deg);
+
+  pointer-events: none;
+}
+
+.productions__block,
+.productions__circle {
+  width: 100%;
+  height: 100%;
+}
+
+.productions__block--yellow {
+  background: var(--blow-yellow);
+}
+
+.productions__block--red {
+  background: var(--blow-red);
+}
+
+.productions__block--green {
+  background: var(--blow-green);
+}
+
+.productions__circle {
+  width: 72%;
+  height: 72%;
+
+  place-self: center;
+
+  border-radius: 50%;
+
+  background: var(--color-black);
+}
+
+/* =========================================
+   PRODUCTIONS GRID
+
+   DESKTOP:
+   Las dos producciones tienen exactamente
+   el mismo ancho.
+   ========================================= */
+
+.productions__grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  align-items: start;
+
+  gap: clamp(2rem, 4vw, 5rem);
+
+  width: 100%;
+}
+
+/* =========================================
+   CARD
+   ========================================= */
+
+.production-card {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  min-width: 0;
+
+  color: var(--color-black);
+
+  text-align: left;
+
+  transition:
+    opacity 500ms ease,
+    transform 700ms var(--ease-blow);
+}
+
+/*
+ * IMPORTANTE:
+ * Ninguna producción tiene prioridad visual.
+ * Las dos comienzan a la misma altura.
+ */
+
+.production-card--freaky {
+  margin-top: 0;
+}
+
+/* =========================================
+   IMAGE
+
+   MISMA PROPORCIÓN PARA AMBAS PRODUCCIONES
+   ========================================= */
+
+.production-card__visual {
+  position: relative;
+
+  width: 100%;
+
+  /*
+   * Las dos imágenes tienen exactamente
+   * la misma proporción.
+   */
+
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  background: #d9d4ca;
+}
+
+.production-card__visual img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  /*
+   * Cover llena completamente el rectángulo.
+   * Puede recortar mínimamente los bordes,
+   * pero mantiene ambas cards idénticas.
+   */
+
+  object-fit: cover;
+  object-position: center center;
+
+  transition:
+    transform 1s var(--ease-blow),
+    filter 700ms ease;
+}
+
+/*
+ * Si después queremos corregir individualmente
+ * el encuadre de alguna foto, lo hacemos acá.
+ */
+
+.production-card--clay .production-card__visual img {
+  object-position: center center;
+}
+
+.production-card--freaky .production-card__visual img {
+  object-position: center center;
+}
+
+/* =========================================
+   IMAGE OVERLAY
+   ========================================= */
+
+.production-card__overlay {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.55;
+
+  transition: opacity var(--transition-slow);
+}
+
+.production-card--clay .production-card__overlay {
+  background: linear-gradient(to top, rgba(46, 114, 87, 0.12), transparent 48%);
+
+  mix-blend-mode: multiply;
+}
+
+.production-card--freaky .production-card__overlay {
+  background: linear-gradient(to top, rgba(11, 9, 10, 0.28), transparent 48%);
+}
+
+/* =========================================
+   COLOR CORNER
+   ========================================= */
+
+.production-card__corner {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: clamp(38px, 4vw, 68px);
+
+  aspect-ratio: 1;
+
+  pointer-events: none;
+
+  transform: translate(100%, -100%);
+
+  transition: transform 650ms var(--ease-blow);
+}
+
+.production-card--clay .production-card__corner {
+  background: var(--clay-yellow);
+}
+
+.production-card--freaky .production-card__corner {
+  background: var(--tango-pink);
+}
+
+/* =========================================
+   CARD INFORMATION
+   ========================================= */
+
+.production-card__info {
+  min-width: 0;
+
+  padding-top: clamp(0.8rem, 1.4vw, 1.4rem);
+}
+
+/* =========================================
+   META
+   ========================================= */
+
+.production-card__meta {
+  display: flex;
+
+  align-items: center;
+
+  gap: clamp(0.45rem, 0.7vw, 0.7rem);
+
+  margin-bottom: clamp(0.6rem, 1vw, 1rem);
+
+  min-width: 0;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.5rem, 0.62vw, 0.68rem);
+
+  font-weight: 700;
+
+  line-height: 1.45;
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  color: var(--color-text-soft);
+}
+
+.production-card__meta > span:last-child {
+  min-width: 0;
+
+  overflow-wrap: anywhere;
+}
+
+.production-card__symbol {
+  width: 9px;
+  height: 9px;
+
+  flex: 0 0 auto;
+}
+
+.production-card--clay .production-card__symbol {
+  background: var(--clay-green);
+}
+
+.production-card--freaky .production-card__symbol {
+  border-radius: 50%;
+
+  background: var(--tango-pink);
+}
+
+/* =========================================
+   TITLE + EXPLORE
+   ========================================= */
+
+.production-card__bottom {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: clamp(0.8rem, 2vw, 2rem);
+
+  min-width: 0;
+}
+
+/* =========================================
+   CARD TITLE
+   ========================================= */
+
+.production-card__title {
+  min-width: 0;
+  max-width: 100%;
+
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(1.75rem, calc(1.1rem + 2.2vw), 3.8rem);
+
+  text-transform: uppercase;
+
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.production-card--clay .production-card__title {
+  font-weight: 700;
+
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+}
+
+.production-card--freaky .production-card__title {
+  font-weight: 900;
+
+  line-height: 0.82;
+  letter-spacing: -0.065em;
+}
+
+/* =========================================
+   EXPLORE
+   ========================================= */
+
+.production-card__explore {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.65rem;
+
+  flex: 0 0 auto;
+
+  padding-bottom: 0.35rem;
+
+  border-bottom: 1px solid var(--color-black);
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.5rem, 0.58vw, 0.63rem);
+
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  transition: gap var(--transition-normal);
+}
+
+.production-card--clay .production-card__explore {
+  border-bottom-color: var(--clay-green);
+}
+
+.production-card--freaky .production-card__explore {
+  border-bottom-color: var(--tango-pink);
+}
+
+.production-card__arrow {
+  font-family: var(--font-primary);
+
+  font-size: 1rem;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  transition: transform var(--transition-normal);
+}
+
+/* =========================================
+   DESKTOP HOVER
+   ========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+  .production-card:hover .production-card__visual img {
+    transform: scale(1.015);
+  }
+
+  .production-card:hover .production-card__overlay {
+    opacity: 0;
+  }
+
+  .production-card:hover .production-card__corner {
+    transform: translate(0, 0);
+  }
+
+  .production-card:hover .production-card__explore {
+    gap: 0.95rem;
+  }
+
+  .production-card:hover .production-card__arrow {
+    transform: translate(4px, -4px);
+  }
+
+  .productions__grid:has(.production-card:hover) .production-card:not(:hover) {
+    opacity: 0.76;
+  }
+}
+
+/* =========================================
+   BOTTOM GRAPHIC
+   ========================================= */
+
+.productions__bottom-art {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  display: flex;
+
+  width: clamp(110px, 14vw, 220px);
+  height: clamp(13px, 1.6vw, 26px);
+}
+
+.productions__bottom-art span {
+  flex: 1;
+}
+
+.productions__bottom-art span:nth-child(1) {
+  background: var(--blow-purple);
+}
+
+.productions__bottom-art span:nth-child(2) {
+  background: var(--blow-orange);
+}
+
+.productions__bottom-art span:nth-child(3) {
+  background: var(--blow-blue);
+}
+
+/* ==========================================================
+   NOTEBOOKS / SMALL DESKTOP
+   1024px — 1366px
+   ========================================================== */
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .productions {
+    min-height: auto;
+
+    padding-top: clamp(3.5rem, 6vh, 5rem);
+    padding-bottom: clamp(3.5rem, 6vh, 5rem);
+  }
+
+  .productions__header {
+    grid-template-columns:
+      minmax(0, 1.4fr)
+      minmax(180px, 0.6fr);
+
+    gap: clamp(2rem, 4vw, 3.5rem);
+
+    margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
+  }
+
+  .blow-title.productions__title {
+    font-size: clamp(2.6rem, 4.2vw, 4rem);
+  }
+
+  .productions__intro {
+    max-width: 250px;
+  }
+
+  .productions__intro-editorial {
+    font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  }
+
+  .productions__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  .production-card--freaky {
+    margin-top: 0;
+  }
+
+  .production-card__title {
+    font-size: clamp(1.7rem, 2.8vw, 2.8rem);
+  }
+
+  .productions__mosaic {
+    top: clamp(4rem, 6vw, 5.5rem);
+
+    grid-template-columns: repeat(2, clamp(32px, 3.2vw, 44px));
+
+    grid-template-rows: repeat(2, clamp(32px, 3.2vw, 44px));
+  }
+}
+
+/* ==========================================================
+   TABLETS / SMALL LAPTOPS
+   769px — 1023px
+   ========================================================== */
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .productions {
+    min-height: auto;
+
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .productions__header {
+    grid-template-columns:
+      minmax(0, 1.25fr)
+      minmax(170px, 0.75fr);
+
+    gap: 2rem;
+
+    margin-bottom: 2.5rem;
+  }
+
+  .blow-title.productions__title {
+    font-size: clamp(2.5rem, 5.5vw, 3.7rem);
+  }
+
+  .productions__intro {
+    max-width: 230px;
+  }
+
+  .productions__intro-editorial {
+    font-size: clamp(0.9rem, 1.7vw, 1.1rem);
+  }
+
+  .productions__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .production-card--freaky {
+    margin-top: 0;
+  }
+
+  .production-card__bottom {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 0.7rem;
+  }
+
+  .production-card__title {
+    font-size: clamp(1.65rem, 3.7vw, 2.6rem);
+  }
+
+  .production-card__explore {
+    margin-top: 0.2rem;
+  }
+
+  .productions__mosaic {
+    grid-template-columns: repeat(2, 34px);
+    grid-template-rows: repeat(2, 34px);
+  }
+}
+
+/* ==========================================================
+   MOBILE + TABLET PORTRAIT
+   <= 768px
+   ========================================================== */
+
+@media (max-width: 768px) {
+  .productions {
+    min-height: auto;
+
+    padding: clamp(4.5rem, 13vw, 6rem) var(--page-padding)
+      clamp(5rem, 14vw, 6.5rem);
+  }
+
+  /* ---------- HEADER ---------- */
+
+  .productions__header {
+    display: block;
+
+    margin-bottom: clamp(2.8rem, 9vw, 4rem);
+  }
+
+  .productions__heading {
+    width: 100%;
+  }
+
+  .productions__heading .blow-eyebrow {
+    margin-bottom: 0.65rem;
+
+    font-size: clamp(0.5rem, 1.5vw, 0.6rem);
+
+    letter-spacing: 0.2em;
+  }
+
+  .blow-title.productions__title {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(2.2rem, 9.5vw, 4.5rem);
+
+    line-height: 0.86;
+    letter-spacing: -0.05em;
+  }
+
+  /* ---------- INTRO ---------- */
+
+  .productions__intro {
+    width: min(76%, 300px);
+
+    margin: clamp(1.5rem, 5vw, 2.2rem) 0 0 auto;
+
+    padding-top: 0.65rem;
+  }
+
+  .productions__intro-small {
+    font-size: clamp(0.52rem, 1.5vw, 0.6rem);
+  }
+
+  .productions__intro-editorial {
+    font-size: clamp(0.9rem, 3vw, 1.15rem);
+  }
+
+  /* ---------- MOSAIC ---------- */
+
+  .productions__mosaic {
+    top: clamp(4.3rem, 12vw, 5.5rem);
+
+    grid-template-columns: repeat(2, clamp(24px, 6vw, 34px));
+
+    grid-template-rows: repeat(2, clamp(24px, 6vw, 34px));
+
+    transform: translateX(10%) rotate(2deg);
+  }
+
+  /* ---------- GRID ---------- */
+
+  .productions__grid {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: clamp(3.5rem, 12vw, 5.5rem);
+  }
+
+  /* ---------- CARDS ---------- */
+
+  .production-card {
+    width: 100%;
+  }
+
+  /*
+   * En mobile también les damos exactamente
+   * el mismo ancho.
+   */
+
+  .production-card--clay,
+  .production-card--freaky {
+    width: 100%;
+
+    margin: 0;
+  }
+
+  .production-card__corner {
+    width: clamp(32px, 8vw, 44px);
+
+    transform: translate(0, 0);
+  }
+
+  /* ---------- INFO ---------- */
+
+  .production-card__info {
+    padding-top: clamp(0.75rem, 2.5vw, 1rem);
+  }
+
+  .production-card__meta {
+    gap: 0.5rem;
+
+    margin-bottom: 0.6rem;
+
+    font-size: clamp(0.48rem, 1.5vw, 0.56rem);
+
+    letter-spacing: 0.12em;
+  }
+
+  .production-card__symbol {
+    width: 7px;
+    height: 7px;
+  }
+
+  .production-card__bottom {
+    align-items: flex-start;
+
+    gap: 1rem;
+  }
+
+  .production-card__title {
+    font-size: clamp(1.8rem, 7.2vw, 3.5rem);
+  }
+
+  .production-card__explore {
+    margin-top: 0.2rem;
+
+    font-size: clamp(0.48rem, 1.4vw, 0.55rem);
+  }
+
+  .productions__bottom-art {
+    width: clamp(100px, 28vw, 140px);
+    height: clamp(12px, 3.3vw, 16px);
+  }
+}
+
+/* ==========================================================
+   MOBILE
+   <= 560px
+   ========================================================== */
+
+@media (max-width: 560px) {
+  .productions {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .blow-title.productions__title {
+    font-size: clamp(2rem, 9.3vw, 3.25rem);
+  }
+
+  .productions__intro {
+    width: min(82%, 270px);
+  }
+
+  .production-card--clay,
+  .production-card--freaky {
+    width: 100%;
+  }
+
+  .production-card__bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 0.8rem;
+  }
+
+  .production-card__title {
+    font-size: clamp(1.85rem, 8.5vw, 2.8rem);
+  }
+
+  .production-card__explore {
+    margin-top: 0;
+  }
+}
+
+/* ==========================================================
+   SMALL MOBILE
+   <= 390px
+   ========================================================== */
+
+@media (max-width: 390px) {
+  .productions {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .blow-title.productions__title {
+    font-size: clamp(1.9rem, 9vw, 2.4rem);
+  }
+
+  .productions__intro {
+    width: 86%;
+  }
+
+  .productions__intro-editorial {
+    font-size: 0.92rem;
+  }
+
+  .productions__mosaic {
+    grid-template-columns: repeat(2, 23px);
+    grid-template-rows: repeat(2, 23px);
+  }
+
+  .production-card--clay,
+  .production-card--freaky {
+    width: 100%;
+  }
+
+  .production-card__meta {
+    font-size: 0.47rem;
+  }
+
+  .production-card__title {
+    font-size: clamp(1.75rem, 8.7vw, 2.2rem);
+  }
+
+  .productions__grid {
+    gap: 3.8rem;
+  }
+}
+
+/* ==========================================================
+   VERY SMALL MOBILE
+   320px — 350px
+   ========================================================== */
+
+@media (max-width: 350px) {
+  .productions {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .blow-title.productions__title {
+    font-size: 1.85rem;
+
+    letter-spacing: -0.045em;
+  }
+
+  .productions__intro {
+    width: 88%;
+  }
+
+  .production-card--clay,
+  .production-card--freaky {
+    width: 100%;
+  }
+
+  .production-card__title {
+    font-size: 1.7rem;
+  }
+}
+
+/* ==========================================================
+   PHONE LANDSCAPE
+   ========================================================== */
+
+@media (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+  .productions {
+    min-height: auto;
+
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .productions__mosaic {
+    display: none;
+  }
+
+  .productions__header {
+    margin-bottom: 2rem;
+  }
+}
+
+/* ==========================================================
+   SHORT NOTEBOOKS
+   1366 × 768
+   1280 × 720
+   ========================================================== */
+
+@media (min-width: 900px) and (max-height: 800px) {
+  .productions {
+    min-height: auto;
+
+    padding-top: clamp(3rem, 5vh, 4rem);
+    padding-bottom: clamp(3rem, 5vh, 4rem);
+  }
+
+  .productions__header {
+    margin-bottom: clamp(1.2rem, 2.5vh, 2rem);
+  }
+
+  .blow-title.productions__title {
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+  }
+
+  /*
+   * NO desplazamos Freaky.
+   */
+
+  .production-card--freaky {
+    margin-top: 0;
+  }
+
+  .production-card__info {
+    padding-top: 0.7rem;
+  }
+
+  .production-card__meta {
+    margin-bottom: 0.45rem;
+  }
+
+  .production-card__title {
+    font-size: clamp(1.65rem, 2.6vw, 2.7rem);
+  }
+}
+
+/* ==========================================================
+   LARGE DESKTOP
+   >= 1600px
+   ========================================================== */
+
+@media (min-width: 1600px) {
+  .blow-title.productions__title {
+    font-size: clamp(4.5rem, 4.5vw, 5.8rem);
+  }
+
+  .production-card__title {
+    font-size: clamp(3rem, 3.1vw, 4rem);
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .production-card,
+  .production-card__visual img,
+  .production-card__overlay,
+  .production-card__corner,
+  .production-card__explore,
+  .production-card__arrow {
+    transition: none;
+  }
+}

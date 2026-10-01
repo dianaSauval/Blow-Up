@@ -1,0 +1,517 @@
+/* =========================================
+   CLAY → FREAKY TANGO
+   ========================================= */
+
+.clay-to-freaky {
+  position: relative;
+
+  width: 100%;
+
+  height: clamp(320px, 52vh, 520px);
+
+  overflow: hidden;
+
+  --transition-progress: 0;
+
+  background: #f2e7d5;
+
+  isolation: isolate;
+}
+
+/* =========================================
+   DARKNESS
+   ========================================= */
+
+.clay-to-freaky__darkness {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    radial-gradient(ellipse at 65% 72%, rgba(120, 0, 40, 0.2), transparent 42%),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 8%,
+
+      #19080e 45%,
+      #0d080a 62%,
+
+      #050505 78%,
+      #050505 100%
+    );
+
+  transform: translateY(calc(58% - (var(--transition-progress) * 58%)));
+
+  transition: transform 0.08s linear;
+}
+
+/* =========================================
+   ORGANIC SHADOWS
+   ========================================= */
+
+.clay-to-freaky__shadow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(80px);
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+.clay-to-freaky__shadow--one {
+  width: min(60vw, 700px);
+  height: min(60vw, 700px);
+
+  left: -20%;
+  bottom: -48%;
+
+  background: rgba(225, 37, 96, 0.18);
+
+  opacity: calc(1 - (var(--transition-progress) * 0.85));
+
+  transform: translateY(calc(180px - (var(--transition-progress) * 180px)));
+}
+
+.clay-to-freaky__shadow--two {
+  width: min(45vw, 550px);
+  height: min(45vw, 550px);
+
+  right: -15%;
+  bottom: -28%;
+
+  background: rgba(40, 0, 15, 0.28);
+
+  opacity: calc(1 - (var(--transition-progress) * 0.9));
+
+  transform: translateY(calc(220px - (var(--transition-progress) * 220px)));
+}
+
+/* =========================================
+   PLANT
+   ========================================= */
+
+.clay-to-freaky__plant {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 4;
+
+  overflow: visible;
+
+  pointer-events: none;
+}
+
+.clay-to-freaky__stem,
+.clay-to-freaky__branch {
+  fill: none;
+
+  stroke: url(#stemGradient);
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* =========================================
+   MAIN STEM
+   ========================================= */
+
+.clay-to-freaky__stem {
+  stroke-width: 5;
+
+  stroke-dasharray: 1600;
+
+  stroke-dashoffset: calc(1600 - (var(--transition-progress) * 1600));
+}
+
+/* =========================================
+   BRANCHES
+   ========================================= */
+
+.clay-to-freaky__branch {
+  stroke-width: 3.5;
+
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+
+  transform-box: fill-box;
+  transform-origin: center;
+
+  transition:
+    opacity 0.12s linear,
+    stroke-dashoffset 0.12s linear;
+}
+
+/* =========================================
+   BRANCH 1
+   ========================================= */
+
+.branch--one {
+  stroke-dashoffset: clamp(
+    0,
+    calc(240 - ((var(--transition-progress) - 0.13) * 650)),
+    240
+  );
+
+  opacity: clamp(0, calc((var(--transition-progress) - 0.12) * 10), 1);
+}
+
+/* =========================================
+   BRANCH 2
+   ========================================= */
+
+.branch--two {
+  stroke-dashoffset: clamp(
+    0,
+    calc(240 - ((var(--transition-progress) - 0.34) * 650)),
+    240
+  );
+
+  opacity: clamp(0, calc((var(--transition-progress) - 0.33) * 10), 1);
+}
+
+/* =========================================
+   BRANCH 3
+   ========================================= */
+
+.branch--three {
+  stroke-dashoffset: clamp(
+    0,
+    calc(240 - ((var(--transition-progress) - 0.57) * 650)),
+    240
+  );
+
+  opacity: clamp(0, calc((var(--transition-progress) - 0.56) * 10), 1);
+}
+
+/* =========================================
+   LEAVES
+   ========================================= */
+
+.clay-to-freaky__leaf {
+  fill: #7f9f78;
+
+  transform-box: fill-box;
+  transform-origin: center;
+
+  transition:
+    opacity 0.12s linear,
+    scale 0.12s linear;
+}
+
+/* =========================================
+   LEAF 1
+   ========================================= */
+
+.leaf--one {
+  opacity: clamp(0, calc((var(--transition-progress) - 0.22) * 10), 1);
+
+  scale: clamp(0.05, calc((var(--transition-progress) - 0.18) * 5), 1);
+
+  translate: calc(var(--transition-progress) * -5px)
+    calc(var(--transition-progress) * 8px);
+}
+
+/* =========================================
+   LEAF 2
+   ========================================= */
+
+.leaf--two {
+  opacity: clamp(0, calc((var(--transition-progress) - 0.43) * 10), 1);
+
+  scale: clamp(0.05, calc((var(--transition-progress) - 0.39) * 5), 1);
+
+  translate: calc(var(--transition-progress) * 6px)
+    calc(var(--transition-progress) * 8px);
+}
+
+/* =========================================
+   LEAF 3
+   ========================================= */
+
+.leaf--three {
+  opacity: clamp(0, calc((var(--transition-progress) - 0.66) * 10), 1);
+
+  scale: clamp(0.05, calc((var(--transition-progress) - 0.62) * 5), 1);
+
+  translate: calc(var(--transition-progress) * -5px)
+    calc(var(--transition-progress) * 7px);
+}
+
+/* =========================================
+   PARTICLES
+   ========================================= */
+
+.clay-to-freaky__particles {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #ff2b67;
+
+  opacity: clamp(0, calc((var(--transition-progress) - 0.6) * 2), 0.72);
+
+  transform: scale(calc(0.2 + (var(--transition-progress) * 1)));
+}
+
+/* =========================================
+   PARTICLE POSITIONS
+   ========================================= */
+
+.particle--1 {
+  left: 20%;
+  top: 30%;
+}
+
+.particle--2 {
+  left: 34%;
+  top: 44%;
+
+  width: 5px;
+  height: 5px;
+}
+
+.particle--3 {
+  left: 52%;
+  top: 50%;
+
+  width: 10px;
+  height: 10px;
+}
+
+.particle--4 {
+  left: 68%;
+  top: 60%;
+
+  width: 5px;
+  height: 5px;
+}
+
+.particle--5 {
+  left: 78%;
+  top: 68%;
+
+  width: 6px;
+  height: 6px;
+}
+
+.particle--6 {
+  left: 90%;
+  top: 74%;
+
+  width: 7px;
+  height: 7px;
+}
+
+/* =========================================
+   FINAL FREAKY LINE
+   ========================================= */
+
+.clay-to-freaky__freaky-line {
+  position: absolute;
+
+  z-index: 6;
+
+  left: 52%;
+  bottom: 13%;
+
+  width: calc(var(--transition-progress) * 58vw);
+
+  max-width: 850px;
+
+  height: 2px;
+
+  background: linear-gradient(90deg, #ff2866, #f20d44, transparent);
+
+  transform: rotate(-4deg) translateX(-5%);
+
+  transform-origin: left center;
+
+  box-shadow: 0 0 12px rgba(255, 30, 90, 0.4);
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+  .clay-to-freaky {
+    height: clamp(300px, 48vh, 440px);
+  }
+
+  .clay-to-freaky__plant {
+    width: 112%;
+
+    left: -6%;
+  }
+
+  .clay-to-freaky__stem {
+    stroke-width: 5.5;
+  }
+
+  .clay-to-freaky__branch {
+    stroke-width: 4;
+  }
+
+  .clay-to-freaky__shadow--one {
+    bottom: -40%;
+  }
+
+  .clay-to-freaky__shadow--two {
+    bottom: -20%;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+  .clay-to-freaky {
+    height: 42vh;
+
+    min-height: 320px;
+    max-height: 440px;
+  }
+
+  .clay-to-freaky__plant {
+    width: 135%;
+    height: 115%;
+
+    left: -20%;
+    top: -5%;
+
+    transform: rotate(10deg);
+
+    transform-origin: center;
+  }
+
+  .clay-to-freaky__stem {
+    stroke-width: 6;
+  }
+
+  .clay-to-freaky__branch {
+    stroke-width: 4.5;
+  }
+
+  .clay-to-freaky__shadow--one {
+    width: 90vw;
+    height: 90vw;
+
+    left: -45%;
+    bottom: -25%;
+  }
+
+  .clay-to-freaky__shadow--two {
+    width: 75vw;
+    height: 75vw;
+
+    right: -35%;
+    bottom: -10%;
+  }
+
+  .clay-to-freaky__freaky-line {
+    left: 45%;
+    bottom: 12%;
+
+    height: 2px;
+
+    max-width: none;
+  }
+
+  .particle--1 {
+    left: 16%;
+    top: 34%;
+  }
+
+  .particle--2 {
+    left: 31%;
+    top: 43%;
+  }
+
+  .particle--3 {
+    left: 48%;
+    top: 52%;
+  }
+
+  .particle--4 {
+    left: 64%;
+    top: 61%;
+  }
+
+  .particle--5 {
+    left: 77%;
+    top: 68%;
+  }
+
+  .particle--6 {
+    left: 88%;
+    top: 73%;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 390px) {
+  .clay-to-freaky {
+    height: 38vh;
+
+    min-height: 300px;
+    max-height: 380px;
+  }
+
+  .clay-to-freaky__plant {
+    width: 150%;
+    height: 120%;
+
+    left: -30%;
+    top: -8%;
+
+    transform: rotate(12deg);
+  }
+
+  .clay-to-freaky__freaky-line {
+    left: 40%;
+
+    bottom: 10%;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .clay-to-freaky__darkness,
+  .clay-to-freaky__stem,
+  .clay-to-freaky__branch,
+  .clay-to-freaky__leaf,
+  .particle,
+  .clay-to-freaky__freaky-line {
+    transition: none;
+  }
+}

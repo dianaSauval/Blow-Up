@@ -1,0 +1,502 @@
+/* =========================================
+   FREAKY → SHOWS TRANSITION
+   ========================================= */
+
+.shows-transition {
+  position: relative;
+
+  z-index: 20;
+
+  width: 100%;
+  height: clamp(11rem, 20vw, 18rem);
+
+  margin-top: -1px;
+
+  overflow: hidden;
+
+  --transition-progress: 0;
+
+  background: linear-gradient(
+    to bottom,
+    var(--tango-black) 0%,
+    color-mix(in srgb, var(--tango-black) 72%, var(--entertainment-black)) 34%,
+    color-mix(
+        in srgb,
+        var(--entertainment-black) 82%,
+        var(--entertainment-blue)
+      )
+      68%,
+    var(--entertainment-black) 100%
+  );
+}
+
+/* =========================================
+   FREAKY GLOW
+   ========================================= */
+
+.shows-transition__freaky-glow {
+  position: absolute;
+
+  z-index: 1;
+
+  top: -80%;
+  left: 8%;
+
+  width: 85%;
+  height: 130%;
+
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--tango-pink) 13%, transparent),
+    color-mix(in srgb, var(--tango-red) 7%, transparent) 32%,
+    transparent 68%
+  );
+
+  filter: blur(2rem);
+
+  opacity: clamp(0, calc(1 - var(--transition-progress) * 1.7), 1);
+
+  pointer-events: none;
+}
+
+/* =========================================
+   SHOWS METALLIC GLOW
+   ========================================= */
+
+.shows-transition__shows-glow {
+  position: absolute;
+
+  z-index: 1;
+
+  bottom: -85%;
+  left: 50%;
+
+  width: 80%;
+  height: 150%;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--entertainment-silver) 12%, transparent),
+    color-mix(in srgb, var(--entertainment-gold) 6%, transparent) 34%,
+    transparent 68%
+  );
+
+  filter: blur(2.2rem);
+
+  opacity: clamp(0, calc((var(--transition-progress) - 0.2) * 2), 1);
+
+  pointer-events: none;
+}
+
+/* =========================================
+   MAIN LINE
+   ========================================= */
+
+.shows-transition__line {
+  position: absolute;
+
+  z-index: 5;
+
+  top: 48%;
+  left: 4%;
+
+  width: 92%;
+  height: 2px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  transform: translateY(-50%);
+
+  overflow: visible;
+}
+
+/* =========================================
+   PINK LINE
+   ========================================= */
+
+.shows-transition__line-pink {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in srgb, var(--tango-pink) 80%, transparent) 8%,
+    var(--tango-pink) 50%,
+    color-mix(in srgb, var(--tango-pink) 75%, transparent) 92%,
+    transparent
+  );
+
+  box-shadow: 0 0 0.75rem color-mix(in srgb, var(--tango-pink) 35%, transparent);
+
+  opacity: clamp(0, calc(1 - var(--transition-progress) * 2), 1);
+}
+
+/* =========================================
+   METALLIC LINE
+   ========================================= */
+
+.shows-transition__line-metal {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: clamp(0%, calc((var(--transition-progress) - 0.18) * 130%), 100%);
+
+  height: 100%;
+
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    color-mix(in srgb, var(--entertainment-silver-soft) 45%, transparent) 4%,
+    var(--entertainment-silver) 38%,
+    var(--entertainment-white) 58%,
+    var(--entertainment-gold-soft) 82%,
+    color-mix(in srgb, var(--entertainment-gold) 55%, transparent) 96%,
+    transparent 100%
+  );
+
+  box-shadow: 0 0 0.5rem
+    color-mix(in srgb, var(--entertainment-silver) 28%, transparent);
+
+  opacity: clamp(0, calc((var(--transition-progress) - 0.12) * 3), 1);
+}
+
+/* =========================================
+   TRAVELLING FLARE
+   ========================================= */
+
+.shows-transition__flare {
+  position: absolute;
+
+  z-index: 8;
+
+  top: 50%;
+
+  left: clamp(3%, calc(var(--transition-progress) * 94%), 97%);
+
+  width: 1px;
+  height: 1px;
+
+  transform: translate(-50%, -50%);
+
+  opacity: clamp(0, calc((var(--transition-progress) - 0.12) * 5), 1);
+}
+
+.shows-transition__flare::before {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: clamp(4rem, 6vw, 5.5rem);
+  aspect-ratio: 1;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--entertainment-white) 50%, transparent) 0%,
+    color-mix(in srgb, var(--entertainment-silver) 20%, transparent) 8%,
+    color-mix(in srgb, var(--entertainment-gold) 8%, transparent) 23%,
+    transparent 66%
+  );
+
+  filter: blur(2px);
+}
+
+.shows-transition__flare::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: clamp(6rem, 10vw, 9rem);
+  height: 1px;
+
+  transform: translate(-50%, -50%);
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in srgb, var(--entertainment-silver) 70%, transparent),
+    var(--entertainment-white),
+    color-mix(in srgb, var(--entertainment-gold-soft) 70%, transparent),
+    transparent
+  );
+
+  box-shadow: 0 0 0.6rem
+    color-mix(in srgb, var(--entertainment-white) 45%, transparent);
+}
+
+.shows-transition__flare i {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 1px;
+  height: clamp(2rem, 4vw, 3.25rem);
+
+  transform: translate(-50%, -50%);
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in srgb, var(--entertainment-white) 70%, transparent),
+    var(--entertainment-white),
+    color-mix(in srgb, var(--entertainment-white) 70%, transparent),
+    transparent
+  );
+
+  box-shadow: 0 0 0.5rem
+    color-mix(in srgb, var(--entertainment-white) 40%, transparent);
+}
+
+/* =========================================
+   SPARKS
+   ========================================= */
+
+.shows-transition__spark {
+  position: absolute;
+
+  z-index: 6;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  color: var(--entertainment-gold-soft);
+
+  opacity: clamp(0, calc((var(--transition-progress) - 0.45) * 4), 0.75);
+
+  transform: scale(clamp(0.4, calc(var(--transition-progress) * 1.3), 1));
+
+  text-shadow: 0 0 0.75rem
+    color-mix(in srgb, var(--entertainment-gold-soft) 45%, transparent);
+}
+
+.shows-transition__spark--1 {
+  top: 24%;
+  left: 18%;
+
+  font-size: 0.8rem;
+}
+
+.shows-transition__spark--2 {
+  right: 22%;
+  bottom: 23%;
+
+  font-size: 0.55rem;
+}
+
+.shows-transition__spark--3 {
+  top: 31%;
+  right: 8%;
+
+  font-size: 0.42rem;
+}
+
+/* =========================================
+   SMALL LABEL
+   ========================================= */
+
+.shows-transition__label {
+  position: absolute;
+
+  z-index: 7;
+
+  bottom: 15%;
+  left: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.9rem;
+
+  transform: translateX(-50%);
+
+  white-space: nowrap;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.4rem, 0.46vw, 0.5rem);
+
+  font-weight: 700;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  color: var(--shows-text-muted);
+
+  opacity: clamp(0, calc((var(--transition-progress) - 0.5) * 3), 1);
+}
+
+.shows-transition__label i {
+  width: 1.4rem;
+  height: 1px;
+
+  background: var(--entertainment-gold);
+}
+
+/* =========================================
+   NOTEBOOK
+   ========================================= */
+
+@media (min-width: 1001px) and (max-height: 900px) {
+  .shows-transition {
+    height: clamp(9rem, 20vh, 12rem);
+  }
+
+  .shows-transition__flare::before {
+    width: 4.5rem;
+  }
+
+  .shows-transition__flare::after {
+    width: 7rem;
+  }
+
+  .shows-transition__flare i {
+    height: 2.8rem;
+  }
+}
+
+/* =========================================
+   SHORT NOTEBOOK
+   ========================================= */
+
+@media (min-width: 1001px) and (max-height: 780px) {
+  .shows-transition {
+    height: 8rem;
+  }
+
+  .shows-transition__label {
+    bottom: 10%;
+
+    font-size: 0.4rem;
+  }
+
+  .shows-transition__flare::before {
+    width: 4rem;
+  }
+
+  .shows-transition__flare::after {
+    width: 6rem;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+  .shows-transition {
+    height: clamp(8rem, 35vw, 10rem);
+  }
+
+  .shows-transition__line {
+    left: 7%;
+
+    width: 86%;
+  }
+
+  .shows-transition__flare::before {
+    width: 4rem;
+  }
+
+  .shows-transition__flare::after {
+    width: 5.5rem;
+  }
+
+  .shows-transition__flare i {
+    height: 2.4rem;
+  }
+
+  .shows-transition__label {
+    bottom: 12%;
+
+    max-width: calc(100% - 2rem);
+
+    gap: 0.65rem;
+
+    font-size: 0.38rem;
+
+    letter-spacing: 0.16em;
+  }
+
+  .shows-transition__label i {
+    width: 1rem;
+  }
+
+  .shows-transition__spark--1 {
+    left: 10%;
+  }
+
+  .shows-transition__spark--3 {
+    right: 5%;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 420px) {
+  .shows-transition {
+    height: 7.5rem;
+  }
+
+  .shows-transition__label {
+    font-size: 0.35rem;
+
+    letter-spacing: 0.13em;
+  }
+
+  .shows-transition__spark--2 {
+    display: none;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .shows-transition__freaky-glow {
+    opacity: 0;
+  }
+
+  .shows-transition__shows-glow,
+  .shows-transition__line-metal,
+  .shows-transition__label {
+    opacity: 1;
+  }
+
+  .shows-transition__line-pink {
+    opacity: 0;
+  }
+
+  .shows-transition__line-metal {
+    width: 100%;
+  }
+
+  .shows-transition__flare {
+    left: 72%;
+  }
+
+  .shows-transition__spark {
+    opacity: 0.6;
+
+    transform: none;
+  }
+}

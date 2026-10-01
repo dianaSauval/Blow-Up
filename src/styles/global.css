@@ -1,0 +1,673 @@
+/* =========================================
+   BLOW UP COMPANY — GLOBAL DESIGN SYSTEM
+   ========================================= */
+
+/* =========================================
+   VARIABLES
+   ========================================= */
+
+:root {
+  /* =======================================
+     CORE PALETTE
+     ======================================= */
+
+  --color-bg: #f2e7d5;
+  --color-bg-light: #fffdf8;
+
+  --color-text: #090909;
+  --color-text-soft: #625e57;
+
+  --color-black: #050505;
+  --color-white: #ffffff;
+
+  /* =======================================
+     BLOW UP — LOGO COLORS
+     ======================================= */
+
+  --blow-red: #f11f25;
+  --blow-orange: #ff8617;
+  --blow-yellow: #ffd516;
+  --blow-green: #009d57;
+  --blow-blue: #0867d7;
+  --blow-purple: #8b2c91;
+
+  /* =======================================
+     SECTION IDENTITIES
+     ======================================= */
+
+  /* The Clay Artists */
+
+  --clay-cream: #f2e7d5;
+  --clay-green: #2e7257;
+  --clay-pink: #dc879c;
+  --clay-yellow: #e5bd45;
+
+  /* Freaky Tango */
+
+  --tango-black: #0b090a;
+  --tango-red: #a61e2d;
+  --tango-pink: #d94b79;
+
+  /* Shows & Animations */
+
+  --entertainment-black: #05080a;
+  --entertainment-dark: #091015;
+  --entertainment-blue: #102936;
+
+  --entertainment-silver: #dce4e7;
+  --entertainment-silver-soft: #aebbc0;
+
+  --entertainment-gold: #c8a968;
+  --entertainment-gold-soft: #e3cf9d;
+
+  --entertainment-white: #f4f6f5;
+
+  /* =======================================
+     TYPOGRAPHY
+     ======================================= */
+
+  --font-primary: "Space Grotesk", Arial, Helvetica, sans-serif;
+
+  --font-display: "Unbounded", Arial, Helvetica, sans-serif;
+
+  /* Font sizes */
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.25rem;
+  --fs-lg: 1.75rem;
+  --fs-xl: 2.5rem;
+  --fs-2xl: 4rem;
+
+  --fs-display: clamp(3rem, 7vw, 7.5rem);
+
+  --fs-hero: clamp(4rem, 10vw, 11rem);
+
+  /* =======================================
+     SPACING
+     ======================================= */
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+  --space-2xl: 10rem;
+
+  --section-space: clamp(6rem, 11vw, 11rem);
+
+  /* =======================================
+     LAYOUT
+     ======================================= */
+
+  --container-width: 1400px;
+
+  --page-padding: clamp(1.25rem, 4vw, 5rem);
+
+  /* =======================================
+     BORDERS
+     ======================================= */
+
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-full: 999px;
+
+  /* =======================================
+     LINES
+     ======================================= */
+
+  --line-dark: rgba(5, 5, 5, 0.16);
+
+  --line-light: rgba(255, 255, 255, 0.16);
+
+  /* =======================================
+     ANIMATION
+     ======================================= */
+
+  --ease-blow: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --transition-fast: 180ms ease;
+
+  --transition-normal: 350ms ease;
+
+  --transition-slow: 700ms var(--ease-blow);
+}
+
+/* =========================================
+   RESET
+   ========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  min-width: 320px;
+
+  background: var(--color-bg);
+
+  color: var(--color-text);
+
+  font-family: var(--font-primary);
+
+  font-size: var(--fs-base);
+
+  line-height: 1.5;
+
+  -webkit-font-smoothing: antialiased;
+
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================================
+   TYPOGRAPHIC RESET
+   ========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+
+  line-height: 0.95;
+}
+
+p {
+  line-height: 1.7;
+}
+
+/* =========================================
+   LINKS
+   ========================================= */
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+/* =========================================
+   FORM ELEMENTS
+   ========================================= */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+
+  cursor: pointer;
+}
+
+/* =========================================
+   MEDIA
+   ========================================= */
+
+img,
+picture,
+video {
+  display: block;
+
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+/* =========================================
+   GLOBAL LAYOUT
+   ========================================= */
+
+.container {
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-width));
+
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+
+  padding-block: var(--section-space);
+}
+
+.full-screen {
+  min-height: 100svh;
+}
+
+/* =========================================
+   BLOW UP — DISPLAY TYPOGRAPHY
+   ========================================= */
+
+.blow-title {
+  margin: 0;
+
+  max-width: 100%;
+
+  font-family: var(--font-display);
+
+  font-size: var(--fs-display);
+
+  font-weight: 800;
+
+  line-height: 0.86;
+
+  letter-spacing: -0.055em;
+
+  text-transform: uppercase;
+
+  color: var(--color-black);
+
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* =========================================
+   BLOW UP — HERO TITLE
+   ========================================= */
+
+.blow-hero-title {
+  margin: 0;
+
+  max-width: 100%;
+
+  font-family: var(--font-display);
+
+  font-size: var(--fs-hero);
+
+  font-weight: 900;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.07em;
+
+  text-transform: uppercase;
+
+  color: var(--color-black);
+
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* =========================================
+   BLOW UP — CLAY TYPOGRAPHY
+   ========================================= */
+
+.blow-title--clay {
+  font-weight: 700;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.045em;
+}
+
+/* =========================================
+   BLOW UP — FREAKY TANGO TYPOGRAPHY
+   ========================================= */
+
+.blow-title--tango {
+  font-weight: 900;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.075em;
+}
+
+.blow-title--tango-outline {
+  color: transparent;
+
+  -webkit-text-stroke: 2px var(--tango-pink);
+
+  paint-order: stroke fill;
+}
+
+/* =========================================
+   BLOW UP — SHOWS / ENTERTAINMENT TYPOGRAPHY
+   ========================================= */
+
+.blow-title--entertainment {
+  font-weight: 700;
+
+  line-height: 0.9;
+
+  letter-spacing: 0.04em;
+}
+
+/* =========================================
+   DISPLAY SIZES
+   ========================================= */
+
+.display-xl {
+  font-size: var(--fs-hero);
+}
+
+.display-lg {
+  font-size: var(--fs-display);
+}
+
+.display-md {
+  font-size: clamp(2.3rem, 5vw, 5rem);
+}
+
+.display-sm {
+  font-size: clamp(1.6rem, 3vw, 3rem);
+}
+
+/* =========================================
+   BLOW UP — EYEBROW
+   ========================================= */
+
+.blow-eyebrow {
+  display: block;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(0.6rem, 0.68vw, 0.72rem);
+
+  font-weight: 700;
+
+  letter-spacing: 0.26em;
+
+  text-transform: uppercase;
+
+  color: var(--color-text-soft);
+}
+
+/* =========================================
+   BLOW UP — BODY COPY
+   ========================================= */
+
+.blow-copy {
+  max-width: 620px;
+
+  font-family: var(--font-primary);
+
+  font-size: clamp(1rem, 1.25vw, 1.18rem);
+
+  font-weight: 400;
+
+  line-height: 1.72;
+
+  letter-spacing: -0.01em;
+
+  color: var(--color-text-soft);
+}
+
+/* =========================================
+   BLOW UP — STATEMENT
+   ========================================= */
+
+.blow-statement {
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(1.8rem, 4vw, 4.5rem);
+
+  font-weight: 500;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.04em;
+}
+
+/* =========================================
+   BLOW UP — GRAPHIC LANGUAGE
+   ========================================= */
+
+/* ---------- SQUARE ---------- */
+
+.blow-square {
+  display: block;
+
+  width: clamp(38px, 5vw, 72px);
+
+  aspect-ratio: 1;
+
+  flex-shrink: 0;
+}
+
+.blow-square--red {
+  background: var(--blow-red);
+}
+
+.blow-square--orange {
+  background: var(--blow-orange);
+}
+
+.blow-square--yellow {
+  background: var(--blow-yellow);
+}
+
+.blow-square--green {
+  background: var(--blow-green);
+}
+
+.blow-square--blue {
+  background: var(--blow-blue);
+}
+
+.blow-square--purple {
+  background: var(--blow-purple);
+}
+
+/* ---------- CIRCLE ---------- */
+
+.blow-circle {
+  display: block;
+
+  width: clamp(42px, 6vw, 90px);
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  background: var(--color-black);
+
+  flex-shrink: 0;
+}
+
+/* ---------- LINE ---------- */
+
+.blow-line {
+  display: block;
+
+  width: 100%;
+
+  height: 1px;
+
+  background: var(--color-black);
+}
+
+/* =========================================
+   BLOW UP — LINK
+   ========================================= */
+
+.blow-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  padding-bottom: 0.45rem;
+
+  border-bottom: 1px solid var(--color-black);
+
+  font-family: var(--font-primary);
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  transition:
+    gap var(--transition-normal),
+    opacity var(--transition-normal);
+}
+
+.blow-link:hover {
+  gap: 1.5rem;
+}
+
+.blow-link::after {
+  content: "→";
+
+  font-size: 1.15rem;
+
+  line-height: 1;
+}
+
+/* =========================================
+   UTILITIES
+   ========================================= */
+
+.text-center {
+  text-align: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+/*
+  Used by Navbar when the mobile menu is open.
+*/
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* =========================================
+   TEXT SELECTION
+   ========================================= */
+
+::selection {
+  background: var(--blow-yellow);
+
+  color: var(--color-black);
+}
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--blow-blue);
+
+  outline-offset: 5px;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+  :root {
+    --space-lg: 3rem;
+    --space-xl: 5rem;
+    --space-2xl: 7rem;
+
+    --section-space: 6rem;
+
+    --page-padding: 1.25rem;
+
+    --fs-display: clamp(2.7rem, 11vw, 5rem);
+
+    --fs-hero: clamp(3.6rem, 14vw, 7rem);
+  }
+
+  .blow-title--tango-outline {
+    -webkit-text-stroke-width: 1.5px;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+  :root {
+    --page-padding: 1rem;
+
+    --section-space: 5rem;
+
+    --fs-display: clamp(2.25rem, 11vw, 3.6rem);
+
+    --fs-hero: clamp(3rem, 15vw, 5rem);
+  }
+
+  .blow-title {
+    letter-spacing: -0.045em;
+  }
+
+  .blow-hero-title {
+    line-height: 0.84;
+
+    letter-spacing: -0.055em;
+  }
+
+  .blow-title--tango {
+    letter-spacing: -0.06em;
+  }
+
+  .blow-title--entertainment {
+    letter-spacing: 0.02em;
+  }
+
+  .blow-copy {
+    font-size: 1rem;
+
+    line-height: 1.68;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
