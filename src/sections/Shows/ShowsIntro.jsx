@@ -1,3 +1,10 @@
+/* =========================================
+   holaaaa
+
+   SCROLL EXPERIENCE
+
+   ========================================= */
+
 import { useEffect, useRef } from "react";
 
 import "./ShowsIntro.css";
@@ -36,72 +43,371 @@ export default function ShowsIntro() {
 
     let ticking = false;
 
+    let lastStage = "";
+
+    let lastMusic = false;
+    let lastCorporate = false;
+    let lastSpecial = false;
+
+    /*
+     * =========================================================
+     * MOBILE VIEWPORT LOCK
+     * =========================================================
+     *
+     * En un teléfono real, window.innerHeight puede cambiar
+     * constantemente cuando aparece/desaparece la barra
+     * del navegador.
+     *
+     * NO queremos que eso cambie las posiciones del diseño.
+     *
+     * Guardamos una altura estable en px.
+     */
+
+    const setStableMobileViewport = () => {
+      if (!mobileMedia.matches) {
+        section.style.removeProperty("--shows-mobile-vh");
+        return;
+      }
+
+      const viewportHeight = window.innerHeight;
+
+      section.style.setProperty(
+        "--shows-mobile-vh",
+        `${Math.round(viewportHeight)}px`
+      );
+    };
+
+    /*
+     * Se ejecuta una vez al montar.
+     *
+     * MUY IMPORTANTE:
+     * NO lo ejecutamos en cada resize,
+     * porque en móvil resize puede dispararse simplemente
+     * porque aparece/desaparece la barra del navegador.
+     */
+
+    setStableMobileViewport();
+
     const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
-    const clearMobileState = () => {
-      section.style.removeProperty("--shows-progress");
+    /*
+     * =========================================================
+     * PROGRESS
+     * =========================================================
+     */
+
+    const getProgress = () => {
+      const rect = section.getBoundingClientRect();
+
+      let viewportHeight;
+
+      if (mobileMedia.matches) {
+        /*
+         * MOBILE
+         *
+         * Usamos la altura congelada.
+         */
+        const storedHeight = parseFloat(
+          getComputedStyle(section).getPropertyValue("--shows-mobile-vh")
+        );
+
+        viewportHeight =
+          storedHeight ||
+          window.innerHeight ||
+          document.documentElement.clientHeight;
+      } else {
+        /*
+         * DESKTOP / NOTEBOOK
+         */
+        viewportHeight =
+          document.documentElement.clientHeight || window.innerHeight;
+      }
+
+      const totalScroll = Math.max(1, section.offsetHeight - viewportHeight);
+
+      const scrolled = clamp(-rect.top, 0, totalScroll);
+
+      return scrolled / totalScroll;
+    };
+
+    /*
+     * =========================================================
+     * DESKTOP
+     * =========================================================
+     */
+
+    const updateDesktop = (progress) => {
+      /*
+       * Desktop continúa exactamente con
+       * la animación vinculada al scroll.
+       */
+
+      section.style.setProperty("--shows-progress", progress.toFixed(5));
+
+      /*
+       * Limpiamos estados mobile.
+       */
+
       section.removeAttribute("data-mobile-stage");
+
       section.classList.remove(
         "mobile-show-music",
         "mobile-show-corporate",
         "mobile-show-special"
       );
+
+      lastStage = "";
+
+      lastMusic = false;
+      lastCorporate = false;
+      lastSpecial = false;
     };
 
-    const updateDesktop = () => {
-      const rect = section.getBoundingClientRect();
-      const viewportHeight =
-        window.innerHeight || document.documentElement.clientHeight;
+    /*
+     * =========================================================
+     * MOBILE
+     * =========================================================
+     *
+     * En móvil NO escribimos --shows-progress.
+     *
+     * El scroll únicamente decide
+     * qué escena está activa.
+     */
 
-      const totalScroll = Math.max(1, section.offsetHeight - viewportHeight);
+    const updateMobile = (progress) => {
+      let stage = lastStage || "intro";
 
-      const scrolled = clamp(-rect.top, 0, totalScroll);
-      const progress = scrolled / totalScroll;
+      /*
+       * =====================================
+       * INTRO ↔ STATEMENT
+       * =====================================
+       */
 
-      section.style.setProperty("--shows-progress", progress.toFixed(5));
+      if (stage === "intro" && progress >= 0.19) {
+        stage = "statement";
+      }
+
+      if (stage === "statement" && progress <= 0.16) {
+        stage = "intro";
+      }
+
+      /*
+       * =====================================
+       * STATEMENT ↔ EVENTS
+       * =====================================
+       */
+
+      if (stage === "statement" && progress >= 0.49) {
+        stage = "events";
+      }
+
+      if (stage === "events" && progress <= 0.45) {
+        stage = "statement";
+      }
+
+      /*
+       * =====================================
+       * EVENTS ↔ CTA
+       * =====================================
+       */
+
+      if (stage === "events" && progress >= 0.89) {
+        stage = "cta";
+      }
+
+      if (stage === "cta" && progress <= 0.85) {
+        stage = "events";
+      }
+
+      /*
+       * =====================================
+       * UPDATE STAGE
+       * =====================================
+       */
+
+      if (stage !== lastStage) {
+        section.dataset.mobileStage = stage;
+
+        lastStage = stage;
+      }
+
+      /*
+       * =====================================
+       * EVENTOS
+       * =====================================
+       */
+
+      let showMusic = lastMusic;
+      let showCorporate = lastCorporate;
+      let showSpecial = lastSpecial;
+
+      if (stage === "events") {
+        /*
+         * MUSIC
+         */
+
+        if (!showMusic && progress >= 0.49) {
+          showMusic = true;
+        }
+
+        if (showMusic && progress <= 0.46) {
+          showMusic = false;
+        }
+
+        /*
+         * CORPORATE
+         */
+
+        if (!showCorporate && progress >= 0.56) {
+          showCorporate = true;
+        }
+
+        if (showCorporate && progress <= 0.53) {
+          showCorporate = false;
+        }
+
+        /*
+         * SPECIAL
+         */
+
+        if (!showSpecial && progress >= 0.64) {
+          showSpecial = true;
+        }
+
+        if (showSpecial && progress <= 0.61) {
+          showSpecial = false;
+        }
+      } else {
+        showMusic = false;
+        showCorporate = false;
+        showSpecial = false;
+      }
+
+      /*
+       * Actualizamos DOM solamente
+       * cuando realmente cambia el estado.
+       */
+
+      if (showMusic !== lastMusic) {
+        section.classList.toggle("mobile-show-music", showMusic);
+
+        lastMusic = showMusic;
+      }
+
+      if (showCorporate !== lastCorporate) {
+        section.classList.toggle("mobile-show-corporate", showCorporate);
+
+        lastCorporate = showCorporate;
+      }
+
+      if (showSpecial !== lastSpecial) {
+        section.classList.toggle("mobile-show-special", showSpecial);
+
+        lastSpecial = showSpecial;
+      }
     };
+
+    /*
+     * =========================================================
+     * UPDATE
+     * =========================================================
+     */
 
     const update = () => {
+      const progress = getProgress();
+
       if (mobileMedia.matches) {
-        clearMobileState();
+        updateMobile(progress);
       } else {
-        updateDesktop();
+        updateDesktop(progress);
       }
 
       ticking = false;
     };
 
+    /*
+     * =========================================================
+     * SCROLL
+     * =========================================================
+     */
+
     const onScroll = () => {
-      if (mobileMedia.matches) return;
       if (ticking) return;
 
       ticking = true;
+
       window.requestAnimationFrame(update);
     };
 
-    const onResize = () => {
-      window.requestAnimationFrame(update);
+    /*
+     * =========================================================
+     * ORIENTATION
+     * =========================================================
+     *
+     * Esta es prácticamente la ÚNICA ocasión
+     * donde permitimos recalcular la altura mobile.
+     */
+
+    const onOrientationChange = () => {
+      /*
+       * Esperamos dos frames para que el navegador
+       * termine de actualizar la orientación.
+       */
+
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          setStableMobileViewport();
+
+          update();
+        });
+      });
     };
+
+    /*
+     * =========================================================
+     * MEDIA QUERY CHANGE
+     * =========================================================
+     *
+     * Sirve sobre todo al redimensionar desde desktop.
+     */
+
+    const onMediaChange = () => {
+      setStableMobileViewport();
+
+      update();
+    };
+
+    /*
+     * =========================================================
+     * INITIALIZE
+     * =========================================================
+     */
 
     update();
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize);
+    window.addEventListener("scroll", onScroll, {
+      passive: true,
+    });
+
+    window.addEventListener("orientationchange", onOrientationChange);
 
     if (mobileMedia.addEventListener) {
-      mobileMedia.addEventListener("change", onResize);
-    } else {
-      mobileMedia.addListener(onResize);
+      mobileMedia.addEventListener("change", onMediaChange);
     }
+
+    /*
+     * =========================================================
+     * CLEANUP
+     * =========================================================
+     */
 
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
+
+      window.removeEventListener("orientationchange", onOrientationChange);
 
       if (mobileMedia.removeEventListener) {
-        mobileMedia.removeEventListener("change", onResize);
-      } else {
-        mobileMedia.removeListener(onResize);
+        mobileMedia.removeEventListener("change", onMediaChange);
       }
     };
   }, []);
@@ -128,9 +434,7 @@ export default function ShowsIntro() {
         <div className="shows-intro__grain" aria-hidden="true" />
 
         {/* =========================================
-
             SCENE 01 — INTRO
-
             ========================================= */}
 
         <div className="shows-intro__scene shows-intro__scene--intro">
@@ -189,9 +493,7 @@ export default function ShowsIntro() {
         </div>
 
         {/* =========================================
-
             CENTRAL LIGHT
-
             ========================================= */}
 
         <div className="shows-intro__beam" aria-hidden="true">
@@ -199,9 +501,7 @@ export default function ShowsIntro() {
         </div>
 
         {/* =========================================
-
             SCENE 02 — STATEMENT
-
             ========================================= */}
 
         <div className="shows-intro__scene shows-intro__scene--statement">
@@ -227,9 +527,7 @@ export default function ShowsIntro() {
         </div>
 
         {/* =========================================
-
             SCENE 03 — EVENTS / EDITORIAL COLLAGE
-
             ========================================= */}
 
         <div className="shows-intro__scene shows-intro__scene--events">
@@ -334,9 +632,7 @@ export default function ShowsIntro() {
         </div>
 
         {/* =========================================
-
             SCENE 04 — CTA
-
             ========================================= */}
 
         <div className="shows-intro__scene shows-intro__scene--cta">

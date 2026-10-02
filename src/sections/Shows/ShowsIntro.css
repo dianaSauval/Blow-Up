@@ -1,6 +1,5 @@
 /* =========================================
-
-   SHOWS & ANIMATIONS
+   SHOWS & ANIMATIONS holaaaa
 
    SCROLL EXPERIENCE
 
@@ -10,9 +9,7 @@
   position: relative;
 
   width: 100%;
-
   max-width: 100%;
-
   min-width: 0;
 
   height: 560svh;
@@ -25,9 +22,7 @@
 }
 
 /* =========================================
-
    RESPONSIVE SAFETY
-
    ========================================= */
 
 .shows-intro *,
@@ -51,9 +46,7 @@
 }
 
 /* =========================================
-
    STICKY STAGE
-
    ========================================= */
 
 .shows-intro__sticky {
@@ -70,7 +63,6 @@
   background:
     radial-gradient(
       circle at 50% 45%,
-
       color-mix(in srgb, var(--entertainment-blue) 20%, transparent),
       transparent 45%
     ),
@@ -78,9 +70,7 @@
 }
 
 /* =========================================
-
    AMBIENT LIGHT
-
    ========================================= */
 
 .shows-intro__ambient {
@@ -132,9 +122,7 @@
 }
 
 /* =========================================
-
    GRAIN
-
    ========================================= */
 
 .shows-intro__grain {
@@ -150,13 +138,9 @@
 
   background-image: repeating-radial-gradient(
     circle at 20% 30%,
-
     rgba(255, 255, 255, 0.14) 0,
-
     rgba(255, 255, 255, 0.14) 1px,
-
     transparent 1px,
-
     transparent 4px
   );
 
@@ -166,9 +150,7 @@
 }
 
 /* =========================================
-
    ALL SCENES
-
    ========================================= */
 
 .shows-intro__scene {
@@ -186,9 +168,7 @@
 }
 
 /* =========================================
-
    SCENE 01 — INTRO
-
    ========================================= */
 
 .shows-intro__scene--intro {
@@ -198,9 +178,7 @@
 }
 
 /* =========================================
-
    INTRO CONTENT
-
    ========================================= */
 
 .shows-intro__intro-content {
@@ -218,9 +196,7 @@
 }
 
 /* =========================================
-
    META
-
    ========================================= */
 
 .shows-intro__meta {
@@ -262,9 +238,7 @@
 }
 
 /* =========================================
-
    HEADING
-
    ========================================= */
 
 .shows-intro__heading {
@@ -354,9 +328,7 @@
 }
 
 /* =========================================
-
    GHOST LIVE
-
    ========================================= */
 
 .shows-intro__ghost {
@@ -395,9 +367,7 @@
 }
 
 /* =========================================
-
    INTRO GALLERY
-
    ========================================= */
 
 .shows-intro__gallery {
@@ -444,9 +414,7 @@
     135deg,
     rgba(255, 255, 255, 0.08),
     transparent 30%,
-
     transparent 70%,
-
     color-mix(in srgb, var(--entertainment-gold) 7%, transparent)
   );
 
@@ -468,9 +436,7 @@
 }
 
 /* =========================================
-
    LEFT PHOTO
-
    ========================================= */
 
 .shows-intro__photo--left {
@@ -489,9 +455,7 @@
 }
 
 /* =========================================
-
    MAIN PHOTO
-
    ========================================= */
 
 .shows-intro__photo--main {
@@ -510,9 +474,7 @@
 }
 
 /* =========================================
-
    RIGHT PHOTO
-
    ========================================= */
 
 .shows-intro__photo--right {
@@ -529,9 +491,7 @@
 }
 
 /* =========================================
-
    CENTRAL LIGHT
-
    ========================================= */
 
 .shows-intro__beam {
@@ -551,7 +511,6 @@
 
   background: linear-gradient(
     to bottom,
-
     transparent,
     color-mix(in srgb, var(--entertainment-gold-soft) 45%, transparent),
     var(--entertainment-white),
@@ -591,7 +550,6 @@
 
   background: linear-gradient(
     to right,
-
     transparent,
     rgba(220, 228, 231, 0.018),
     rgba(227, 207, 157, 0.07),
@@ -622,11 +580,8 @@
   background: radial-gradient(
     circle,
     rgba(255, 255, 255, 0.8) 0%,
-
     rgba(227, 207, 157, 0.2) 10%,
-
     rgba(200, 169, 104, 0.07) 30%,
-
     transparent 70%
   );
 
@@ -643,9 +598,7 @@
 }
 
 /* =========================================
-
    SCENE 02 — STATEMENT
-
    ========================================= */
 
 .shows-intro__scene--statement {
@@ -727,9 +680,7 @@
 }
 
 /* =========================================
-
    SCENE 03 — EVENTS
-
    ========================================= */
 
 .shows-intro__scene--events {
@@ -749,9 +700,7 @@
 }
 
 /* =========================================
-
    EVENTS CANVAS
-
    ========================================= */
 
 .shows-intro__events {
@@ -787,9 +736,7 @@
 }
 
 /* =========================================
-
    EVENT CARD BASE
-
    ========================================= */
 
 .shows-intro__event-card {
@@ -825,9 +772,7 @@
     145deg,
     rgba(255, 255, 255, 0.055),
     transparent 30%,
-
     transparent 72%,
-
     rgba(5, 8, 10, 0.2)
   );
 
@@ -849,9 +794,7 @@
 }
 
 /* =========================================
-
    EVENT COPY
-
    ========================================= */
 
 .shows-intro__event-copy {
@@ -921,20 +864,16 @@
 }
 
 /* =========================================
-
    MUSIC FESTIVALS
-
    ========================================= */
 
 .shows-intro__event-card--music {
   z-index: 7;
 
   top: 5%;
-
   left: 0;
 
   width: 58%;
-
   height: 36%;
 
   opacity: clamp(0, calc((var(--shows-progress) - 0.5) * 16), 1);
@@ -952,11 +891,9 @@
 
 .shows-intro__event-card--music .shows-intro__event-photo {
   top: 0;
-
   right: 0;
 
   width: 39%;
-
   height: 100%;
 
   clip-path: polygon(11% 0, 100% 0, 100% 100%, 0 100%);
@@ -971,9 +908,7 @@
 }
 
 /* =========================================
-
    CORPORATE EVENTS
-
    ========================================= */
 
 .shows-intro__event-card--corporate {
@@ -1023,9 +958,7 @@
 }
 
 /* =========================================
-
    SPECIAL EVENTS
-
    ========================================= */
 
 .shows-intro__event-card--special {
@@ -1073,9 +1006,7 @@
 }
 
 /* =========================================
-
    CONNECTING DIAGONALS
-
    ========================================= */
 
 .shows-intro__event-line {
@@ -1089,13 +1020,9 @@
 
   background: linear-gradient(
     to bottom,
-
     transparent 0%,
-
     rgba(200, 169, 104, 0.55) 20%,
-
     rgba(220, 228, 231, 0.14) 72%,
-
     transparent 100%
   );
 
@@ -1123,9 +1050,7 @@
 }
 
 /* =========================================
-
    GOLD MICRO LINES
-
    ========================================= */
 
 .shows-intro__event-card--music::after,
@@ -1163,9 +1088,7 @@
 }
 
 /* =========================================
-
    SCENE 04 — CTA
-
    ========================================= */
 
 .shows-intro__scene--cta {
@@ -1309,9 +1232,7 @@
 }
 
 /* =========================================
-
    BOTTOM COUNTER
-
    ========================================= */
 
 .shows-intro__counter {
@@ -1353,11 +1274,8 @@
 }
 
 /* =========================================================
-
    NOTEBOOK WIDTH
-
    1001px — 1300px
-
    ========================================================= */
 
 @media (min-width: 1001px) and (max-width: 1300px) {
@@ -1395,11 +1313,8 @@
 }
 
 /* =========================================================
-
    TABLET / SMALL LAPTOP
-
    701px — 1000px
-
    ========================================================= */
 
 @media (min-width: 701px) and (max-width: 1000px) {
@@ -1493,11 +1408,8 @@
 }
 
 /* =========================================================
-
    MOBILE
-
    <= 700px
-
    ========================================================= */
 
 @media (max-width: 700px) {
@@ -1506,9 +1418,7 @@
   }
 
   /* =======================================
-
      INTRO CONTENT
-
      ======================================= */
 
   .shows-intro__intro-content {
@@ -1544,9 +1454,7 @@
   }
 
   /* =======================================
-
      INTRO TITLE
-
      ======================================= */
 
   .shows-intro__heading h2 {
@@ -1574,11 +1482,8 @@
   }
 
   /* =======================================
-
      INTRO PHOTOS — MOBILE
-
      Más cerca del título
-
      ======================================= */
 
   .shows-intro__photo--left {
@@ -1610,9 +1515,7 @@
   }
 
   /* =======================================
-
      GHOST
-
      ======================================= */
 
   .shows-intro__ghost {
@@ -1620,9 +1523,7 @@
   }
 
   /* =======================================
-
      BEAM
-
      ======================================= */
 
   .shows-intro__beam::before {
@@ -1636,9 +1537,7 @@
   }
 
   /* =======================================
-
      STATEMENT
-
      ======================================= */
 
   .shows-intro__statement {
@@ -1668,9 +1567,7 @@
   }
 
   /* =======================================
-
      EVENTS
-
      ======================================= */
 
   .shows-intro__events {
@@ -1720,9 +1617,7 @@
   }
 
   /* =======================================
-
      MUSIC — MOBILE
-
      ======================================= */
 
   .shows-intro__event-card--music {
@@ -1754,9 +1649,7 @@
   }
 
   /* =======================================
-
      CORPORATE — MOBILE
-
      ======================================= */
 
   .shows-intro__event-card--corporate {
@@ -1790,11 +1683,8 @@
   }
 
   /*
-
    * Corporate es más largo.
-
    * Necesita una medida propia.
-
    */
 
   .shows-intro__event-card--corporate .shows-intro__event-copy strong {
@@ -1806,9 +1696,7 @@
   }
 
   /* =======================================
-
      SPECIAL — MOBILE
-
      ======================================= */
 
   .shows-intro__event-card--special {
@@ -1840,9 +1728,7 @@
   }
 
   /* =======================================
-
      EVENT LINES
-
      ======================================= */
 
   .shows-intro__event-line--one {
@@ -1854,9 +1740,7 @@
   }
 
   /* =======================================
-
      CTA
-
      ======================================= */
 
   .shows-intro__cta {
@@ -1904,9 +1788,7 @@
   }
 
   /* =======================================
-
      COUNTER
-
      ======================================= */
 
   .shows-intro__counter {
@@ -1927,16 +1809,13 @@
 }
 
 /* =========================================================
-
    SMALL MOBILE
-
    <= 420px
-
    ========================================================= */
 
 @media (max-width: 420px) {
   .shows-intro {
-    height: 565svh;
+    height: calc(var(--shows-mobile-vh) * 5.65);
   }
 
   /* ---------- INTRO ---------- */
@@ -1966,19 +1845,18 @@
   }
 
   .shows-intro__photo--left {
-    height: 20vh;
+    height: calc(var(--shows-mobile-vh) * 0.2);
   }
 
   .shows-intro__photo--main {
     width: 80%;
 
-    height: 27vh;
+    height: calc(var(--shows-mobile-vh) * 0.27);
   }
 
   .shows-intro__photo--right {
-    height: 19vh;
+    height: calc(var(--shows-mobile-vh) * 0.19);
   }
-
   /* ---------- STATEMENT ---------- */
 
   .shows-intro__statement-small {
@@ -1994,7 +1872,7 @@
   /* ---------- EVENTS ---------- */
 
   .shows-intro__events {
-    height: 84svh;
+    height: calc(var(--shows-mobile-vh) * 0.84);
 
     min-height: 520px;
   }
@@ -2037,11 +1915,8 @@
 }
 
 /* =========================================================
-
    NOTEBOOK — LOW HEIGHT
-
    <= 850px HIGH
-
    ========================================================= */
 
 @media (min-width: 1001px) and (max-height: 850px) {
@@ -2121,11 +1996,8 @@
 }
 
 /* =========================================================
-
    VERY SHORT NOTEBOOK
-
    1366x768 / SIMILAR
-
    ========================================================= */
 
 @media (min-width: 1001px) and (max-height: 780px) {
@@ -2189,409 +2061,552 @@
 }
 
 /* =========================================================
-   MOBILE — NON-STICKY STABLE LAYOUT
+   MOBILE — STABLE SCROLL EXPERIENCE
+   =========================================================
+
+   En móviles reales NO seguimos el scroll pixel a pixel.
+
+   El scroll solamente cambia de escena.
+   Las animaciones las ejecuta CSS mediante transitions.
+
+   Esto evita:
+   - subpixel jitter
+   - text rasterization jitter
+   - sticky + transform repaint
+   - clip-path recalculado continuamente
    ========================================================= */
 
 @media (max-width: 1024px) and (pointer: coarse), (max-width: 700px) {
+  /* =====================================================
+     MOBILE — LOCKED VIEWPORT
+     =====================================================
+
+     --shows-mobile-vh se establece desde JS UNA VEZ.
+
+     Por lo tanto, cuando Chrome / Safari muestran
+     u ocultan sus barras, esta sección NO cambia
+     de altura.
+
+     Este es el núcleo de la solución al rebote.
+     ===================================================== */
+
   .shows-intro {
-    height: auto;
-    min-height: 0;
-    overflow: visible;
-    --shows-progress: 0;
+    /*
+     * Fallback por si JS todavía no cargó.
+     */
+    --shows-mobile-vh: 100svh;
+
+    /*
+     * Antes:
+     * height: 560svh;
+     *
+     * Ahora:
+     * 5.6 × la altura inicial real del teléfono.
+     */
+    height: calc(var(--shows-mobile-vh) * 5.6);
   }
 
   .shows-intro__sticky {
-    position: relative;
-    top: auto;
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    max-height: none;
-    overflow: visible;
-    padding-bottom: 4rem;
-    background:
-      radial-gradient(
-        circle at 50% 24%,
-        color-mix(in srgb, var(--entertainment-blue) 18%, transparent),
-        transparent 42%
-      ),
-      radial-gradient(
-        circle at 70% 72%,
-        color-mix(in srgb, var(--entertainment-gold) 8%, transparent),
-        transparent 35%
-      ),
-      var(--entertainment-black);
+    /*
+     * NUNCA usamos vh/dvh aquí en mobile.
+     */
+    height: var(--shows-mobile-vh);
+
+    min-height: var(--shows-mobile-vh);
+    max-height: var(--shows-mobile-vh);
+
+    /*
+     * El sticky continúa funcionando,
+     * pero su caja ya no cambia de tamaño.
+     */
+    position: sticky;
+    top: 0;
+
+    overflow: hidden;
+
+    /*
+     * Reduce repaints raros del navegador.
+     */
+    contain: layout paint;
   }
 
-  .shows-intro__ambient {
-    opacity: 0.25 !important;
-    filter: blur(3rem);
-    will-change: auto;
-  }
+  /* =====================================================
+     MOBILE — REMOVE DYNAMIC VIEWPORT UNITS
+     =====================================================
 
-  .shows-intro__grain {
-    opacity: 0.02;
-    mix-blend-mode: normal;
-    will-change: auto;
-  }
+     Dentro del sticky tampoco queremos tamaños
+     verticales dependientes de vh.
+     ===================================================== */
 
-  .shows-intro__beam,
-  .shows-intro__counter,
-  .shows-intro__event-line {
-    display: none;
-  }
-
-  .shows-intro__scene {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    height: auto;
-    min-height: 100svh;
-    opacity: 1 !important;
-    pointer-events: auto;
-    transform: none !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(3.5rem, 9vw, 5rem) 0;
-    transition: none;
-    will-change: auto;
-  }
-
-  /* INTRO */
-
-  .shows-intro__scene--intro {
-    display: block;
-    min-height: 100svh;
-    padding-top: clamp(2.75rem, 8vw, 4rem);
-    padding-bottom: clamp(3rem, 10vw, 4.5rem);
-  }
-
-  .shows-intro__ghost {
-    top: clamp(6rem, 18vw, 8rem);
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: clamp(6rem, 28vw, 10rem);
-    line-height: 0.8;
-    opacity: 0.18;
-  }
-
-  .shows-intro__intro-content {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: calc(100% - (var(--page-padding) * 2));
-    transform: none;
-    margin: 0 auto;
-    z-index: 5;
-  }
-
-  .shows-intro__meta {
-    gap: 0.55rem;
-    padding-bottom: 0.8rem;
-    font-size: clamp(0.4rem, 1.6vw, 0.46rem);
-    letter-spacing: 0.15em;
-  }
-
-  .shows-intro__meta i {
-    width: 1rem;
-  }
-
-  .shows-intro__heading {
-    margin-top: clamp(1.6rem, 6vw, 2.6rem);
-  }
-
-  .shows-intro__eyebrow {
-    margin-bottom: 0.8rem;
-    font-size: clamp(0.44rem, 1.8vw, 0.5rem);
-    letter-spacing: 0.19em;
-  }
-
-  .shows-intro__heading h2 {
-    line-height: 0.84;
-  }
-
-  .shows-intro__heading h2 span {
-    font-size: clamp(3rem, 15vw, 5rem);
-    letter-spacing: -0.06em;
-  }
-
-  .shows-intro__heading h2 em {
-    display: block;
-    max-width: 100%;
-    margin-top: 0.14em;
-    margin-left: 0;
-    font-size: clamp(2.15rem, 10vw, 3.5rem);
-    white-space: normal;
-    line-height: 0.95;
-  }
-
-  .shows-intro__gallery {
-    position: relative;
-    inset: auto;
-    width: calc(100% - (var(--page-padding) * 2));
-    margin: 2rem auto 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.85rem;
-    z-index: 4;
-    pointer-events: none;
-  }
-
-  .shows-intro__photo,
-  .shows-intro__photo--left,
-  .shows-intro__photo--main,
-  .shows-intro__photo--right {
-    position: relative;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: auto;
-    width: 100%;
-    height: auto;
-    margin: 0;
-    transform: none !important;
-    opacity: 1 !important;
-    will-change: auto;
-    transition: none;
+  .shows-intro__photo--left {
+    height: calc(var(--shows-mobile-vh) * 0.22);
   }
 
   .shows-intro__photo--main {
-    grid-column: 1 / -1;
-    order: 1;
-    aspect-ratio: 4 / 5;
-  }
-
-  .shows-intro__photo--left {
-    order: 2;
-    aspect-ratio: 4 / 5;
+    height: calc(var(--shows-mobile-vh) * 0.29);
   }
 
   .shows-intro__photo--right {
-    order: 3;
-    aspect-ratio: 4 / 5;
+    height: calc(var(--shows-mobile-vh) * 0.2);
   }
 
-  /* STATEMENT */
+  /* =====================================================
+     EVENTS CANVAS
+     ===================================================== */
 
-  .shows-intro__scene--statement {
-    min-height: 100svh;
+  .shows-intro__events {
+    height: calc(var(--shows-mobile-vh) * 0.86);
+
+    max-height: 760px;
+  }
+
+  /* =====================================================
+     CENTRAL BEAM
+     ===================================================== */
+
+  .shows-intro__beam {
+    height: calc(var(--shows-mobile-vh) * 0.72);
+  }
+
+  .shows-intro__beam::before {
+    /*
+     * Antes había height: 100vh heredado
+     * del desktop.
+     */
+    height: var(--shows-mobile-vh);
+  }
+
+  /* =====================================================
+     INTRO PHOTO EXIT
+     =====================================================
+
+     Eliminamos también vh de los transforms.
+     ===================================================== */
+
+  .shows-intro:not([data-mobile-stage="intro"]) .shows-intro__photo--left {
+    transform: translate3d(-18vw, calc(var(--shows-mobile-vh) * 0.04), 0)
+      rotate(-3deg);
+
+    opacity: 0;
+  }
+
+  .shows-intro:not([data-mobile-stage="intro"]) .shows-intro__photo--main {
+    transform: translate3d(-50%, calc(var(--shows-mobile-vh) * 0.12), 0);
+
+    opacity: 0;
+  }
+
+  .shows-intro:not([data-mobile-stage="intro"]) .shows-intro__photo--right {
+    transform: translate3d(18vw, calc(var(--shows-mobile-vh) * 0.04), 0)
+      rotate(3deg);
+
+    opacity: 0;
+  }
+
+  /* =====================================================
+     BASE
+     ===================================================== */
+
+  .shows-intro__scene {
+    opacity: 0;
+
+    transform: none !important;
+
+    will-change: opacity;
+
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* =====================================================
+     AMBIENT LIGHT
+     ===================================================== */
+
+  .shows-intro__ambient {
+    /*
+     * En móvil no hacemos que los glows
+     * respiren siguiendo cada pixel de scroll.
+     */
+
+    opacity: 0.35 !important;
+
+    will-change: auto;
+  }
+
+  /* =====================================================
+     GRAIN
+     ===================================================== */
+
+  .shows-intro__grain {
+    mix-blend-mode: normal;
+
+    opacity: 0.02;
+
+    will-change: auto;
+  }
+
+  /* =====================================================
+     CENTRAL BEAM
+     ===================================================== */
+
+  .shows-intro__beam {
+    /*
+     * Este elemento era uno de los más caros:
+     *
+     * height variable
+     * blur
+     * shadow
+     * opacity
+     *
+     * todo siguiendo scroll.
+     *
+     * En móvil lo convertimos en transición.
+     */
+
+    height: 72svh;
+
+    opacity: 0;
+
+    transform: translate(-50%, -50%);
+
+    transition: opacity 0.45s ease;
+
+    will-change: opacity;
+  }
+
+  .shows-intro__beam::before {
+    width: 68vw;
+
+    opacity: 0.65;
+  }
+
+  .shows-intro__beam span {
+    opacity: 0.8;
+  }
+
+  /* =====================================================
+     INTRO
+     ===================================================== */
+
+  .shows-intro[data-mobile-stage="intro"] .shows-intro__scene--intro {
+    opacity: 1;
+  }
+
+  /* -----------------------------------------------------
+     INTRO PHOTOS
+     ----------------------------------------------------- */
+
+  .shows-intro__photo {
+    /*
+   * No mantenemos permanentemente una layer
+   * GPU adicional en mobile.
+   */
+    will-change: auto;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    transition:
+      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.55s ease;
+  }
+
+  /*
+   * Estado normal de INTRO.
+   */
+
+  .shows-intro[data-mobile-stage="intro"] .shows-intro__photo--left {
+    transform: translate3d(0, 0, 0) rotate(-2deg);
+
+    opacity: 1;
+  }
+
+  .shows-intro[data-mobile-stage="intro"] .shows-intro__photo--main {
+    transform: translate3d(-50%, 0, 0);
+
+    opacity: 1;
+  }
+
+  .shows-intro[data-mobile-stage="intro"] .shows-intro__photo--right {
+    transform: translate3d(0, 0, 0) rotate(2deg);
+
+    opacity: 1;
+  }
+
+  /*
+   * Cuando salimos del intro las fotos
+   * se separan suavemente.
+   *
+   * Pero lo hacen UNA VEZ,
+   * no siguiendo el dedo.
+   */
+
+  .shows-intro:not([data-mobile-stage="intro"]) .shows-intro__photo--left {
+    transform: translate3d(-18vw, 4vh, 0) rotate(-3deg);
+
+    opacity: 0;
+  }
+
+  .shows-intro:not([data-mobile-stage="intro"]) .shows-intro__photo--main {
+    transform: translate3d(-50%, 12vh, 0);
+
+    opacity: 0;
+  }
+
+  .shows-intro:not([data-mobile-stage="intro"]) .shows-intro__photo--right {
+    transform: translate3d(18vw, 4vh, 0) rotate(3deg);
+
+    opacity: 0;
+  }
+
+  /* =====================================================
+     STATEMENT
+     ===================================================== */
+
+  .shows-intro[data-mobile-stage="statement"] .shows-intro__scene--statement {
+    opacity: 1;
   }
 
   .shows-intro__statement {
-    width: calc(100% - (var(--page-padding) * 2));
-    margin: 0 auto;
     transform: none;
-    opacity: 1 !important;
-    will-change: auto;
-    transition: none;
+
+    opacity: 0;
+
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+    will-change: opacity;
+
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
   }
 
-  .shows-intro__statement-small {
-    margin-bottom: 1.2rem;
-    font-size: clamp(0.44rem, 1.7vw, 0.5rem);
-    letter-spacing: 0.19em;
+  /* =====================================================
+     BEAM DURING TRANSITION
+     ===================================================== */
+
+  .shows-intro[data-mobile-stage="statement"] .shows-intro__beam {
+    opacity: 0.65;
   }
 
-  .shows-intro__statement p {
-    font-size: clamp(2.2rem, 10vw, 3.6rem);
-    line-height: 0.88;
-    letter-spacing: -0.055em;
+  .shows-intro[data-mobile-stage="events"] .shows-intro__beam {
+    opacity: 0.18;
   }
 
-  .shows-intro__statement-second {
-    margin-top: 0.35em !important;
-    margin-left: 0 !important;
-  }
+  /* =====================================================
+     EVENTS
+     ===================================================== */
 
-  /* EVENTS */
-
-  .shows-intro__scene--events {
-    min-height: auto;
-    display: block;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+  .shows-intro[data-mobile-stage="events"] .shows-intro__scene--events {
+    opacity: 1;
   }
 
   .shows-intro__events {
-    position: relative;
-    width: calc(100% - (var(--page-padding) * 2));
-    height: auto;
-    min-height: 0;
-    max-height: none;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
+    /*
+     * El canvas permanece fijo.
+     */
+
     transform: none;
+
     will-change: auto;
   }
 
-  .shows-intro__events-label {
-    position: relative;
-    top: auto;
-    left: auto;
-    display: block;
-    margin-bottom: 0.2rem;
-    font-size: clamp(0.42rem, 1.6vw, 0.48rem);
-    letter-spacing: 0.17em;
-  }
+  /* =====================================================
+     EVENT CARDS
+     ===================================================== */
 
-  .shows-intro__event-card,
-  .shows-intro__event-card--music,
-  .shows-intro__event-card--corporate,
-  .shows-intro__event-card--special {
-    position: relative;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: auto;
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    margin: 0;
-    opacity: 1 !important;
+  .shows-intro__event-card {
+    /*
+     * MUY IMPORTANTE:
+     *
+     * ningún article se mueve en mobile.
+     */
+
     transform: none !important;
-    pointer-events: auto;
-    transition: none;
+
+    opacity: 0;
+
+    transition: opacity 0.5s ease;
+  }
+
+  /* =====================================================
+     EVENT PHOTOS
+     ===================================================== */
+
+  .shows-intro__event-photo {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    /*
+   * Evitamos capas GPU permanentes.
+   */
     will-change: auto;
+
+    opacity: 0;
+
+    transition:
+      transform 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.48s ease;
   }
 
-  .shows-intro__event-card::after,
-  .shows-intro__event-card--music::after,
-  .shows-intro__event-card--corporate::after,
-  .shows-intro__event-card--special::after {
-    display: none;
-  }
+  /* =====================================================
+     MUSIC
+     ===================================================== */
 
-  .shows-intro__event-copy,
-  .shows-intro__event-card--music .shows-intro__event-copy,
-  .shows-intro__event-card--corporate .shows-intro__event-copy,
-  .shows-intro__event-card--special .shows-intro__event-copy {
-    position: relative;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: auto;
-    width: 100%;
-    padding-left: 0;
+  .shows-intro__event-card--music {
     transform: none !important;
-    will-change: auto;
   }
 
-  .shows-intro__event-number {
-    margin-bottom: 0.35rem;
-    font-size: 0.55rem;
+  .shows-intro__event-card--music .shows-intro__event-photo {
+    transform: translate3d(0, 2.5rem, 0);
   }
 
-  .shows-intro__event-copy strong,
-  .shows-intro__event-card--corporate .shows-intro__event-copy strong {
-    font-size: clamp(1.8rem, 8vw, 2.8rem);
-    line-height: 0.82;
-    letter-spacing: -0.055em;
+  .shows-intro.mobile-show-music .shows-intro__event-card--music {
+    opacity: 1;
   }
 
-  .shows-intro__event-tag {
-    margin-top: 0.5rem;
-    font-size: clamp(0.42rem, 1.7vw, 0.5rem);
-    line-height: 1.35;
-    letter-spacing: 0.08em;
-    white-space: normal;
-    opacity: 0.78;
+  .shows-intro.mobile-show-music
+    .shows-intro__event-card--music
+    .shows-intro__event-photo {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
   }
 
-  .shows-intro__event-photo,
-  .shows-intro__event-card--music .shows-intro__event-photo,
-  .shows-intro__event-card--corporate .shows-intro__event-photo,
-  .shows-intro__event-card--special .shows-intro__event-photo {
-    position: relative;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: auto;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 5;
-    margin-top: 0.85rem;
+  /* =====================================================
+     CORPORATE
+     ===================================================== */
+
+  .shows-intro__event-card--corporate {
     transform: none !important;
-    opacity: 1 !important;
-    will-change: auto;
-    clip-path: none;
-    transition: none;
-  }
-
-  .shows-intro__event-photo img {
-    object-position: center center !important;
-  }
-
-  .shows-intro__event-card--music,
-  .shows-intro__event-card--corporate,
-  .shows-intro__event-card--special {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .shows-intro__event-card--corporate .shows-intro__event-copy {
-    order: 1;
   }
 
   .shows-intro__event-card--corporate .shows-intro__event-photo {
-    order: 2;
+    transform: translate3d(-2.5rem, 0, 0);
   }
 
-  /* CTA */
+  .shows-intro.mobile-show-corporate .shows-intro__event-card--corporate {
+    opacity: 1;
+  }
 
-  .shows-intro__scene--cta {
-    min-height: 100svh;
-    padding-top: 4rem;
-    padding-bottom: 5rem;
+  .shows-intro.mobile-show-corporate
+    .shows-intro__event-card--corporate
+    .shows-intro__event-photo {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+
+  /* =====================================================
+     SPECIAL
+     ===================================================== */
+
+  .shows-intro__event-card--special {
+    transform: none !important;
+  }
+
+  .shows-intro__event-card--special .shows-intro__event-photo {
+    transform: translate3d(0, 2.5rem, 0);
+  }
+
+  .shows-intro.mobile-show-special .shows-intro__event-card--special {
+    opacity: 1;
+  }
+
+  .shows-intro.mobile-show-special
+    .shows-intro__event-card--special
+    .shows-intro__event-photo {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+
+  /* =====================================================
+     EVENT TEXT
+     ===================================================== */
+
+  .shows-intro__event-copy {
+    /*
+     * TEXTO COMPLETAMENTE ESTABLE.
+     *
+     * Nada de translateZ ni transform dinámico.
+     */
+
+    transform: none !important;
+
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+
+    will-change: auto;
+  }
+
+  /* =====================================================
+     CONNECTING LINES
+     ===================================================== */
+
+  .shows-intro__event-line {
+    opacity: 0;
+
+    transition: opacity 0.5s ease;
+
+    will-change: opacity;
+  }
+
+  .shows-intro.mobile-show-corporate .shows-intro__event-line--one {
+    opacity: 0.45;
+  }
+
+  .shows-intro.mobile-show-special .shows-intro__event-line--two {
+    opacity: 0.45;
+  }
+
+  /* =====================================================
+     CTA
+     ===================================================== */
+
+  .shows-intro[data-mobile-stage="cta"] .shows-intro__scene--cta {
+    opacity: 1;
   }
 
   .shows-intro__cta {
-    width: calc(100% - (var(--page-padding) * 2));
-    margin: 0 auto;
-    text-align: center;
     transform: none;
-    opacity: 1 !important;
+
+    opacity: 0;
+
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+
+    will-change: opacity;
+
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+  }
+
+  .shows-intro[data-mobile-stage="cta"] .shows-intro__cta {
+    opacity: 1;
+  }
+
+  .shows-intro[data-mobile-stage="cta"] .shows-intro__cta {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+
+  /* =====================================================
+     TEXT RENDERING STABILITY
+     ===================================================== */
+
+  .shows-intro__heading,
+  .shows-intro__meta,
+  .shows-intro__event-copy,
+  .shows-intro__counter {
+    transform: none;
+
     will-change: auto;
-    transition: none;
-  }
 
-  .shows-intro__cta > span {
-    margin-bottom: 1.25rem;
-    font-size: clamp(0.44rem, 1.7vw, 0.5rem);
-    letter-spacing: 0.2em;
-  }
-
-  .shows-intro__cta h3 {
-    font-size: clamp(2.6rem, 11vw, 4.2rem);
-    line-height: 0.84;
-    letter-spacing: -0.055em;
-  }
-
-  .shows-intro__cta p {
-    width: min(100%, 27rem);
-    margin: 1.4rem auto;
-    font-size: clamp(0.9rem, 3.6vw, 1rem);
-    line-height: 1.6;
-  }
-
-  .shows-intro__cta p br {
-    display: none;
-  }
-
-  .shows-intro__cta a {
-    gap: 0.9rem;
-    padding-block: 0.75rem;
-    font-size: clamp(0.46rem, 1.8vw, 0.54rem);
-    letter-spacing: 0.14em;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
   }
 }
-
 /* =========================================
-
    REDUCED MOTION
-
    ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
