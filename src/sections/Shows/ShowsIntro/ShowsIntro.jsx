@@ -30,79 +30,307 @@ export default function ShowsIntro() {
 
     if (!section) return;
 
+    const stage = section.querySelector(".shows-intro__sticky");
+
     const mobileMedia = window.matchMedia(
       "(max-width: 1024px) and (pointer: coarse), (max-width: 700px)"
     );
 
     let ticking = false;
+    let mobileHeight = 0;
+
+    let lastStage = "";
+    let lastMusic = false;
+    let lastCorporate = false;
+    let lastSpecial = false;
 
     const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
-    const clearMobileState = () => {
-      section.style.removeProperty("--shows-progress");
+    /* =========================================================
+       MOBILE VIEWPORT
+       =========================================================
+
+       Guardamos una altura estable del teléfono.
+       No la recalculamos durante scroll, porque las barras del
+       navegador pueden cambiar window.innerHeight mientras se
+       mueve la página.
+    ========================================================= */
+
+    const setMobileHeight = () => {
+      if (!mobileMedia.matches) {
+        mobileHeight = 0;
+        section.style.removeProperty("--shows-mobile-height");
+        return;
+      }
+
+      mobileHeight = Math.round(
+        window.visualViewport?.height ||
+          window.innerHeight ||
+          document.documentElement.clientHeight
+      );
+
+      section.style.setProperty("--shows-mobile-height", `${mobileHeight}px`);
+    };
+
+    /* =========================================================
+       PROGRESS
+       ========================================================= */
+
+    const getProgress = () => {
+      const rect = section.getBoundingClientRect();
+
+      const viewportHeight = mobileMedia.matches
+        ? mobileHeight || window.innerHeight
+        : stage?.offsetHeight || document.documentElement.clientHeight;
+
+      const totalScroll = Math.max(1, section.offsetHeight - viewportHeight);
+
+      const scrolled = clamp(-rect.top, 0, totalScroll);
+
+      return {
+        progress: scrolled / totalScroll,
+        scrolled,
+        totalScroll,
+        rect,
+      };
+    };
+
+    /* =========================================================
+       DESKTOP / NOTEBOOK
+       ========================================================= */
+
+    const updateDesktop = (progress) => {
+      section.style.setProperty("--shows-progress", progress.toFixed(5));
+
+      section.classList.remove("is-mobile-pinned", "is-mobile-ended");
+
       section.removeAttribute("data-mobile-stage");
+
       section.classList.remove(
         "mobile-show-music",
         "mobile-show-corporate",
         "mobile-show-special"
       );
+
+      lastStage = "";
+      lastMusic = false;
+      lastCorporate = false;
+      lastSpecial = false;
     };
 
-    const updateDesktop = () => {
-      const rect = section.getBoundingClientRect();
-      const viewportHeight =
-        window.innerHeight || document.documentElement.clientHeight;
+    /* =========================================================
+       MOBILE — MANUAL PIN
+       =========================================================
 
-      const totalScroll = Math.max(1, section.offsetHeight - viewportHeight);
+       NO usamos position: sticky.
 
-      const scrolled = clamp(-rect.top, 0, totalScroll);
-      const progress = scrolled / totalScroll;
+       BEFORE  -> el escenario queda absolute arriba.
+       ACTIVE  -> el escenario pasa a position: fixed.
+       END     -> el escenario queda absolute abajo.
 
-      section.style.setProperty("--shows-progress", progress.toFixed(5));
+       Visualmente conserva el mismo efecto de sección fijada,
+       pero eliminamos el sticky que causaba el rebote.
+    ========================================================= */
+
+    const updateMobilePin = (scrolled, totalScroll, rect) => {
+      const before = rect.top > 0;
+      const ended = scrolled >= totalScroll && rect.top <= 0;
+
+      if (before) {
+        section.classList.remove("is-mobile-pinned", "is-mobile-ended");
+        return;
+      }
+
+      if (ended) {
+        section.classList.remove("is-mobile-pinned");
+        section.classList.add("is-mobile-ended");
+        return;
+      }
+
+      section.classList.remove("is-mobile-ended");
+      section.classList.add("is-mobile-pinned");
     };
+
+    /* =========================================================
+       MOBILE — SAME SCENE LOGIC AS BEFORE
+       ========================================================= */
+
+    const updateMobile = (progress, scrolled, totalScroll, rect) => {
+      updateMobilePin(scrolled, totalScroll, rect);
+
+      let currentStage = lastStage || "intro";
+
+      /* INTRO ↔ STATEMENT */
+
+      if (currentStage === "intro" && progress >= 0.19) {
+        currentStage = "statement";
+      }
+
+      if (currentStage === "statement" && progress <= 0.16) {
+        currentStage = "intro";
+      }
+
+      /* STATEMENT ↔ EVENTS */
+
+      if (currentStage === "statement" && progress >= 0.49) {
+        currentStage = "events";
+      }
+
+      if (currentStage === "events" && progress <= 0.45) {
+        currentStage = "statement";
+      }
+
+      /* EVENTS ↔ CTA */
+
+      if (currentStage === "events" && progress >= 0.89) {
+        currentStage = "cta";
+      }
+
+      if (currentStage === "cta" && progress <= 0.85) {
+        currentStage = "events";
+      }
+
+      /* UPDATE STAGE */
+
+      if (currentStage !== lastStage) {
+        section.dataset.mobileStage = currentStage;
+        lastStage = currentStage;
+      }
+
+      /* EVENTOS PROGRESIVOS */
+
+      let showMusic = lastMusic;
+      let showCorporate = lastCorporate;
+      let showSpecial = lastSpecial;
+
+      if (currentStage === "events") {
+        if (!showMusic && progress >= 0.49) {
+          showMusic = true;
+        }
+
+        if (!showCorporate && progress >= 0.56) {
+          showCorporate = true;
+        }
+
+        if (!showSpecial && progress >= 0.64) {
+          showSpecial = true;
+        }
+
+        if (showSpecial && progress <= 0.61) {
+          showSpecial = false;
+        }
+
+        if (showCorporate && progress <= 0.53) {
+          showCorporate = false;
+        }
+
+        if (showMusic && progress <= 0.46) {
+          showMusic = false;
+        }
+      } else {
+        showMusic = false;
+        showCorporate = false;
+        showSpecial = false;
+      }
+
+      if (showMusic !== lastMusic) {
+        section.classList.toggle("mobile-show-music", showMusic);
+        lastMusic = showMusic;
+      }
+
+      if (showCorporate !== lastCorporate) {
+        section.classList.toggle("mobile-show-corporate", showCorporate);
+        lastCorporate = showCorporate;
+      }
+
+      if (showSpecial !== lastSpecial) {
+        section.classList.toggle("mobile-show-special", showSpecial);
+        lastSpecial = showSpecial;
+      }
+    };
+
+    /* =========================================================
+       UPDATE
+       ========================================================= */
 
     const update = () => {
+      const { progress, scrolled, totalScroll, rect } = getProgress();
+
       if (mobileMedia.matches) {
-        clearMobileState();
+        updateMobile(progress, scrolled, totalScroll, rect);
       } else {
-        updateDesktop();
+        updateDesktop(progress);
       }
 
       ticking = false;
     };
 
     const onScroll = () => {
-      if (mobileMedia.matches) return;
       if (ticking) return;
 
       ticking = true;
       window.requestAnimationFrame(update);
     };
 
+    /* =========================================================
+       RESIZE
+       =========================================================
+
+       En desktop recalculamos normalmente.
+
+       En mobile ignoramos resize durante el scroll porque las
+       barras del navegador disparan resize. La altura mobile se
+       vuelve a medir solamente al cambiar orientación o media.
+    ========================================================= */
+
     const onResize = () => {
+      if (mobileMedia.matches) return;
       window.requestAnimationFrame(update);
     };
 
+    const onOrientationChange = () => {
+      window.setTimeout(() => {
+        setMobileHeight();
+        window.requestAnimationFrame(update);
+      }, 250);
+    };
+
+    const onMediaChange = () => {
+      setMobileHeight();
+      window.requestAnimationFrame(update);
+    };
+
+    /* =========================================================
+       INITIALIZE
+       ========================================================= */
+
+    setMobileHeight();
     update();
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize);
+    window.addEventListener("scroll", onScroll, {
+      passive: true,
+    });
+
+    window.addEventListener("resize", onResize, {
+      passive: true,
+    });
+
+    window.addEventListener("orientationchange", onOrientationChange);
 
     if (mobileMedia.addEventListener) {
-      mobileMedia.addEventListener("change", onResize);
-    } else {
-      mobileMedia.addListener(onResize);
+      mobileMedia.addEventListener("change", onMediaChange);
     }
 
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("orientationchange", onOrientationChange);
 
       if (mobileMedia.removeEventListener) {
-        mobileMedia.removeEventListener("change", onResize);
-      } else {
-        mobileMedia.removeListener(onResize);
+        mobileMedia.removeEventListener("change", onMediaChange);
       }
+
+      section.classList.remove("is-mobile-pinned", "is-mobile-ended");
     };
   }, []);
 
