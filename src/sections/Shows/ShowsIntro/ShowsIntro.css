@@ -2114,6 +2114,425 @@
   }
 }
 
+/* =========================================================
+   MOBILE — STABLE SCROLL EXPERIENCE
+   =========================================================
+
+   En móviles reales NO seguimos el scroll pixel a pixel.
+
+   El scroll solamente cambia de escena.
+   Las animaciones las ejecuta CSS mediante transitions.
+
+   Esto evita:
+   - subpixel jitter
+   - text rasterization jitter
+   - sticky + transform repaint
+   - clip-path recalculado continuamente
+   ========================================================= */
+
+@media (max-width: 700px) {
+  /* =====================================================
+     BASE
+     ===================================================== */
+
+  .shows-intro__scene {
+    opacity: 0;
+
+    transform: none !important;
+
+    will-change: opacity;
+
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* =====================================================
+     AMBIENT LIGHT
+     ===================================================== */
+
+  .shows-intro__ambient {
+    /*
+     * En móvil no hacemos que los glows
+     * respiren siguiendo cada pixel de scroll.
+     */
+
+    opacity: 0.35 !important;
+
+    will-change: auto;
+  }
+
+  /* =====================================================
+     GRAIN
+     ===================================================== */
+
+  .shows-intro__grain {
+    mix-blend-mode: normal;
+
+    opacity: 0.02;
+
+    will-change: auto;
+  }
+
+  /* =====================================================
+     CENTRAL BEAM
+     ===================================================== */
+
+  .shows-intro__beam {
+    /*
+     * Este elemento era uno de los más caros:
+     *
+     * height variable
+     * blur
+     * shadow
+     * opacity
+     *
+     * todo siguiendo scroll.
+     *
+     * En móvil lo convertimos en transición.
+     */
+
+    height: 72svh;
+
+    opacity: 0;
+
+    transform: translate(-50%, -50%);
+
+    transition: opacity 0.45s ease;
+
+    will-change: opacity;
+  }
+
+  .shows-intro__beam::before {
+    width: 68vw;
+
+    opacity: 0.65;
+  }
+
+  .shows-intro__beam span {
+    opacity: 0.8;
+  }
+
+  /* =====================================================
+     INTRO
+     ===================================================== */
+
+  .shows-intro[data-mobile-stage="intro"] .shows-intro__scene--intro {
+    opacity: 1;
+  }
+
+  /* -----------------------------------------------------
+     INTRO PHOTOS
+     ----------------------------------------------------- */
+
+  .shows-intro__photo {
+    will-change: transform, opacity;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    transition:
+      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.55s ease;
+  }
+
+  /*
+   * Estado normal de INTRO.
+   */
+
+  .shows-intro[data-mobile-stage="intro"] .shows-intro__photo--left {
+    transform: translate3d(0, 0, 0) rotate(-2deg);
+
+    opacity: 1;
+  }
+
+  .shows-intro[data-mobile-stage="intro"] .shows-intro__photo--main {
+    transform: translate3d(-50%, 0, 0);
+
+    opacity: 1;
+  }
+
+  .shows-intro[data-mobile-stage="intro"] .shows-intro__photo--right {
+    transform: translate3d(0, 0, 0) rotate(2deg);
+
+    opacity: 1;
+  }
+
+  /*
+   * Cuando salimos del intro las fotos
+   * se separan suavemente.
+   *
+   * Pero lo hacen UNA VEZ,
+   * no siguiendo el dedo.
+   */
+
+  .shows-intro:not([data-mobile-stage="intro"]) .shows-intro__photo--left {
+    transform: translate3d(-18vw, 4vh, 0) rotate(-3deg);
+
+    opacity: 0;
+  }
+
+  .shows-intro:not([data-mobile-stage="intro"]) .shows-intro__photo--main {
+    transform: translate3d(-50%, 12vh, 0);
+
+    opacity: 0;
+  }
+
+  .shows-intro:not([data-mobile-stage="intro"]) .shows-intro__photo--right {
+    transform: translate3d(18vw, 4vh, 0) rotate(3deg);
+
+    opacity: 0;
+  }
+
+  /* =====================================================
+     STATEMENT
+     ===================================================== */
+
+  .shows-intro[data-mobile-stage="statement"] .shows-intro__scene--statement {
+    opacity: 1;
+  }
+
+  .shows-intro__statement {
+    transform: translate3d(0, 1.5rem, 0);
+
+    opacity: 0;
+
+    transition:
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.55s ease;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .shows-intro[data-mobile-stage="statement"] .shows-intro__statement {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+
+  /* =====================================================
+     BEAM DURING TRANSITION
+     ===================================================== */
+
+  .shows-intro[data-mobile-stage="statement"] .shows-intro__beam {
+    opacity: 0.65;
+  }
+
+  .shows-intro[data-mobile-stage="events"] .shows-intro__beam {
+    opacity: 0.18;
+  }
+
+  /* =====================================================
+     EVENTS
+     ===================================================== */
+
+  .shows-intro[data-mobile-stage="events"] .shows-intro__scene--events {
+    opacity: 1;
+  }
+
+  .shows-intro__events {
+    /*
+     * El canvas permanece fijo.
+     */
+
+    transform: none;
+
+    will-change: auto;
+  }
+
+  /* =====================================================
+     EVENT CARDS
+     ===================================================== */
+
+  .shows-intro__event-card {
+    /*
+     * MUY IMPORTANTE:
+     *
+     * ningún article se mueve en mobile.
+     */
+
+    transform: none !important;
+
+    opacity: 0;
+
+    transition: opacity 0.5s ease;
+  }
+
+  /* =====================================================
+     EVENT PHOTOS
+     ===================================================== */
+
+  .shows-intro__event-photo {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    will-change: transform, opacity;
+
+    opacity: 0;
+
+    transition:
+      transform 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.48s ease;
+  }
+
+  /* =====================================================
+     MUSIC
+     ===================================================== */
+
+  .shows-intro__event-card--music {
+    transform: none !important;
+  }
+
+  .shows-intro__event-card--music .shows-intro__event-photo {
+    transform: translate3d(0, 2.5rem, 0);
+  }
+
+  .shows-intro.mobile-show-music .shows-intro__event-card--music {
+    opacity: 1;
+  }
+
+  .shows-intro.mobile-show-music
+    .shows-intro__event-card--music
+    .shows-intro__event-photo {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+
+  /* =====================================================
+     CORPORATE
+     ===================================================== */
+
+  .shows-intro__event-card--corporate {
+    transform: none !important;
+  }
+
+  .shows-intro__event-card--corporate .shows-intro__event-photo {
+    transform: translate3d(-2.5rem, 0, 0);
+  }
+
+  .shows-intro.mobile-show-corporate .shows-intro__event-card--corporate {
+    opacity: 1;
+  }
+
+  .shows-intro.mobile-show-corporate
+    .shows-intro__event-card--corporate
+    .shows-intro__event-photo {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+
+  /* =====================================================
+     SPECIAL
+     ===================================================== */
+
+  .shows-intro__event-card--special {
+    transform: none !important;
+  }
+
+  .shows-intro__event-card--special .shows-intro__event-photo {
+    transform: translate3d(0, 2.5rem, 0);
+  }
+
+  .shows-intro.mobile-show-special .shows-intro__event-card--special {
+    opacity: 1;
+  }
+
+  .shows-intro.mobile-show-special
+    .shows-intro__event-card--special
+    .shows-intro__event-photo {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+
+  /* =====================================================
+     EVENT TEXT
+     ===================================================== */
+
+  .shows-intro__event-copy {
+    /*
+     * TEXTO COMPLETAMENTE ESTABLE.
+     *
+     * Nada de translateZ ni transform dinámico.
+     */
+
+    transform: none !important;
+
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+
+    will-change: auto;
+  }
+
+  /* =====================================================
+     CONNECTING LINES
+     ===================================================== */
+
+  .shows-intro__event-line {
+    opacity: 0;
+
+    transition: opacity 0.5s ease;
+
+    will-change: opacity;
+  }
+
+  .shows-intro.mobile-show-corporate .shows-intro__event-line--one {
+    opacity: 0.45;
+  }
+
+  .shows-intro.mobile-show-special .shows-intro__event-line--two {
+    opacity: 0.45;
+  }
+
+  /* =====================================================
+     CTA
+     ===================================================== */
+
+  .shows-intro[data-mobile-stage="cta"] .shows-intro__scene--cta {
+    opacity: 1;
+  }
+
+  .shows-intro__cta {
+    transform: translate3d(0, 1.5rem, 0);
+
+    opacity: 0;
+
+    transition:
+      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.55s ease;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .shows-intro[data-mobile-stage="cta"] .shows-intro__cta {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+
+  /* =====================================================
+     TEXT RENDERING STABILITY
+     ===================================================== */
+
+  .shows-intro__heading,
+  .shows-intro__meta,
+  .shows-intro__statement,
+  .shows-intro__event-copy,
+  .shows-intro__cta,
+  .shows-intro__counter {
+    /*
+     * Nada de will-change en texto.
+     *
+     * Safari suele rasterizar peor texto situado
+     * permanentemente en una capa transformada.
+     */
+
+    will-change: auto;
+  }
+}
+
 /* =========================================
    REDUCED MOTION
    ========================================= */

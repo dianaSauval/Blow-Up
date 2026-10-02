@@ -32,31 +32,140 @@ export default function ShowsIntro() {
 
     const sticky = section.querySelector(".shows-intro__sticky");
 
-    let ticking = false;
+    const mobileMedia = window.matchMedia("(max-width: 700px)");
 
-    const updateProgress = () => {
+    let ticking = false;
+    let lastStage = "";
+    let lastMusic = false;
+    let lastCorporate = false;
+    let lastSpecial = false;
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    const getProgress = () => {
       const rect = section.getBoundingClientRect();
 
       /*
-       * IMPORTANTE:
-       * No usamos window.innerHeight.
+       * Usamos la altura real del sticky.
        *
-       * En móviles reales innerHeight cambia cuando
-       * aparece/desaparece la barra del navegador.
-       *
-       * La altura del sticky, en cambio, viene de 100svh
-       * y permanece estable.
+       * De esta forma CSS y JS trabajan
+       * con la misma altura de viewport.
        */
       const viewportHeight =
         sticky?.offsetHeight || document.documentElement.clientHeight;
 
       const totalScroll = Math.max(1, section.offsetHeight - viewportHeight);
 
-      const scrolled = Math.min(Math.max(0, -rect.top), totalScroll);
+      const scrolled = clamp(-rect.top, 0, totalScroll);
 
-      const progress = scrolled / totalScroll;
+      return scrolled / totalScroll;
+    };
+
+    const updateDesktop = (progress) => {
+      /*
+       * DESKTOP / NOTEBOOK
+       *
+       * Conservamos la animación continua
+       * que ya funciona bien.
+       */
 
       section.style.setProperty("--shows-progress", progress.toFixed(5));
+
+      /*
+       * Limpiamos estados mobile.
+       */
+
+      section.removeAttribute("data-mobile-stage");
+
+      section.classList.remove(
+        "mobile-show-music",
+        "mobile-show-corporate",
+        "mobile-show-special"
+      );
+
+      lastStage = "";
+      lastMusic = false;
+      lastCorporate = false;
+      lastSpecial = false;
+    };
+
+    const updateMobile = (progress) => {
+      /*
+       * MOBILE
+       *
+       * Acá NO actualizamos --shows-progress
+       * en cada frame.
+       *
+       * Solamente cambiamos de estado cuando
+       * cruzamos determinados puntos.
+       */
+
+      let stage = "intro";
+
+      if (progress >= 0.18 && progress < 0.48) {
+        stage = "statement";
+      }
+
+      if (progress >= 0.48 && progress < 0.88) {
+        stage = "events";
+      }
+
+      if (progress >= 0.88) {
+        stage = "cta";
+      }
+
+      /*
+       * Solo tocamos el DOM si realmente
+       * cambió la escena.
+       */
+
+      if (stage !== lastStage) {
+        section.dataset.mobileStage = stage;
+
+        lastStage = stage;
+      }
+
+      /*
+       * Dentro de EVENTS hacemos aparecer
+       * las tres partes progresivamente.
+       *
+       * Nuevamente:
+       * no movemos nada píxel por píxel.
+       */
+
+      const showMusic = progress >= 0.49 && progress < 0.88;
+
+      const showCorporate = progress >= 0.56 && progress < 0.88;
+
+      const showSpecial = progress >= 0.64 && progress < 0.88;
+
+      if (showMusic !== lastMusic) {
+        section.classList.toggle("mobile-show-music", showMusic);
+
+        lastMusic = showMusic;
+      }
+
+      if (showCorporate !== lastCorporate) {
+        section.classList.toggle("mobile-show-corporate", showCorporate);
+
+        lastCorporate = showCorporate;
+      }
+
+      if (showSpecial !== lastSpecial) {
+        section.classList.toggle("mobile-show-special", showSpecial);
+
+        lastSpecial = showSpecial;
+      }
+    };
+
+    const update = () => {
+      const progress = getProgress();
+
+      if (mobileMedia.matches) {
+        updateMobile(progress);
+      } else {
+        updateDesktop(progress);
+      }
 
       ticking = false;
     };
@@ -66,31 +175,25 @@ export default function ShowsIntro() {
 
       ticking = true;
 
-      window.requestAnimationFrame(updateProgress);
+      window.requestAnimationFrame(update);
     };
 
-    updateProgress();
+    const onOrientationChange = () => {
+      window.requestAnimationFrame(update);
+    };
+
+    update();
 
     window.addEventListener("scroll", onScroll, {
       passive: true,
     });
 
-    /*
-     * MUY IMPORTANTE:
-     * NO escuchamos resize continuamente.
-     *
-     * En mobile el navegador dispara resize
-     * cuando muestra/oculta sus barras.
-     */
-    window.addEventListener("orientationchange", updateProgress);
+    window.addEventListener("orientationchange", onOrientationChange);
 
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("orientationchange", updateProgress);
 
-      if (ticking) {
-        ticking = false;
-      }
+      window.removeEventListener("orientationchange", onOrientationChange);
     };
   }, []);
 
