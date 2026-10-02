@@ -30,31 +30,91 @@ export default function ShowsIntro() {
 
     if (!section) return;
 
-    const sticky = section.querySelector(".shows-intro__sticky");
-
     const mobileMedia = window.matchMedia(
       "(max-width: 1024px) and (pointer: coarse), (max-width: 700px)"
     );
 
     let ticking = false;
+
     let lastStage = "";
+
     let lastMusic = false;
     let lastCorporate = false;
     let lastSpecial = false;
 
+    /*
+     * =========================================================
+     * MOBILE VIEWPORT LOCK
+     * =========================================================
+     *
+     * En un teléfono real, window.innerHeight puede cambiar
+     * constantemente cuando aparece/desaparece la barra
+     * del navegador.
+     *
+     * NO queremos que eso cambie las posiciones del diseño.
+     *
+     * Guardamos una altura estable en px.
+     */
+
+    const setStableMobileViewport = () => {
+      if (!mobileMedia.matches) {
+        section.style.removeProperty("--shows-mobile-vh");
+        return;
+      }
+
+      const viewportHeight = window.innerHeight;
+
+      section.style.setProperty(
+        "--shows-mobile-vh",
+        `${Math.round(viewportHeight)}px`
+      );
+    };
+
+    /*
+     * Se ejecuta una vez al montar.
+     *
+     * MUY IMPORTANTE:
+     * NO lo ejecutamos en cada resize,
+     * porque en móvil resize puede dispararse simplemente
+     * porque aparece/desaparece la barra del navegador.
+     */
+
+    setStableMobileViewport();
+
     const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    /*
+     * =========================================================
+     * PROGRESS
+     * =========================================================
+     */
 
     const getProgress = () => {
       const rect = section.getBoundingClientRect();
 
-      /*
-       * Usamos la altura real del sticky.
-       *
-       * De esta forma CSS y JS trabajan
-       * con la misma altura de viewport.
-       */
-      const viewportHeight =
-        sticky?.offsetHeight || document.documentElement.clientHeight;
+      let viewportHeight;
+
+      if (mobileMedia.matches) {
+        /*
+         * MOBILE
+         *
+         * Usamos la altura congelada.
+         */
+        const storedHeight = parseFloat(
+          getComputedStyle(section).getPropertyValue("--shows-mobile-vh")
+        );
+
+        viewportHeight =
+          storedHeight ||
+          window.innerHeight ||
+          document.documentElement.clientHeight;
+      } else {
+        /*
+         * DESKTOP / NOTEBOOK
+         */
+        viewportHeight =
+          document.documentElement.clientHeight || window.innerHeight;
+      }
 
       const totalScroll = Math.max(1, section.offsetHeight - viewportHeight);
 
@@ -63,12 +123,16 @@ export default function ShowsIntro() {
       return scrolled / totalScroll;
     };
 
+    /*
+     * =========================================================
+     * DESKTOP
+     * =========================================================
+     */
+
     const updateDesktop = (progress) => {
       /*
-       * DESKTOP / NOTEBOOK
-       *
-       * Conservamos la animación continua
-       * que ya funciona bien.
+       * Desktop continúa exactamente con
+       * la animación vinculada al scroll.
        */
 
       section.style.setProperty("--shows-progress", progress.toFixed(5));
@@ -86,27 +150,31 @@ export default function ShowsIntro() {
       );
 
       lastStage = "";
+
       lastMusic = false;
       lastCorporate = false;
       lastSpecial = false;
     };
 
-    const updateMobile = (progress) => {
-      /*
-       * MOBILE
-       *
-       * El scroll solamente selecciona estados.
-       * No controla transforms pixel por pixel.
-       *
-       * Además usamos histéresis para evitar
-       * cambios de escena cerca de los límites.
-       */
+    /*
+     * =========================================================
+     * MOBILE
+     * =========================================================
+     *
+     * En móvil NO escribimos --shows-progress.
+     *
+     * El scroll únicamente decide
+     * qué escena está activa.
+     */
 
+    const updateMobile = (progress) => {
       let stage = lastStage || "intro";
 
-      /* =====================================
-     INTRO ↔ STATEMENT
-     ===================================== */
+      /*
+       * =====================================
+       * INTRO ↔ STATEMENT
+       * =====================================
+       */
 
       if (stage === "intro" && progress >= 0.19) {
         stage = "statement";
@@ -116,9 +184,11 @@ export default function ShowsIntro() {
         stage = "intro";
       }
 
-      /* =====================================
-     STATEMENT ↔ EVENTS
-     ===================================== */
+      /*
+       * =====================================
+       * STATEMENT ↔ EVENTS
+       * =====================================
+       */
 
       if (stage === "statement" && progress >= 0.49) {
         stage = "events";
@@ -128,9 +198,11 @@ export default function ShowsIntro() {
         stage = "statement";
       }
 
-      /* =====================================
-     EVENTS ↔ CTA
-     ===================================== */
+      /*
+       * =====================================
+       * EVENTS ↔ CTA
+       * =====================================
+       */
 
       if (stage === "events" && progress >= 0.89) {
         stage = "cta";
@@ -140,9 +212,11 @@ export default function ShowsIntro() {
         stage = "events";
       }
 
-      /* =====================================
-     UPDATE STAGE
-     ===================================== */
+      /*
+       * =====================================
+       * UPDATE STAGE
+       * =====================================
+       */
 
       if (stage !== lastStage) {
         section.dataset.mobileStage = stage;
@@ -151,10 +225,9 @@ export default function ShowsIntro() {
       }
 
       /*
-       * Eventos progresivos.
-       *
-       * También dejamos pequeñas zonas
-       * diferentes para entrada/salida.
+       * =====================================
+       * EVENTOS
+       * =====================================
        */
 
       let showMusic = lastMusic;
@@ -162,13 +235,33 @@ export default function ShowsIntro() {
       let showSpecial = lastSpecial;
 
       if (stage === "events") {
+        /*
+         * MUSIC
+         */
+
         if (!showMusic && progress >= 0.49) {
           showMusic = true;
         }
 
+        if (showMusic && progress <= 0.46) {
+          showMusic = false;
+        }
+
+        /*
+         * CORPORATE
+         */
+
         if (!showCorporate && progress >= 0.56) {
           showCorporate = true;
         }
+
+        if (showCorporate && progress <= 0.53) {
+          showCorporate = false;
+        }
+
+        /*
+         * SPECIAL
+         */
 
         if (!showSpecial && progress >= 0.64) {
           showSpecial = true;
@@ -177,19 +270,16 @@ export default function ShowsIntro() {
         if (showSpecial && progress <= 0.61) {
           showSpecial = false;
         }
-
-        if (showCorporate && progress <= 0.53) {
-          showCorporate = false;
-        }
-
-        if (showMusic && progress <= 0.46) {
-          showMusic = false;
-        }
       } else {
         showMusic = false;
         showCorporate = false;
         showSpecial = false;
       }
+
+      /*
+       * Actualizamos DOM solamente
+       * cuando realmente cambia el estado.
+       */
 
       if (showMusic !== lastMusic) {
         section.classList.toggle("mobile-show-music", showMusic);
@@ -210,6 +300,12 @@ export default function ShowsIntro() {
       }
     };
 
+    /*
+     * =========================================================
+     * UPDATE
+     * =========================================================
+     */
+
     const update = () => {
       const progress = getProgress();
 
@@ -222,6 +318,12 @@ export default function ShowsIntro() {
       ticking = false;
     };
 
+    /*
+     * =========================================================
+     * SCROLL
+     * =========================================================
+     */
+
     const onScroll = () => {
       if (ticking) return;
 
@@ -230,9 +332,49 @@ export default function ShowsIntro() {
       window.requestAnimationFrame(update);
     };
 
+    /*
+     * =========================================================
+     * ORIENTATION
+     * =========================================================
+     *
+     * Esta es prácticamente la ÚNICA ocasión
+     * donde permitimos recalcular la altura mobile.
+     */
+
     const onOrientationChange = () => {
-      window.requestAnimationFrame(update);
+      /*
+       * Esperamos dos frames para que el navegador
+       * termine de actualizar la orientación.
+       */
+
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          setStableMobileViewport();
+
+          update();
+        });
+      });
     };
+
+    /*
+     * =========================================================
+     * MEDIA QUERY CHANGE
+     * =========================================================
+     *
+     * Sirve sobre todo al redimensionar desde desktop.
+     */
+
+    const onMediaChange = () => {
+      setStableMobileViewport();
+
+      update();
+    };
+
+    /*
+     * =========================================================
+     * INITIALIZE
+     * =========================================================
+     */
 
     update();
 
@@ -242,10 +384,24 @@ export default function ShowsIntro() {
 
     window.addEventListener("orientationchange", onOrientationChange);
 
+    if (mobileMedia.addEventListener) {
+      mobileMedia.addEventListener("change", onMediaChange);
+    }
+
+    /*
+     * =========================================================
+     * CLEANUP
+     * =========================================================
+     */
+
     return () => {
       window.removeEventListener("scroll", onScroll);
 
       window.removeEventListener("orientationchange", onOrientationChange);
+
+      if (mobileMedia.removeEventListener) {
+        mobileMedia.removeEventListener("change", onMediaChange);
+      }
     };
   }, []);
 

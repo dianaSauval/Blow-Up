@@ -1815,7 +1815,7 @@
 
 @media (max-width: 420px) {
   .shows-intro {
-    height: 565svh;
+    height: calc(var(--shows-mobile-vh) * 5.65);
   }
 
   /* ---------- INTRO ---------- */
@@ -1845,19 +1845,18 @@
   }
 
   .shows-intro__photo--left {
-    height: 20vh;
+    height: calc(var(--shows-mobile-vh) * 0.2);
   }
 
   .shows-intro__photo--main {
     width: 80%;
 
-    height: 27vh;
+    height: calc(var(--shows-mobile-vh) * 0.27);
   }
 
   .shows-intro__photo--right {
-    height: 19vh;
+    height: calc(var(--shows-mobile-vh) * 0.19);
   }
-
   /* ---------- STATEMENT ---------- */
 
   .shows-intro__statement-small {
@@ -1873,7 +1872,7 @@
   /* ---------- EVENTS ---------- */
 
   .shows-intro__events {
-    height: 84svh;
+    height: calc(var(--shows-mobile-vh) * 0.84);
 
     min-height: 520px;
   }
@@ -2079,6 +2078,132 @@
 
 @media (max-width: 1024px) and (pointer: coarse), (max-width: 700px) {
   /* =====================================================
+     MOBILE — LOCKED VIEWPORT
+     =====================================================
+
+     --shows-mobile-vh se establece desde JS UNA VEZ.
+
+     Por lo tanto, cuando Chrome / Safari muestran
+     u ocultan sus barras, esta sección NO cambia
+     de altura.
+
+     Este es el núcleo de la solución al rebote.
+     ===================================================== */
+
+  .shows-intro {
+    /*
+     * Fallback por si JS todavía no cargó.
+     */
+    --shows-mobile-vh: 100svh;
+
+    /*
+     * Antes:
+     * height: 560svh;
+     *
+     * Ahora:
+     * 5.6 × la altura inicial real del teléfono.
+     */
+    height: calc(var(--shows-mobile-vh) * 5.6);
+  }
+
+  .shows-intro__sticky {
+    /*
+     * NUNCA usamos vh/dvh aquí en mobile.
+     */
+    height: var(--shows-mobile-vh);
+
+    min-height: var(--shows-mobile-vh);
+    max-height: var(--shows-mobile-vh);
+
+    /*
+     * El sticky continúa funcionando,
+     * pero su caja ya no cambia de tamaño.
+     */
+    position: sticky;
+    top: 0;
+
+    overflow: hidden;
+
+    /*
+     * Reduce repaints raros del navegador.
+     */
+    contain: layout paint;
+  }
+
+  /* =====================================================
+     MOBILE — REMOVE DYNAMIC VIEWPORT UNITS
+     =====================================================
+
+     Dentro del sticky tampoco queremos tamaños
+     verticales dependientes de vh.
+     ===================================================== */
+
+  .shows-intro__photo--left {
+    height: calc(var(--shows-mobile-vh) * 0.22);
+  }
+
+  .shows-intro__photo--main {
+    height: calc(var(--shows-mobile-vh) * 0.29);
+  }
+
+  .shows-intro__photo--right {
+    height: calc(var(--shows-mobile-vh) * 0.2);
+  }
+
+  /* =====================================================
+     EVENTS CANVAS
+     ===================================================== */
+
+  .shows-intro__events {
+    height: calc(var(--shows-mobile-vh) * 0.86);
+
+    max-height: 760px;
+  }
+
+  /* =====================================================
+     CENTRAL BEAM
+     ===================================================== */
+
+  .shows-intro__beam {
+    height: calc(var(--shows-mobile-vh) * 0.72);
+  }
+
+  .shows-intro__beam::before {
+    /*
+     * Antes había height: 100vh heredado
+     * del desktop.
+     */
+    height: var(--shows-mobile-vh);
+  }
+
+  /* =====================================================
+     INTRO PHOTO EXIT
+     =====================================================
+
+     Eliminamos también vh de los transforms.
+     ===================================================== */
+
+  .shows-intro:not([data-mobile-stage="intro"]) .shows-intro__photo--left {
+    transform: translate3d(-18vw, calc(var(--shows-mobile-vh) * 0.04), 0)
+      rotate(-3deg);
+
+    opacity: 0;
+  }
+
+  .shows-intro:not([data-mobile-stage="intro"]) .shows-intro__photo--main {
+    transform: translate3d(-50%, calc(var(--shows-mobile-vh) * 0.12), 0);
+
+    opacity: 0;
+  }
+
+  .shows-intro:not([data-mobile-stage="intro"]) .shows-intro__photo--right {
+    transform: translate3d(18vw, calc(var(--shows-mobile-vh) * 0.04), 0)
+      rotate(3deg);
+
+    opacity: 0;
+  }
+
+  /* =====================================================
      BASE
      ===================================================== */
 
@@ -2171,7 +2296,11 @@
      ----------------------------------------------------- */
 
   .shows-intro__photo {
-    will-change: transform, opacity;
+    /*
+   * No mantenemos permanentemente una layer
+   * GPU adicional en mobile.
+   */
+    will-change: auto;
 
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -2250,22 +2379,6 @@
     -webkit-backface-visibility: visible;
   }
 
-  .shows-intro[data-mobile-stage="statement"] .shows-intro__statement {
-    opacity: 1;
-  }
-
-  .shows-intro[data-mobile-stage="statement"] .shows-intro__statement {
-    transform: translate3d(0, 0, 0);
-
-    opacity: 1;
-  }
-
-  .shows-intro[data-mobile-stage="statement"] .shows-intro__statement {
-    transform: translate3d(0, 0, 0);
-
-    opacity: 1;
-  }
-
   /* =====================================================
      BEAM DURING TRANSITION
      ===================================================== */
@@ -2322,7 +2435,10 @@
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 
-    will-change: transform, opacity;
+    /*
+   * Evitamos capas GPU permanentes.
+   */
+    will-change: auto;
 
     opacity: 0;
 
