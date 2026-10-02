@@ -32,7 +32,9 @@ export default function ShowsIntro() {
 
     const sticky = section.querySelector(".shows-intro__sticky");
 
-    const mobileMedia = window.matchMedia("(max-width: 700px)");
+    const mobileMedia = window.matchMedia(
+      "(hover: none) and (pointer: coarse)"
+    );
 
     let ticking = false;
     let lastStage = "";
@@ -354,7 +356,8 @@ export default function ShowsIntro() {
                 <img
                   src={EVENT_IMAGE_MUSIC}
                   alt="Fire performance at a live event"
-                  loading="lazy"
+                  loading="eager"
+                  decoding="async"
                 />
               </figure>
             </article>
@@ -366,7 +369,8 @@ export default function ShowsIntro() {
                 <img
                   src={EVENT_IMAGE_CORPORATE}
                   alt="Performers in a mirrored live entertainment experience"
-                  loading="lazy"
+                  loading="eager"
+                  decoding="async"
                 />
               </figure>
 
@@ -406,7 +410,8 @@ export default function ShowsIntro() {
                 <img
                   src={EVENT_IMAGE_SPECIAL}
                   alt="Acrobatic performance at an outdoor event"
-                  loading="lazy"
+                  loading="eager"
+                  decoding="async"
                 />
               </figure>
             </article>

@@ -1808,59 +1808,6 @@
   }
 }
 
-/* =========================================
-   MOBILE RENDERING STABILITY
-   Evita microtemblores de rasterizado
-   en móviles reales
-   ========================================= */
-
-@media (max-width: 700px) {
-  .shows-intro__sticky {
-    transform: translateZ(0);
-
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
-
-  .shows-intro__photo,
-  .shows-intro__event-photo {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-
-    transform-style: flat;
-
-    will-change: transform;
-  }
-
-  .shows-intro__heading,
-  .shows-intro__statement,
-  .shows-intro__event-copy,
-  .shows-intro__cta {
-    transform: translateZ(0);
-
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
-
-  /*
-   * En móvil evitamos promover escenas completas
-   * a capas GPU.
-   */
-  .shows-intro__scene {
-    will-change: opacity;
-  }
-
-  /*
-   * El grain con blend-mode sobre toda la pantalla
-   * puede generar repaints costosos.
-   */
-  .shows-intro__grain {
-    mix-blend-mode: normal;
-
-    opacity: 0.025;
-  }
-}
-
 /* =========================================================
    SMALL MOBILE
    <= 420px
@@ -2130,7 +2077,7 @@
    - clip-path recalculado continuamente
    ========================================================= */
 
-@media (max-width: 700px) {
+@media (hover: none) and (pointer: coarse) {
   /* =====================================================
      BASE
      ===================================================== */
@@ -2516,21 +2463,16 @@
      TEXT RENDERING STABILITY
      ===================================================== */
 
-  .shows-intro__heading,
-  .shows-intro__meta,
-  .shows-intro__statement,
-  .shows-intro__event-copy,
-  .shows-intro__cta,
-  .shows-intro__counter {
-    /*
-     * Nada de will-change en texto.
-     *
-     * Safari suele rasterizar peor texto situado
-     * permanentemente en una capa transformada.
-     */
+.shows-intro__heading,
+.shows-intro__meta,
+.shows-intro__event-copy,
+.shows-intro__counter {
+  transform: none;
 
-    will-change: auto;
-  }
+  will-change: auto;
+
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
 }
 
 /* =========================================
