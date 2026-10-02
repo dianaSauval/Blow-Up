@@ -30,19 +30,33 @@ export default function ShowsIntro() {
 
     if (!section) return;
 
+    const sticky = section.querySelector(".shows-intro__sticky");
+
     let ticking = false;
 
     const updateProgress = () => {
       const rect = section.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
 
-      const totalScroll = section.offsetHeight - viewportHeight;
+      /*
+       * IMPORTANTE:
+       * No usamos window.innerHeight.
+       *
+       * En móviles reales innerHeight cambia cuando
+       * aparece/desaparece la barra del navegador.
+       *
+       * La altura del sticky, en cambio, viene de 100svh
+       * y permanece estable.
+       */
+      const viewportHeight =
+        sticky?.offsetHeight || document.documentElement.clientHeight;
+
+      const totalScroll = Math.max(1, section.offsetHeight - viewportHeight);
 
       const scrolled = Math.min(Math.max(0, -rect.top), totalScroll);
 
-      const progress = totalScroll > 0 ? scrolled / totalScroll : 0;
+      const progress = scrolled / totalScroll;
 
-      section.style.setProperty("--shows-progress", progress.toString());
+      section.style.setProperty("--shows-progress", progress.toFixed(5));
 
       ticking = false;
     };
@@ -61,11 +75,22 @@ export default function ShowsIntro() {
       passive: true,
     });
 
-    window.addEventListener("resize", onScroll);
+    /*
+     * MUY IMPORTANTE:
+     * NO escuchamos resize continuamente.
+     *
+     * En mobile el navegador dispara resize
+     * cuando muestra/oculta sus barras.
+     */
+    window.addEventListener("orientationchange", updateProgress);
 
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("orientationchange", updateProgress);
+
+      if (ticking) {
+        ticking = false;
+      }
     };
   }, []);
 
@@ -124,7 +149,8 @@ export default function ShowsIntro() {
               <img
                 src={SHOW_IMAGE_1}
                 alt="Blow Up Company live performance"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
               />
             </figure>
 
@@ -132,7 +158,8 @@ export default function ShowsIntro() {
               <img
                 src={SHOW_IMAGE_3}
                 alt="Blow Up Company live entertainment"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
               />
             </figure>
 
@@ -140,7 +167,8 @@ export default function ShowsIntro() {
               <img
                 src={SHOW_IMAGE_2}
                 alt="Blow Up Company event performance"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
               />
             </figure>
           </div>

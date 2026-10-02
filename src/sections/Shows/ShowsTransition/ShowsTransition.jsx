@@ -10,34 +10,62 @@ export default function ShowsTransition() {
 
     if (!section) return;
 
+    let ticking = false;
+
+    /*
+     * Guardamos una altura estable.
+     *
+     * No queremos que cambie cuando aparece/desaparece
+     * la UI del navegador móvil.
+     */
+    let viewportHeight = window.innerHeight;
+
     const updateProgress = () => {
       const rect = section.getBoundingClientRect();
 
-      const viewportHeight = window.innerHeight;
-
       const start = viewportHeight * 0.92;
-
       const end = viewportHeight * 0.22;
 
       const distance = start - end;
-
       const travelled = start - rect.top;
 
       const progress = Math.min(Math.max(travelled / distance, 0), 1);
 
-      section.style.setProperty("--transition-progress", progress);
+      section.style.setProperty("--transition-progress", progress.toFixed(5));
+
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+
+      ticking = true;
+
+      window.requestAnimationFrame(updateProgress);
+    };
+
+    const onOrientationChange = () => {
+      /*
+       * Solo recalculamos la altura si realmente
+       * giró el dispositivo.
+       */
+      viewportHeight = window.innerHeight;
+
+      updateProgress();
     };
 
     updateProgress();
 
-    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("scroll", onScroll, {
+      passive: true,
+    });
 
-    window.addEventListener("resize", updateProgress);
+    window.addEventListener("orientationchange", onOrientationChange);
 
     return () => {
-      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("scroll", onScroll);
 
-      window.removeEventListener("resize", updateProgress);
+      window.removeEventListener("orientationchange", onOrientationChange);
     };
   }, []);
 

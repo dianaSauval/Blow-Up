@@ -392,6 +392,18 @@
     0 0 0 1px var(--shows-line);
 }
 
+.shows-intro__photo,
+.shows-intro__event-card,
+.shows-intro__scene {
+  will-change: transform, opacity;
+}
+
+.shows-intro__photo,
+.shows-intro__event-photo {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 .shows-intro__photo::after {
   content: "";
 
