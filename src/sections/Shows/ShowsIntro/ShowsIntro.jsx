@@ -33,7 +33,7 @@ export default function ShowsIntro() {
     const sticky = section.querySelector(".shows-intro__sticky");
 
     const mobileMedia = window.matchMedia(
-      "(hover: none) and (pointer: coarse)"
+      "(max-width: 1024px) and (pointer: coarse), (max-width: 700px)"
     );
 
     let ticking = false;
@@ -95,31 +95,54 @@ export default function ShowsIntro() {
       /*
        * MOBILE
        *
-       * Acá NO actualizamos --shows-progress
-       * en cada frame.
+       * El scroll solamente selecciona estados.
+       * No controla transforms pixel por pixel.
        *
-       * Solamente cambiamos de estado cuando
-       * cruzamos determinados puntos.
+       * Además usamos histéresis para evitar
+       * cambios de escena cerca de los límites.
        */
 
-      let stage = "intro";
+      let stage = lastStage || "intro";
 
-      if (progress >= 0.18 && progress < 0.48) {
+      /* =====================================
+     INTRO ↔ STATEMENT
+     ===================================== */
+
+      if (stage === "intro" && progress >= 0.19) {
         stage = "statement";
       }
 
-      if (progress >= 0.48 && progress < 0.88) {
+      if (stage === "statement" && progress <= 0.16) {
+        stage = "intro";
+      }
+
+      /* =====================================
+     STATEMENT ↔ EVENTS
+     ===================================== */
+
+      if (stage === "statement" && progress >= 0.49) {
         stage = "events";
       }
 
-      if (progress >= 0.88) {
+      if (stage === "events" && progress <= 0.45) {
+        stage = "statement";
+      }
+
+      /* =====================================
+     EVENTS ↔ CTA
+     ===================================== */
+
+      if (stage === "events" && progress >= 0.89) {
         stage = "cta";
       }
 
-      /*
-       * Solo tocamos el DOM si realmente
-       * cambió la escena.
-       */
+      if (stage === "cta" && progress <= 0.85) {
+        stage = "events";
+      }
+
+      /* =====================================
+     UPDATE STAGE
+     ===================================== */
 
       if (stage !== lastStage) {
         section.dataset.mobileStage = stage;
@@ -128,18 +151,45 @@ export default function ShowsIntro() {
       }
 
       /*
-       * Dentro de EVENTS hacemos aparecer
-       * las tres partes progresivamente.
+       * Eventos progresivos.
        *
-       * Nuevamente:
-       * no movemos nada píxel por píxel.
+       * También dejamos pequeñas zonas
+       * diferentes para entrada/salida.
        */
 
-      const showMusic = progress >= 0.49 && progress < 0.88;
+      let showMusic = lastMusic;
+      let showCorporate = lastCorporate;
+      let showSpecial = lastSpecial;
 
-      const showCorporate = progress >= 0.56 && progress < 0.88;
+      if (stage === "events") {
+        if (!showMusic && progress >= 0.49) {
+          showMusic = true;
+        }
 
-      const showSpecial = progress >= 0.64 && progress < 0.88;
+        if (!showCorporate && progress >= 0.56) {
+          showCorporate = true;
+        }
+
+        if (!showSpecial && progress >= 0.64) {
+          showSpecial = true;
+        }
+
+        if (showSpecial && progress <= 0.61) {
+          showSpecial = false;
+        }
+
+        if (showCorporate && progress <= 0.53) {
+          showCorporate = false;
+        }
+
+        if (showMusic && progress <= 0.46) {
+          showMusic = false;
+        }
+      } else {
+        showMusic = false;
+        showCorporate = false;
+        showSpecial = false;
+      }
 
       if (showMusic !== lastMusic) {
         section.classList.toggle("mobile-show-music", showMusic);
