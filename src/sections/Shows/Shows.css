@@ -86,3 +86,20 @@
 
   color: var(--entertainment-black);
 }
+
+/* =========================================================
+   DEBUG 01 — TODO QUIETO
+   ========================================================= */
+
+@media (max-width: 1024px) and (pointer: coarse), (max-width: 700px) {
+  .shows-intro *,
+  .shows-intro *::before,
+  .shows-intro *::after {
+    animation: none !important;
+    transition: none !important;
+
+    transform: none !important;
+
+    will-change: auto !important;
+  }
+}
