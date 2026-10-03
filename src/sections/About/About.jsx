@@ -122,11 +122,11 @@ export default function About() {
             {/* LEAD */}
 
             <p className="about__lead">
-              Blow Up es una compañía argentina de circo contemporáneo y danza
-              nacida en 2023, bajo la dirección y creación de
-              <strong> Micaela Moreno (Mikix)</strong> y
-              <strong> Mauro García (Corpo)</strong>, pareja y compañeros de
-              vida desde 2016.
+              Blow Up is an Argentine contemporary circus and dance company
+              founded in 2023, created and directed by
+              <strong> Micaela Moreno (Mikix)</strong> and
+              <strong> Mauro García (Corpo)</strong>, partners both on and off
+              stage since 2016.
             </p>
 
             {/* IMAGE */}
@@ -168,35 +168,40 @@ export default function About() {
             {/* BODY */}
 
             <div className="about__copy">
-              <p>
-                Blow Up se distingue por su compromiso profesional y la búsqueda
-                de un lenguaje propio. Con el Breaking y la cultura Hip-Hop como
-                eje fundamental de su identidad, todo lo que crean fusiona lo
-                urbano, el dinamismo y el espíritu comunitario.
-              </p>
+              {/* BODY */}
 
-              <p>
-                Su primera creación, <em>The Clay Artists</em> (2023), consolidó
-                esta impronta e incorporó rápidamente a la compañía en el
-                circuito internacional de festivales.
-              </p>
+              <div className="about__copy">
+                <p>
+                  Blow Up is defined by its professional approach and its
+                  ongoing search for a distinctive artistic language. With
+                  Breaking and Hip-Hop culture at the heart of its identity,
+                  every creation brings together urban influences, dynamic
+                  movement and a strong sense of community.
+                </p>
 
-              <p>
-                En constante evolución e innovación, la compañía invierte
-                continuamente en la calidad y contenido de sus producciones.
-                Muestra de este crecimiento es la ampliación de su elenco para
-                el nuevo espectáculo, <em>Freaky Tango</em>, sumando al equipo a
-                los artistas Martin de Oña (Choko Circo) y Víctor Amarilla
-                Machado.
-              </p>
+                <p>
+                  Their first creation, <em>The Clay Artists</em> (2023),
+                  established this artistic identity and quickly brought the
+                  company onto the international festival circuit.
+                </p>
 
-              <p>
-                Desde producciones para festivales y teatros hasta animaciones
-                artísticas y propuestas enfocadas en las niñeces, Blow Up diseña
-                experiencias escénicas originales, enérgicas y sorprendentes,
-                orientadas a conectar de forma genuina con todo tipo de
-                públicos.
-              </p>
+                <p>
+                  Constantly evolving and exploring new ideas, the company
+                  continues to invest in the quality and artistic depth of its
+                  productions. This growth is reflected in the expansion of the
+                  cast for its new show,
+                  <em> Freaky Tango</em>, welcoming artists Martin de Oña (Choko
+                  Circo) and Víctor Amarilla Machado to the team.
+                </p>
+
+                <p>
+                  From productions for festivals and theatres to artistic
+                  entertainment and performances created for young audiences,
+                  Blow Up develops original, energetic and unexpected stage
+                  experiences designed to connect genuinely with audiences of
+                  all kinds.
+                </p>
+              </div>
             </div>
 
             {/* CTA */}
