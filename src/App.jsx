@@ -9,6 +9,7 @@ import Contact from "./sections/Contact/Contact";
 
 import Footer from "./components/Footer/Footer";
 import ClayToFreakyTransition from "./sections/ClayToFreakyTransition/ClayToFreakyTransition";
+import About from "./sections/About/About";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <main>
         <Hero />
         <Productions />
+        <About />
         <ClayArtists />
         <ClayToFreakyTransition />
         <FreakyTango />
