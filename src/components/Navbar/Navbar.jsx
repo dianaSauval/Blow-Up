@@ -324,10 +324,6 @@ export default function Navbar() {
                 className="navbar__link-mark navbar__link-mark--circle"
                 aria-hidden="true"
               />
-
-              <span className="navbar__contact-arrow" aria-hidden="true">
-                ↗
-              </span>
             </a>
           </div>
 
