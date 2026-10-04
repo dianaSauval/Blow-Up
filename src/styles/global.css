@@ -1,15 +1,15 @@
 /* =========================================
    BLOW UP COMPANY — GLOBAL DESIGN SYSTEM
-   ========================================= */
+========================================= */
 
 /* =========================================
    VARIABLES
-   ========================================= */
+========================================= */
 
 :root {
   /* =======================================
      CORE PALETTE
-     ======================================= */
+  ======================================= */
 
   --color-bg: #f2e7d5;
   --color-bg-light: #fffdf8;
@@ -22,7 +22,7 @@
 
   /* =======================================
      BLOW UP — LOGO COLORS
-     ======================================= */
+  ======================================= */
 
   --blow-red: #f11f25;
   --blow-orange: #ff8617;
@@ -33,7 +33,7 @@
 
   /* =======================================
      SECTION IDENTITIES
-     ======================================= */
+  ======================================= */
 
   /* The Clay Artists */
 
@@ -64,29 +64,44 @@
 
   /* =======================================
      TYPOGRAPHY
-     ======================================= */
+  ======================================= */
 
   --font-primary: "Space Grotesk", Arial, Helvetica, sans-serif;
 
   --font-display: "Unbounded", Arial, Helvetica, sans-serif;
 
-  /* Font sizes */
+  /* =======================================
+     TYPOGRAPHY SCALE
 
-  --fs-xs: 0.75rem;
-  --fs-sm: 0.875rem;
-  --fs-base: 1rem;
-  --fs-md: 1.25rem;
-  --fs-lg: 1.75rem;
-  --fs-xl: 2.5rem;
-  --fs-2xl: 4rem;
+     Esta es la escala principal de toda
+     la web.
 
-  --fs-display: clamp(3rem, 7vw, 7.5rem);
+     Siempre que sea posible, las secciones
+     deberían utilizar estas variables en vez
+     de crear nuevos clamp().
+  ======================================= */
 
-  --fs-hero: clamp(4rem, 10vw, 11rem);
+  --fs-xs: clamp(0.68rem, 0.65vw, 0.75rem);
+
+  --fs-sm: clamp(0.78rem, 0.75vw, 0.9rem);
+
+  --fs-base: clamp(0.95rem, 0.9vw, 1rem);
+
+  --fs-md: clamp(1.05rem, 1.2vw, 1.25rem);
+
+  --fs-lg: clamp(1.3rem, 1.8vw, 1.7rem);
+
+  --fs-xl: clamp(1.6rem, 2.8vw, 2.6rem);
+
+  --fs-2xl: clamp(2.1rem, 4vw, 4rem);
+
+  --fs-display: clamp(1.85rem, calc(1.05rem + 3vw), 5.4rem);
+
+  --fs-hero: clamp(2.8rem, calc(1.4rem + 4.5vw), 8rem);
 
   /* =======================================
      SPACING
-     ======================================= */
+  ======================================= */
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -99,7 +114,7 @@
 
   /* =======================================
      LAYOUT
-     ======================================= */
+  ======================================= */
 
   --container-width: 1400px;
 
@@ -107,7 +122,7 @@
 
   /* =======================================
      BORDERS
-     ======================================= */
+  ======================================= */
 
   --radius-sm: 4px;
   --radius-md: 10px;
@@ -116,7 +131,7 @@
 
   /* =======================================
      LINES
-     ======================================= */
+  ======================================= */
 
   --line-dark: rgba(5, 5, 5, 0.16);
 
@@ -124,7 +139,7 @@
 
   /* =======================================
      ANIMATION
-     ======================================= */
+  ======================================= */
 
   --ease-blow: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -137,7 +152,7 @@
 
 /* =========================================
    RESET
-   ========================================= */
+========================================= */
 
 *,
 *::before,
@@ -171,7 +186,7 @@ body {
 
 /* =========================================
    TYPOGRAPHIC RESET
-   ========================================= */
+========================================= */
 
 h1,
 h2,
@@ -200,7 +215,7 @@ p {
 
 /* =========================================
    LINKS
-   ========================================= */
+========================================= */
 
 a {
   color: inherit;
@@ -210,7 +225,7 @@ a {
 
 /* =========================================
    FORM ELEMENTS
-   ========================================= */
+========================================= */
 
 button,
 input,
@@ -227,7 +242,7 @@ button {
 
 /* =========================================
    MEDIA
-   ========================================= */
+========================================= */
 
 img,
 picture,
@@ -243,7 +258,7 @@ img {
 
 /* =========================================
    GLOBAL LAYOUT
-   ========================================= */
+========================================= */
 
 .container {
   width: min(calc(100% - (var(--page-padding) * 2)), var(--container-width));
@@ -263,7 +278,7 @@ img {
 
 /* =========================================
    BLOW UP — DISPLAY TYPOGRAPHY
-   ========================================= */
+========================================= */
 
 .blow-title {
   margin: 0;
@@ -285,12 +300,13 @@ img {
   color: var(--color-black);
 
   overflow-wrap: normal;
+
   word-break: normal;
 }
 
 /* =========================================
    BLOW UP — HERO TITLE
-   ========================================= */
+========================================= */
 
 .blow-hero-title {
   margin: 0;
@@ -312,12 +328,13 @@ img {
   color: var(--color-black);
 
   overflow-wrap: normal;
+
   word-break: normal;
 }
 
 /* =========================================
    BLOW UP — CLAY TYPOGRAPHY
-   ========================================= */
+========================================= */
 
 .blow-title--clay {
   font-weight: 700;
@@ -329,7 +346,7 @@ img {
 
 /* =========================================
    BLOW UP — FREAKY TANGO TYPOGRAPHY
-   ========================================= */
+========================================= */
 
 .blow-title--tango {
   font-weight: 900;
@@ -349,7 +366,7 @@ img {
 
 /* =========================================
    BLOW UP — SHOWS / ENTERTAINMENT TYPOGRAPHY
-   ========================================= */
+========================================= */
 
 .blow-title--entertainment {
   font-weight: 700;
@@ -361,7 +378,7 @@ img {
 
 /* =========================================
    DISPLAY SIZES
-   ========================================= */
+========================================= */
 
 .display-xl {
   font-size: var(--fs-hero);
@@ -372,23 +389,47 @@ img {
 }
 
 .display-md {
-  font-size: clamp(2.3rem, 5vw, 5rem);
+  font-size: var(--fs-2xl);
 }
 
 .display-sm {
-  font-size: clamp(1.6rem, 3vw, 3rem);
+  font-size: var(--fs-xl);
+}
+
+/* =========================================
+   GENERAL TEXT SIZES
+========================================= */
+
+.text-lg {
+  font-size: var(--fs-lg);
+}
+
+.text-md {
+  font-size: var(--fs-md);
+}
+
+.text-base {
+  font-size: var(--fs-base);
+}
+
+.text-sm {
+  font-size: var(--fs-sm);
+}
+
+.text-xs {
+  font-size: var(--fs-xs);
 }
 
 /* =========================================
    BLOW UP — EYEBROW
-   ========================================= */
+========================================= */
 
 .blow-eyebrow {
   display: block;
 
   font-family: var(--font-primary);
 
-  font-size: clamp(0.6rem, 0.68vw, 0.72rem);
+  font-size: var(--fs-xs);
 
   font-weight: 700;
 
@@ -401,14 +442,14 @@ img {
 
 /* =========================================
    BLOW UP — BODY COPY
-   ========================================= */
+========================================= */
 
 .blow-copy {
   max-width: 620px;
 
   font-family: var(--font-primary);
 
-  font-size: clamp(1rem, 1.25vw, 1.18rem);
+  font-size: var(--fs-md);
 
   font-weight: 400;
 
@@ -421,14 +462,14 @@ img {
 
 /* =========================================
    BLOW UP — STATEMENT
-   ========================================= */
+========================================= */
 
 .blow-statement {
   margin: 0;
 
   font-family: var(--font-display);
 
-  font-size: clamp(1.8rem, 4vw, 4.5rem);
+  font-size: var(--fs-2xl);
 
   font-weight: 500;
 
@@ -439,7 +480,7 @@ img {
 
 /* =========================================
    BLOW UP — GRAPHIC LANGUAGE
-   ========================================= */
+========================================= */
 
 /* ---------- SQUARE ---------- */
 
@@ -507,7 +548,7 @@ img {
 
 /* =========================================
    BLOW UP — LINK
-   ========================================= */
+========================================= */
 
 .blow-link {
   display: inline-flex;
@@ -522,7 +563,7 @@ img {
 
   font-family: var(--font-primary);
 
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
 
   font-weight: 700;
 
@@ -542,14 +583,14 @@ img {
 .blow-link::after {
   content: "→";
 
-  font-size: 1.15rem;
+  font-size: var(--fs-md);
 
   line-height: 1;
 }
 
 /* =========================================
    UTILITIES
-   ========================================= */
+========================================= */
 
 .text-center {
   text-align: center;
@@ -560,7 +601,8 @@ img {
 }
 
 /*
-  Used by Navbar when the mobile menu is open.
+   Used by Navbar when
+   the mobile menu is open.
 */
 
 .no-scroll {
@@ -569,7 +611,7 @@ img {
 
 /* =========================================
    TEXT SELECTION
-   ========================================= */
+========================================= */
 
 ::selection {
   background: var(--blow-yellow);
@@ -579,7 +621,7 @@ img {
 
 /* =========================================
    ACCESSIBILITY
-   ========================================= */
+========================================= */
 
 a:focus-visible,
 button:focus-visible {
@@ -590,21 +632,26 @@ button:focus-visible {
 
 /* =========================================
    TABLET
-   ========================================= */
+
+   Acá modificamos layout y espacios,
+   pero NO volvemos a definir la escala
+   tipográfica.
+
+   Los clamp() del :root se encargan
+   del tamaño automáticamente.
+========================================= */
 
 @media (max-width: 768px) {
   :root {
     --space-lg: 3rem;
+
     --space-xl: 5rem;
+
     --space-2xl: 7rem;
 
     --section-space: 6rem;
 
     --page-padding: 1.25rem;
-
-    --fs-display: clamp(2.7rem, 11vw, 5rem);
-
-    --fs-hero: clamp(3.6rem, 14vw, 7rem);
   }
 
   .blow-title--tango-outline {
@@ -614,17 +661,17 @@ button:focus-visible {
 
 /* =========================================
    MOBILE
-   ========================================= */
+
+   Nuevamente:
+   adaptamos layout y pequeños detalles,
+   no creamos otra escala tipográfica.
+========================================= */
 
 @media (max-width: 480px) {
   :root {
     --page-padding: 1rem;
 
     --section-space: 5rem;
-
-    --fs-display: clamp(2.25rem, 11vw, 3.6rem);
-
-    --fs-hero: clamp(3rem, 15vw, 5rem);
   }
 
   .blow-title {
@@ -646,15 +693,13 @@ button:focus-visible {
   }
 
   .blow-copy {
-    font-size: 1rem;
-
     line-height: 1.68;
   }
 }
 
 /* =========================================
    REDUCED MOTION
-   ========================================= */
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   html {

@@ -79,7 +79,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: clamp(0.56rem, 0.6vw, 0.66rem);
+  font-size: var(--fs-xs);
 
   font-weight: 700;
 
@@ -114,12 +114,7 @@
 
   font-family: var(--font-display);
 
-  /*
-   * Fluido, pero controlado.
-   * No se vuelve gigante en notebooks.
-   */
-
-  font-size: clamp(3.4rem, 5.3vw, 6.2rem);
+  font-size: var(--fs-2xl);
 
   font-weight: 700;
 
@@ -176,7 +171,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: clamp(0.92rem, 1vw, 1.08rem);
+  font-size: var(--fs-base);
 
   font-weight: 400;
 
@@ -579,10 +574,6 @@
     gap: clamp(6rem, 7vw, 8rem);
   }
 
-  .clay-intro__title {
-    font-size: clamp(5rem, 5vw, 6.5rem);
-  }
-
   .clay-intro__visual {
     width: min(100%, 480px);
   }
@@ -609,15 +600,6 @@
       minmax(280px, 0.72fr);
 
     gap: clamp(2.5rem, 4vw, 4rem);
-  }
-
-  .clay-intro__title {
-    /*
-     * Antes acá llegaba a 6.3rem.
-     * Eso era demasiado para notebook.
-     */
-
-    font-size: clamp(3.3rem, 5.4vw, 4.7rem);
   }
 
   .clay-intro__title-clay {
@@ -658,10 +640,6 @@
       minmax(260px, 0.8fr);
 
     gap: clamp(2rem, 4vw, 3rem);
-  }
-
-  .clay-intro__title {
-    font-size: clamp(3rem, 6vw, 4.1rem);
   }
 
   .clay-intro__title-clay {
@@ -730,8 +708,6 @@
     width: 100%;
     max-width: 100%;
 
-    font-size: clamp(3.2rem, 11vw, 5.3rem);
-
     line-height: 0.86;
   }
 
@@ -745,8 +721,6 @@
 
   .clay-intro__description {
     width: min(100%, 360px);
-
-    font-size: clamp(0.95rem, 2vw, 1.08rem);
   }
 
   .clay-intro__visual {
@@ -781,8 +755,6 @@
     gap: 0.65rem;
 
     margin-bottom: 1.4rem;
-
-    font-size: 0.54rem;
   }
 
   .clay-intro__eyebrow::before {
@@ -794,8 +766,6 @@
      * 14vw es bastante más seguro que
      * los 17vw que había antes.
      */
-
-    font-size: clamp(3rem, 14vw, 4.7rem);
 
     line-height: 0.87;
 
@@ -818,8 +788,6 @@
 
   .clay-intro__description {
     width: min(100%, 290px);
-
-    font-size: clamp(0.92rem, 3.5vw, 1.02rem);
   }
 
   .clay-intro__visual {
@@ -841,8 +809,6 @@
 
   .clay-intro__caption {
     margin-top: 0.75rem;
-
-    font-size: 0.5rem;
   }
 
   /*
@@ -895,8 +861,6 @@
   }
 
   .clay-intro__title {
-    font-size: clamp(2.8rem, 13.5vw, 3.8rem);
-
     line-height: 0.88;
   }
 
@@ -946,8 +910,6 @@
   }
 
   .clay-intro__title {
-    font-size: clamp(2.6rem, 13vw, 3.2rem);
-
     letter-spacing: -0.02em;
   }
 
@@ -1015,18 +977,10 @@
     font-size: 0.5rem;
   }
 
-  .clay-intro__title {
-    font-size: clamp(2.35rem, 12.8vw, 2.8rem);
-  }
-
   .clay-intro__description-wrapper {
     margin-left: 0;
 
     gap: 0.65rem;
-  }
-
-  .clay-intro__description {
-    font-size: 0.9rem;
   }
 
   .clay-intro__visual {
@@ -1053,10 +1007,6 @@
 
   .clay-intro__eyebrow {
     margin-bottom: clamp(0.8rem, 1.8vh, 1.2rem);
-  }
-
-  .clay-intro__title {
-    font-size: clamp(3rem, 4.8vw, 4.3rem);
   }
 
   .clay-intro__description-wrapper {
@@ -1098,10 +1048,6 @@
     align-items: center;
 
     gap: 2rem;
-  }
-
-  .clay-intro__title {
-    font-size: clamp(2.5rem, 7vw, 3.5rem);
   }
 
   .clay-intro__description-wrapper {
