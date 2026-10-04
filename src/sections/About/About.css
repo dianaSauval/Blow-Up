@@ -143,7 +143,7 @@
 
   font-family: var(--font-display);
 
-  font-size: clamp(2.7rem, 4.4vw, 5rem);
+  font-size: var(--fs-2xl);
 
   font-weight: 700;
 
@@ -179,7 +179,7 @@
 
   font-family: var(--font-display);
 
-  font-size: clamp(1.3rem, 1.75vw, 1.5rem);
+  font-size: var(--fs-lg);
 
   font-weight: 450;
 
@@ -218,6 +218,8 @@
   margin: 0;
 
   font-family: var(--font-primary);
+
+  font-size: var(--fs-base);
 
   line-height: 1.67;
 
@@ -418,7 +420,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: 0.65rem;
+  font-size: var(--fs-xs);
 
   font-weight: 700;
 
@@ -518,7 +520,7 @@
 
   font-family: var(--font-display);
 
-  font-size: clamp(2.7rem, 4.4vw, 5rem);
+  font-size: var(--fs-2xl);
 
   font-weight: 700;
 
@@ -551,7 +553,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: 0.64rem;
+  font-size: var(--fs-xs);
 
   font-weight: 600;
 
@@ -737,7 +739,7 @@
 
   font-family: var(--font-display);
 
-  font-size: clamp(1.65rem, 2.7vw, 3.3rem);
+  font-size: var(--fs-xl);
 
   font-weight: 650;
 
@@ -818,7 +820,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: 0.58rem;
+  font-size: var(--fs-xs);
 
   font-weight: 700;
 
@@ -839,7 +841,7 @@
 
   font-family: var(--font-display);
 
-  font-size: clamp(2rem, 3.7vw, 4.4rem);
+  font-size: var(--fs-xl);
 
   font-weight: 650;
 
@@ -859,7 +861,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: clamp(0.85rem, 0.9vw, 1rem);
+  font-size: var(--fs-sm);
 
   font-weight: 500;
 
@@ -889,6 +891,8 @@
   margin: 0;
 
   font-family: var(--font-primary);
+
+  font-size: var(--fs-base);
 
   line-height: 1.68;
 
@@ -1083,7 +1087,7 @@
 .about .about-team__index-item span:first-child {
   font-family: var(--font-primary);
 
-  font-size: 0.56rem;
+  font-size: var(--fs-xs);
 
   font-weight: 600;
 
@@ -1102,7 +1106,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: clamp(0.66rem, 0.72vw, 0.78rem);
+  font-size: var(--fs-sm);
 
   font-weight: 600;
 
@@ -1178,8 +1182,6 @@
     width: min(100%, 43rem);
 
     margin-bottom: clamp(2rem, 5vw, 3rem);
-
-    font-size: clamp(3rem, 10vw, 5.5rem);
   }
 
   .about .about__lead {
@@ -1234,10 +1236,6 @@
     margin-bottom: clamp(3rem, 7vw, 4.5rem);
   }
 
-  .about .about-team__title {
-    font-size: clamp(3rem, 10vw, 5.5rem);
-  }
-
   .about .about-team__artist {
     grid-template-columns: minmax(0, 1fr);
 
@@ -1261,10 +1259,6 @@
 
     margin-inline: auto;
   }
-
-  .about .about-team__name {
-    font-size: clamp(2.2rem, 7vw, 4rem);
-  }
 }
 
 /* ============================================================
@@ -1287,8 +1281,6 @@
   .about .about__title {
     margin-bottom: 2rem;
 
-    font-size: clamp(2.6rem, 13vw, 4rem);
-
     line-height: 0.9;
 
     letter-spacing: -0.05em;
@@ -1296,8 +1288,6 @@
 
   .about .about__lead {
     margin-bottom: 2.6rem;
-
-    font-size: clamp(1.18rem, 5.5vw, 1.5rem);
 
     line-height: 1.19;
   }
@@ -1343,8 +1333,6 @@
     gap: 0.25rem;
 
     padding-top: 0.85rem;
-
-    font-size: 0.53rem;
   }
 
   /* COPY */
@@ -1356,8 +1344,6 @@
   }
 
   .about .about__copy p {
-    font-size: 0.91rem;
-
     line-height: 1.66;
   }
 
@@ -1386,8 +1372,6 @@
   }
 
   .about .about-team__title {
-    font-size: clamp(2.6rem, 13vw, 4rem);
-
     line-height: 0.9;
   }
 
@@ -1403,10 +1387,6 @@
     width: 100%;
   }
 
-  .about .about-team__name {
-    font-size: clamp(2rem, 9vw, 3rem);
-  }
-
   .about .about-team__identity {
     padding-bottom: 1.5rem;
   }
@@ -1418,8 +1398,6 @@
   }
 
   .about .about-team__bio p {
-    font-size: 0.91rem;
-
     line-height: 1.66;
   }
 
@@ -1470,22 +1448,7 @@
 @media (max-width: 360px) {
   .about .about__title,
   .about .about-team__title {
-    font-size: 2.35rem;
-
     letter-spacing: -0.045em;
-  }
-
-  .about .about__lead {
-    font-size: 1.13rem;
-  }
-
-  .about .about__copy p,
-  .about .about-team__bio p {
-    font-size: 0.89rem;
-  }
-
-  .about .about-team__name {
-    font-size: 1.9rem;
   }
 }
 

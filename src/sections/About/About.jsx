@@ -167,41 +167,38 @@ export default function About() {
 
             {/* BODY */}
 
+            {/* BODY */}
+
             <div className="about__copy">
-              {/* BODY */}
+              <p>
+                Blow Up is defined by its professional approach and its ongoing
+                search for a distinctive artistic language. With Breaking and
+                Hip-Hop culture at the heart of its identity, every creation
+                brings together urban influences, dynamic movement and a strong
+                sense of community.
+              </p>
 
-              <div className="about__copy">
-                <p>
-                  Blow Up is defined by its professional approach and its
-                  ongoing search for a distinctive artistic language. With
-                  Breaking and Hip-Hop culture at the heart of its identity,
-                  every creation brings together urban influences, dynamic
-                  movement and a strong sense of community.
-                </p>
+              <p>
+                Their first creation, <em>The Clay Artists</em> (2023),
+                established this artistic identity and quickly brought the
+                company onto the international festival circuit.
+              </p>
 
-                <p>
-                  Their first creation, <em>The Clay Artists</em> (2023),
-                  established this artistic identity and quickly brought the
-                  company onto the international festival circuit.
-                </p>
+              <p>
+                Constantly evolving and exploring new ideas, the company
+                continues to invest in the quality and artistic depth of its
+                productions. This growth is reflected in the expansion of the
+                cast for its new show,
+                <em> Freaky Tango</em>, welcoming artists Martin de Oña (Choko
+                Circo) and Víctor Amarilla Machado to the team.
+              </p>
 
-                <p>
-                  Constantly evolving and exploring new ideas, the company
-                  continues to invest in the quality and artistic depth of its
-                  productions. This growth is reflected in the expansion of the
-                  cast for its new show,
-                  <em> Freaky Tango</em>, welcoming artists Martin de Oña (Choko
-                  Circo) and Víctor Amarilla Machado to the team.
-                </p>
-
-                <p>
-                  From productions for festivals and theatres to artistic
-                  entertainment and performances created for young audiences,
-                  Blow Up develops original, energetic and unexpected stage
-                  experiences designed to connect genuinely with audiences of
-                  all kinds.
-                </p>
-              </div>
+              <p>
+                From productions for festivals and theatres to artistic
+                entertainment and performances created for young audiences, Blow
+                Up develops original, energetic and unexpected stage experiences
+                designed to connect genuinely with audiences of all kinds.
+              </p>
             </div>
 
             {/* CTA */}
