@@ -75,7 +75,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: clamp(0.55rem, 0.65vw, 0.68rem);
+  font-size: var(--fs-xs);
 
   font-weight: 700;
 
@@ -159,7 +159,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: clamp(0.7rem, 0.8vw, 0.85rem);
+  font-size: var(--fs-sm);
 
   font-weight: 700;
 
@@ -237,7 +237,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: 0.65rem;
+  font-size: var(--fs-xs);
 
   font-weight: 500;
 
@@ -265,7 +265,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: 0.62rem;
+  font-size: var(--fs-xs);
 
   font-weight: 600;
 
@@ -378,8 +378,6 @@
   }
 
   .footer__eyebrow {
-    font-size: 0.54rem;
-
     letter-spacing: 0.18em;
   }
 
@@ -427,8 +425,6 @@
   }
 
   .footer__eyebrow {
-    font-size: clamp(0.46rem, 1.8vw, 0.52rem);
-
     line-height: 1.4;
 
     letter-spacing: 0.15em;
@@ -465,8 +461,6 @@
   }
 
   .footer__link {
-    font-size: clamp(0.6rem, 2.4vw, 0.68rem);
-
     letter-spacing: 0.13em;
   }
 
@@ -491,14 +485,10 @@
   }
 
   .footer__copyright {
-    font-size: clamp(0.52rem, 2vw, 0.58rem);
-
     letter-spacing: 0.1em;
   }
 
   .footer__credit {
-    font-size: clamp(0.5rem, 2vw, 0.56rem);
-
     letter-spacing: 0.1em;
   }
 
@@ -538,8 +528,6 @@
   }
 
   .footer__link {
-    font-size: 0.61rem;
-
     letter-spacing: 0.12em;
   }
 
@@ -570,15 +558,6 @@
     row-gap: 1rem;
 
     margin-bottom: 2.25rem;
-  }
-
-  .footer__link {
-    font-size: 0.58rem;
-  }
-
-  .footer__copyright,
-  .footer__credit {
-    font-size: 0.5rem;
   }
 }
 

@@ -206,7 +206,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: clamp(0.52rem, 0.58vw, 0.64rem);
+  font-size: var(--fs-xs);
 
   font-weight: 700;
 
@@ -230,7 +230,7 @@
 
   font-family: var(--font-display);
 
-  font-size: clamp(3.8rem, 7vw, 7.5rem);
+  font-size: var(--fs-2xl);
 
   font-weight: 900;
 
@@ -270,7 +270,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: clamp(0.5rem, 0.56vw, 0.62rem);
+  font-size: var(--fs-xs);
 
   font-weight: 700;
 
@@ -426,7 +426,7 @@
 .freaky-trailer__play-text {
   font-family: var(--font-primary);
 
-  font-size: clamp(0.46rem, 0.52vw, 0.56rem);
+  font-size: var(--fs-xs);
 
   font-weight: 700;
 
@@ -461,7 +461,7 @@
 
   font-family: var(--font-primary);
 
-  font-size: clamp(0.46rem, 0.53vw, 0.58rem);
+  font-size: var(--fs-xs);
 
   font-weight: 700;
 
@@ -556,10 +556,6 @@
     padding-bottom: clamp(5rem, 7vw, 7rem);
   }
 
-  .freaky-trailer__heading h2 {
-    font-size: clamp(3.5rem, 6.3vw, 6rem);
-  }
-
   .freaky-trailer__video-wrapper {
     width: min(100%, 980px, calc(62svh * 16 / 9));
   }
@@ -607,14 +603,8 @@
     margin-bottom: clamp(2.5rem, 6vw, 3.5rem);
   }
 
-  .freaky-trailer__heading h2 {
-    font-size: clamp(3.3rem, 8vw, 5.3rem);
-  }
-
   .freaky-trailer__header > p {
     margin-top: 0.4rem;
-
-    font-size: 0.52rem;
   }
 
   .freaky-trailer__video-wrapper {
@@ -703,8 +693,6 @@
   .freaky-trailer__number {
     margin-bottom: 0.8rem;
 
-    font-size: clamp(0.48rem, 1.8vw, 0.55rem);
-
     letter-spacing: 0.18em;
   }
 
@@ -718,8 +706,6 @@
 
   .freaky-trailer__heading h2 {
     width: 100%;
-
-    font-size: clamp(2.8rem, 13vw, 4.6rem);
 
     line-height: 0.86;
 
@@ -748,8 +734,6 @@
 
   .freaky-trailer__header > p {
     margin: 0;
-
-    font-size: clamp(0.48rem, 1.8vw, 0.54rem);
 
     line-height: 1.6;
 
@@ -781,8 +765,6 @@
   }
 
   .freaky-trailer__play-text {
-    font-size: 0.43rem;
-
     letter-spacing: 0.15em;
   }
 
@@ -793,8 +775,6 @@
   .freaky-trailer__video-label,
   .freaky-trailer__video-type {
     bottom: 0.9rem;
-
-    font-size: 0.42rem;
 
     letter-spacing: 0.14em;
   }
@@ -832,10 +812,6 @@
 
   .freaky-trailer__container {
     padding-top: 6.3rem;
-  }
-
-  .freaky-trailer__heading h2 {
-    font-size: clamp(2.5rem, 12.5vw, 3.6rem);
   }
 
   .freaky-trailer__heading em {
@@ -907,10 +883,6 @@
     margin-bottom: clamp(2rem, 4vh, 3rem);
   }
 
-  .freaky-trailer__heading h2 {
-    font-size: clamp(3.3rem, 9vh, 5.6rem);
-  }
-
   .freaky-trailer__video-wrapper {
     width: min(100%, 1000px, calc(58svh * 16 / 9));
   }
@@ -958,10 +930,6 @@
 
   .freaky-trailer__number {
     margin-bottom: 0.6rem;
-  }
-
-  .freaky-trailer__heading h2 {
-    font-size: clamp(3rem, 8vh, 4.5rem);
   }
 
   .freaky-trailer__video-wrapper {
