@@ -34,6 +34,7 @@ export default function ClayArtists() {
         selector: ".clay-intro__visual",
         position: 0.78,
       },
+
       {
         selector: ".clay-show__gallery",
         position: 0.16,
@@ -42,6 +43,7 @@ export default function ClayArtists() {
         selector: ".clay-show__gallery",
         position: 0.7,
       },
+
       {
         selector: ".clay-concept__fire-figure",
         position: 0.28,
@@ -57,6 +59,12 @@ export default function ClayArtists() {
       {
         selector: ".clay-concept__creators",
         position: 0.15,
+      },
+
+      /* último momento de Clay */
+      {
+        selector: ".clay-trailer__video",
+        position: 0.58,
       },
     ];
 
@@ -90,19 +98,14 @@ export default function ClayArtists() {
 
       const travelled = trackingPoint - sectionRect.top;
 
-      /*
-       * No utilizamos 1.5 veces la altura.
-       * Eso estaba haciendo que planta +
-       * ramas dejaran de corresponder
-       * correctamente.
-       *
-       * El tallo termina cerca del final
-       * real de la sección.
-       */
-      const stemDistance =
+      const stemDistance = Math.max(
         width <= 700
-          ? sectionRect.height * 1.45
-          : sectionRect.height - viewportHeight * 0.2;
+          ? sectionRect.height * 1.12
+          : width <= 1024
+            ? sectionRect.height - viewportHeight * 0.28
+            : sectionRect.height - viewportHeight * 0.2,
+        viewportHeight
+      );
 
       const stemProgress = clamp01(travelled / stemDistance);
 

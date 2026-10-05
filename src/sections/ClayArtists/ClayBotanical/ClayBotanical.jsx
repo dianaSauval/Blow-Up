@@ -124,7 +124,8 @@ export default function ClayBotanical() {
 
       <BotanicalBranch number={7} side="left" />
       <BotanicalBranch number={8} side="right" />
-
+      {/* última rama — trailer / salida hacia Freaky */}
+      <BotanicalBranch number={9} side="left" />
       {/* =====================================
           EXTRA LEAVES
       ====================================== */}
@@ -149,6 +150,7 @@ export default function ClayBotanical() {
       <BotanicalLeaf number={11} branch={7} side="right" />
 
       <BotanicalLeaf number={12} branch={8} side="right" />
+      <BotanicalLeaf number={13} branch={9} side="left" />
 
       {/* =====================================
           FLOWERS
