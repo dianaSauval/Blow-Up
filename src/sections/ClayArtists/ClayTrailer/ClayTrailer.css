@@ -1,0 +1,432 @@
+/* =========================================
+   THE CLAY ARTISTS — TRAILER
+========================================= */
+.clay-trailer {
+  position: relative;
+
+  width: 100%;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+
+  padding-top: clamp(2rem, 5svh, 5rem);
+  padding-bottom: clamp(5rem, 9svh, 8rem);
+
+  /* IMPORTANTE */
+  background: transparent;
+
+  z-index: 1;
+}
+
+.clay-trailer::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+
+    transparent 0%,
+    transparent 58%,
+
+    rgba(242, 231, 213, 0.08) 68%,
+
+    /* aparece muy suavemente el tono cálido */ rgba(220, 135, 156, 0.08) 78%,
+    rgba(214, 187, 187, 0.22) 86%,
+
+    /* vuelve al color EXACTO de Clay */ rgba(242, 231, 213, 0.7) 94%,
+    var(--clay-cream) 100%
+  );
+}
+
+/* =========================================
+   INNER
+========================================= */
+
+.clay-trailer__inner {
+  position: relative;
+  z-index: 2;
+
+  width: min(calc(100% - (var(--page-padding) * 2)), 1500px);
+
+  margin-inline: auto;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5svh, 2.5rem);
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.clay-trailer__header {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  margin: 0;
+}
+
+.clay-trailer__title {
+  margin: 0;
+
+  /*
+   * El título también responde al alto,
+   * no solamente al ancho.
+   */
+  font-size: clamp(2rem, min(4vw, 7svh), 4.6rem);
+}
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.clay-trailer__video {
+  position: relative;
+
+  /*
+   * Ésta es la parte importante:
+   *
+   * - quiere ser enorme;
+   * - pero nunca superar el ancho disponible;
+   * - ni tampoco una altura razonable
+   *   dentro del viewport.
+   */
+  width: min(100%, calc(72svh * 16 / 9));
+
+  aspect-ratio: 16 / 9;
+
+  margin-inline: auto;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  border-radius: clamp(1rem, 1.6vw, 1.8rem);
+
+  background: #1f5144;
+
+  box-shadow: 0 2rem 5rem rgba(5, 5, 5, 0.14);
+
+  isolation: isolate;
+}
+
+/* =========================================
+   COVER
+========================================= */
+
+.clay-trailer__cover {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 46%,
+      rgba(229, 189, 69, 0.22),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 12% 20%,
+      rgba(220, 135, 156, 0.2),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #376c5d 0%, #225547 45%, #173d35 100%);
+
+  cursor: pointer;
+}
+
+/* =========================================
+   BACKGROUND DETAILS
+========================================= */
+
+.clay-trailer__cover::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+
+  background-size: clamp(24px, 2.5vw, 36px) clamp(24px, 2.5vw, 36px);
+
+  opacity: 0.45;
+
+  pointer-events: none;
+}
+
+.clay-trailer__cover::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(5, 5, 5, 0.08),
+    transparent 30%,
+    transparent 70%,
+    rgba(5, 5, 5, 0.12)
+  );
+
+  pointer-events: none;
+}
+
+/* =========================================
+   POSTER
+========================================= */
+
+.clay-trailer__cover-art {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 2;
+
+  /*
+   * También depende del contenedor,
+   * no de medidas rígidas.
+   */
+  width: min(38%, 520px);
+  height: 88%;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform var(--transition-slow),
+    filter var(--transition-slow);
+}
+
+.clay-trailer__poster {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 1.3rem 1.2rem rgba(0, 0, 0, 0.25));
+}
+
+/* =========================================
+   PLAY
+========================================= */
+
+.clay-trailer__play {
+  position: absolute;
+
+  top: 50%;
+  left: 78%;
+
+  z-index: 5;
+
+  /*
+   * Relativo al viewport y al componente.
+   */
+  width: clamp(4rem, min(7vw, 10svh), 7.5rem);
+  aspect-ratio: 1;
+
+  transform: translate(-50%, -50%);
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--clay-yellow);
+
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.2);
+
+  transition:
+    transform var(--transition-normal),
+    background-color var(--transition-normal);
+}
+
+.clay-trailer__play-icon {
+  width: 0;
+  height: 0;
+
+  margin-left: 8%;
+
+  border-top: clamp(0.6rem, 1vw, 1rem) solid transparent;
+
+  border-bottom: clamp(0.6rem, 1vw, 1rem) solid transparent;
+
+  border-left: clamp(0.9rem, 1.5vw, 1.5rem) solid var(--color-black);
+}
+
+/* =========================================
+   LABEL
+========================================= */
+
+.clay-trailer__watch {
+  position: absolute;
+
+  left: 78%;
+  top: 66%;
+
+  z-index: 5;
+
+  transform: translateX(-50%);
+
+  font-family: var(--font-primary);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+
+  letter-spacing: 0.24em;
+
+  text-transform: uppercase;
+
+  color: white;
+
+  white-space: nowrap;
+}
+
+/* =========================================
+   HOVER
+========================================= */
+
+@media (hover: hover) {
+  .clay-trailer__cover:hover .clay-trailer__cover-art {
+    transform: translate(-50%, -50%) scale(1.025);
+
+    filter: brightness(1.03);
+  }
+
+  .clay-trailer__cover:hover .clay-trailer__play {
+    transform: translate(-50%, -50%) scale(1.08);
+
+    background: #f0c950;
+  }
+}
+
+/* =========================================
+   YOUTUBE
+========================================= */
+
+.clay-trailer__iframe {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+
+  background: #000;
+}
+
+/* =========================================
+   MOBILE
+   Acá sí cambia conceptualmente el layout.
+========================================= */
+
+@media (max-width: 700px) {
+  .clay-trailer {
+    min-height: auto;
+
+    padding-top: clamp(4rem, 12vw, 6rem);
+    padding-bottom: clamp(5.5rem, 16vw, 7rem);
+  }
+
+  .clay-trailer::before {
+    background: linear-gradient(
+      to bottom,
+
+      transparent 0%,
+      transparent 52%,
+
+      rgba(242, 231, 213, 0.08) 64%,
+
+      rgba(220, 135, 156, 0.06) 74%,
+      rgba(214, 187, 187, 0.14) 82%,
+
+      rgba(242, 231, 213, 0.82) 92%,
+      var(--clay-cream) 100%
+    );
+  }
+
+  .clay-trailer__inner {
+    width: calc(100% - 1.5rem);
+
+    gap: 1.25rem;
+  }
+
+  .clay-trailer__header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 0.4rem;
+  }
+
+  .clay-trailer__title {
+    font-size: clamp(1.9rem, 9vw, 3rem);
+  }
+
+  .clay-trailer__video {
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+  }
+
+  .clay-trailer__cover-art {
+    top: 45%;
+
+    width: min(80%, 340px);
+    height: 76%;
+  }
+
+  .clay-trailer__play {
+    top: auto;
+    left: 50%;
+    bottom: 1.5rem;
+
+    width: clamp(4rem, 17vw, 4.8rem);
+
+    transform: translateX(-50%);
+  }
+
+  .clay-trailer__watch {
+    display: none;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .clay-trailer__cover-art,
+  .clay-trailer__play {
+    transition: none;
+  }
+}

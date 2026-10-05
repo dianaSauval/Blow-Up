@@ -6,6 +6,7 @@ import ClayShow from "./ClayShow/ClayShow";
 import ClayConcept from "./ClayConcept/ClayConcept";
 
 import "./ClayArtists.css";
+import ClayTrailer from "./ClayTrailer/ClayTrailer";
 
 export default function ClayArtists() {
   const sectionRef = useRef(null);
@@ -227,6 +228,7 @@ export default function ClayArtists() {
         <ClayShow />
 
         <ClayConcept />
+        <ClayTrailer />
       </div>
     </section>
   );
