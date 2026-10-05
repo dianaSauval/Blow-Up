@@ -1,16 +1,16 @@
 /* =========================================
-   SHOWS & ANIMATIONS — GLOBAL WORLD
+   SHOWS & ANIMATIONS — WORLD
    ========================================= */
 
 .shows {
   position: relative;
-
   width: 100%;
-  max-width: 100%;
   min-width: 0;
 
   overflow-x: clip;
   overflow-y: visible;
+
+  color: var(--entertainment-white);
 
   background:
     radial-gradient(
@@ -30,14 +30,9 @@
     ),
     var(--entertainment-black);
 
-  color: var(--entertainment-white);
-
   isolation: isolate;
 
-  /* =======================================
-     LOCAL SEMANTIC TOKENS
-     ======================================= */
-
+  /* Local semantic tokens */
   --shows-text: var(--entertainment-white);
 
   --shows-text-soft: color-mix(
@@ -68,12 +63,11 @@
 }
 
 /* =========================================
-   DIRECT CHILD SAFETY
+   CHILD SAFETY
    ========================================= */
 
 .shows > * {
   min-width: 0;
-
   max-width: 100%;
 }
 
@@ -83,6 +77,5 @@
 
 .shows ::selection {
   background: var(--entertainment-gold);
-
   color: var(--entertainment-black);
 }

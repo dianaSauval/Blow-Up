@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 
 import "./ShowsIntro.css";
+import ShowsIntroOpening from "./ShowsIntroOpening/ShowsIntroOpening";
 
 const SHOW_IMAGE_1 =
   "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1789687479/Blow%20Up/6L2A9423_moiv55.jpg";
@@ -40,6 +41,7 @@ export default function ShowsIntro() {
     let mobileHeight = 0;
 
     let lastStage = "";
+
     let lastMusic = false;
     let lastCorporate = false;
     let lastSpecial = false;
@@ -113,6 +115,7 @@ export default function ShowsIntro() {
       );
 
       lastStage = "";
+
       lastMusic = false;
       lastCorporate = false;
       lastSpecial = false;
@@ -160,17 +163,33 @@ export default function ShowsIntro() {
 
       let currentStage = lastStage || "intro";
 
-      /* INTRO ↔ STATEMENT */
+      /* =========================================================
+     INTRO ↔ GALLERY
+     ========================================================= */
 
-      if (currentStage === "intro" && progress >= 0.19) {
-        currentStage = "statement";
+      if (currentStage === "intro" && progress >= 0.06) {
+        currentStage = "gallery";
       }
 
-      if (currentStage === "statement" && progress <= 0.16) {
+      if (currentStage === "gallery" && progress <= 0.04) {
         currentStage = "intro";
       }
 
-      /* STATEMENT ↔ EVENTS */
+      /* =========================================================
+     GALLERY ↔ STATEMENT
+     ========================================================= */
+
+      if (currentStage === "gallery" && progress >= 0.26) {
+        currentStage = "statement";
+      }
+
+      if (currentStage === "statement" && progress <= 0.22) {
+        currentStage = "gallery";
+      }
+
+      /* =========================================================
+     STATEMENT ↔ EVENTS
+     ========================================================= */
 
       if (currentStage === "statement" && progress >= 0.49) {
         currentStage = "events";
@@ -180,7 +199,9 @@ export default function ShowsIntro() {
         currentStage = "statement";
       }
 
-      /* EVENTS ↔ CTA */
+      /* =========================================================
+     EVENTS ↔ CTA
+     ========================================================= */
 
       if (currentStage === "events" && progress >= 0.89) {
         currentStage = "cta";
@@ -190,14 +211,18 @@ export default function ShowsIntro() {
         currentStage = "events";
       }
 
-      /* UPDATE STAGE */
+      /* =========================================================
+     UPDATE STAGE
+     ========================================================= */
 
       if (currentStage !== lastStage) {
         section.dataset.mobileStage = currentStage;
         lastStage = currentStage;
       }
 
-      /* EVENTOS PROGRESIVOS */
+      /* =========================================================
+     EVENTOS PROGRESIVOS
+     ========================================================= */
 
       let showMusic = lastMusic;
       let showCorporate = lastCorporate;
@@ -240,11 +265,13 @@ export default function ShowsIntro() {
 
       if (showCorporate !== lastCorporate) {
         section.classList.toggle("mobile-show-corporate", showCorporate);
+
         lastCorporate = showCorporate;
       }
 
       if (showSpecial !== lastSpecial) {
         section.classList.toggle("mobile-show-special", showSpecial);
+
         lastSpecial = showSpecial;
       }
     };
@@ -330,7 +357,13 @@ export default function ShowsIntro() {
         mobileMedia.removeEventListener("change", onMediaChange);
       }
 
-      section.classList.remove("is-mobile-pinned", "is-mobile-ended");
+      section.classList.remove(
+        "is-mobile-pinned",
+        "is-mobile-ended",
+        "mobile-show-music",
+        "mobile-show-corporate",
+        "mobile-show-special"
+      );
     };
   }, []);
 
@@ -357,36 +390,18 @@ export default function ShowsIntro() {
 
         {/* =========================================
 
-            SCENE 01 — INTRO
+    SCENE 01 — INTRO
 
-            ========================================= */}
+========================================= */}
 
         <div className="shows-intro__scene shows-intro__scene--intro">
-          <span className="shows-intro__ghost" aria-hidden="true">
-            LIVE
-          </span>
+          {/* Opening: title + new vertical images */}
 
-          <div className="shows-intro__intro-content">
-            <div className="shows-intro__meta">
-              <span>Blow Up Company</span>
+          <ShowsIntroOpening />
 
-              <i />
+          {/* Existing 3-image gallery */}
 
-              <span>Live entertainment</span>
-            </div>
-
-            <div className="shows-intro__heading">
-              <span className="shows-intro__eyebrow">Live experiences</span>
-
-              <h2 id="shows-intro-title">
-                <span>Shows</span>
-
-                <em>&amp; Animations</em>
-              </h2>
-            </div>
-          </div>
-
-          <div className="shows-intro__gallery">
+          <div className="shows-intro__gallery shows-intro__gallery--main">
             <figure className="shows-intro__photo shows-intro__photo--left">
               <img
                 src={SHOW_IMAGE_1}
