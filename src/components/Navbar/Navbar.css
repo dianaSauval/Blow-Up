@@ -316,7 +316,7 @@
 .navbar__productions-menu {
   position: fixed;
 
-  top: clamp(76px, 6.2vw, 92px);
+  top: calc(clamp(76px, 6.2vw, 92px) - 4px);
 
   left: 0;
 
@@ -344,14 +344,37 @@
   pointer-events: none;
 
   transition:
-    opacity var(--transition-normal),
-    transform var(--transition-normal),
-    visibility var(--transition-normal),
+    opacity 220ms ease,
+    transform 220ms ease,
+    visibility 220ms ease,
     top var(--transition-normal);
 }
 
 .navbar--scrolled .navbar__productions-menu {
-  top: clamp(64px, 5vw, 72px);
+  top: calc(clamp(64px, 5vw, 72px) - 4px);
+}
+
+/* =========================================
+   HOVER BRIDGE
+   Evita que el menú se cierre mientras
+   el cursor viaja desde Productions
+   hacia el mega menú
+========================================= */
+
+.navbar__item--productions::after {
+  content: "";
+
+  position: absolute;
+
+  top: 100%;
+  left: -1.5rem;
+
+  width: calc(100% + 3rem);
+  height: 28px;
+
+  background: transparent;
+
+  pointer-events: auto;
 }
 
 .navbar__item--productions:hover .navbar__productions-menu,
