@@ -53,22 +53,38 @@ const artists = [
 
   {
     id: "martin",
-    name: "Martin de Oña",
-    nickname: "Choko Circo",
+    name: "Martín Cruz de Oña",
+    nickname: "Choko Cirko",
     role: "Performer",
     image: null,
     imagePosition: "center center",
-    bio: null,
+    bio: [
+      `Martín Cruz de Oña, known as Choko Cirko, is a circus artist and performer specializing in acrobatics, balance and movement. His repertoire includes hand balancing, tightrope walking, unicycle, Cyr wheel and juggling, as well as partner and group acrobatics.`,
+
+      `He began training in artistic gymnastics from a very young age. His passion for movement later led him to discover the circus arts and explore a wide range of disciplines, including Breaking, skateboarding, surfing and climbing. Over the years, he has trained with national and international teachers, developing a technique rooted in strength, balance, precision and expressiveness.`,
+
+      `With more than ten years of experience as an international performer, Martín has travelled around the world taking part in festivals, circuses, street performances, theatre productions, cabarets and multidisciplinary stage projects. The diversity of experiences and encounters throughout his travels also led him to learn Italian, French, English and Portuguese, in addition to his native Spanish.`,
+
+      `His work is defined by versatility and a strong ability to adapt to both solo and ensemble productions. By combining different disciplines, he creates performances that are dynamic, highly physical and expressive.`,
+    ],
   },
 
   {
     id: "victor",
-    name: "Víctor Amarilla Machado",
-    nickname: "",
+    name: "Víctor Gabriel Amarilla Machado",
+    nickname: "Bboy Tante",
     role: "Performer",
     image: null,
     imagePosition: "center center",
-    bio: null,
+    bio: [
+      `Víctor Gabriel Amarilla Machado, known artistically as Bboy Tante, is a Breaking dancer, performer, contortionist and one of the leading figures of Abstract Style in Argentina.`,
+
+      `From an early age, he discovered that he had exceptional flexibility and body mobility. Through consistent practice and training, he transformed this natural ability into one of his main tools for artistic expression, developing a style defined by strong stage presence, elasticity and an ongoing exploration of the body's possibilities.`,
+
+      `He began dancing Breaking at the age of fourteen and has since developed much of his training independently, driven by a deep commitment to the discipline and a constant search for his own artistic identity. This exploration led him further into experimental and performance-based practices. What began as a passion gradually became a way of life and a language through which he explores movement, creativity and his own artistic identity.`,
+
+      `As an artist, he is known for his inventiveness and ability to create original ideas, combining practical experience with an extensive knowledge of the history of Breaking and dance. His work is driven by research and curiosity, constantly seeking new ways to interpret movement and transform his knowledge into personal, creative and distinctive artistic proposals.`,
+    ],
   },
 ];
 
