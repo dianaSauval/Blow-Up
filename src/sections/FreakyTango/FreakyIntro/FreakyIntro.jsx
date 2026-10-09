@@ -81,7 +81,7 @@ export default function FreakyIntro() {
         ================================== */}
 
         <header className="freaky-intro__header">
-          <span className="freaky-intro__eyebrow">A new production</span>
+          <span className="freaky-intro__eyebrow">Circus · Tango · Freaky</span>
 
           <h2 className="freaky-intro__title">
             <span className="freaky-intro__freaky">Freaky</span>
@@ -113,16 +113,14 @@ export default function FreakyIntro() {
             <span className="freaky-intro__copy-number">02</span>
 
             <p className="freaky-intro__lead">
-              Tango
+              A celebration
               <br />
-              <em>outside</em>
-              <br />
-              the lines.
+              <em>of encounter.</em>
             </p>
 
             <p className="freaky-intro__description">
-              Four longtime friends. Circus, dance and the pulse of the Río de
-              la Plata.
+              Circus, dance and four longtime friends brought together by the
+              pulse of the Río de la Plata.
             </p>
           </div>
 
@@ -146,7 +144,6 @@ export default function FreakyIntro() {
         <div className="freaky-intro__line" aria-hidden="true">
           <span />
         </div>
-
         {/* =================================
     SYNOPSIS
 ================================= */}
@@ -159,15 +156,16 @@ export default function FreakyIntro() {
 
           <div className="freaky-intro__synopsis-content">
             <p className="freaky-intro__synopsis-main">
-              Four longtime friends from the worlds of circus and dance come
-              together to the rhythm of the Río de la Plata.
+              Four longtime friends from the worlds of circus and dance reunite
+              to the rhythm of the Río de la Plata, turning their shared history
+              into a physical and unexpected encounter.
             </p>
 
             <p className="freaky-intro__synopsis-secondary">
-              Technique turns into emotion, and every movement seems to be on
-              the verge of becoming the great finale. A raw and instinctive
-              dance where the artists invite the audience to become accomplices
-              in a milonga unlike any other.
+              Technique gives way to emotion, and every movement seems to hover
+              on the edge of a grand finale. Acrobatics, dance and instinct
+              collide in an unconventional milonga, inviting the audience to
+              become part of the experience.
             </p>
           </div>
         </div>

@@ -27,11 +27,13 @@ const artists = [
     image: MIKIX_IMAGE,
     imagePosition: "center center",
     bio: [
-      `Her training began in artistic gymnastics, where she developed a strong physical foundation, before specializing in circus arts. Her disciplines include floor acrobatics, hand balancing and partner acrobatics, which remain part of her practice today. Her experience in parkour also played an important role in shaping her understanding of the relationship between the body and the urban environment.`,
+      `Bgirl Mikix is a multidisciplinary artist, acrobat, dancer and performer from Argentina.`,
 
-      `She grew up surrounded by Hip-Hop culture through her sisters, pioneers and event organizers whose influence shaped her identity from an early age. Driven by feminism and the desire to challenge stereotypes and express herself freely, she has become one of Argentina’s most prominent B-girls.`,
+      `Her training began in artistic gymnastics, where she developed a strong physical foundation, before later specializing in circus arts. Her disciplines include floor acrobatics, hand balancing, partner acrobatics and group acrobatics. Her experience in parkour also influenced the way she understands the relationship between the body and the urban environment.`,
 
-      `On stage, she defines herself as a versatile, sensitive and surprising artist, with the ability to learn quickly and move confidently across different styles. Each performance is a powerful display of energy, strength and feminine skill, created to captivate and surprise the audience.`,
+      `She grew up surrounded by Hip-Hop culture through her sisters, pioneers and event organizers with whom she shares her passion for Breaking and is part of Super Poderosas Crew. Feminism played an important role in her journey, helping her gain confidence and push herself to reach the highest possible level, striving to match and even surpass the standards traditionally set by men. This drive led her to develop a powerful and distinctive movement style, becoming one of the key elements behind her international recognition.`,
+
+      `On stage, she defines herself as a versatile, sensitive and surprising artist, combining energy, strength and skill to create performances designed to captivate and surprise the audience.`,
     ],
   },
 
@@ -56,7 +58,8 @@ const artists = [
     name: "Martín Cruz de Oña",
     nickname: "Choko Cirko",
     role: "Performer",
-    image: null,
+    image:
+      "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1791555136/Blow%20Up/vanceai_1791463549264.jpg_jdthpz.jpg",
     imagePosition: "center center",
     bio: [
       `Martín Cruz de Oña, known as Choko Cirko, is a circus artist and performer specializing in acrobatics, balance and movement. His repertoire includes hand balancing, tightrope walking, unicycle, Cyr wheel and juggling, as well as partner and group acrobatics.`,
