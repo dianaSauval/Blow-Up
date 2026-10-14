@@ -77,8 +77,9 @@ const artists = [
     name: "Víctor Gabriel Amarilla Machado",
     nickname: "Bboy Tante",
     role: "Performer",
-    image: null,
-    imagePosition: "center center",
+    image:
+      "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1791974170/Blow%20Up/IMG_8567.JPG_vddjlc.jpg",
+    imagePosition: "70% center",
     bio: [
       `Víctor Gabriel Amarilla Machado, known artistically as Bboy Tante, is a Breaking dancer, performer, contortionist and one of the leading figures of Abstract Style in Argentina.`,
 

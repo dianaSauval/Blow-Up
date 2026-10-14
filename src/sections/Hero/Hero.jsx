@@ -29,7 +29,9 @@ export default function Hero() {
         <div className="hero__headline">
           {/* EYEBROW */}
 
-          <p className="hero__eyebrow">Circus · Dance · Street Performance</p>
+          <p className="hero__eyebrow">
+            Contemporary Circus • Dance • Live performance
+          </p>
 
           {/* TITLE */}
 
