@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./ClayTrailer.css";
 
 const POSTER =
-  "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1791198672/Blow%20Up/dibujo-blow-up-fondo-transparente_fchyeg.png";
+  "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1793010013/fot._Kat_Kubiak_3_sutbp6.jpg";
 
 const VIDEO_ID = "FASfrwmsRP4";
 

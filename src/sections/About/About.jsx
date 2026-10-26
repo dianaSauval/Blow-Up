@@ -6,7 +6,7 @@ import "./About.css";
 ============================================================ */
 
 const COMPANY_IMAGE =
-  "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1791019996/Blow%20Up/IMG_8983.JPG_algg4d.jpg";
+  "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1791198672/Blow%20Up/dibujo-blow-up-fondo-transparente_fchyeg.png";
 
 const MIKIX_IMAGE =
   "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1791021665/Blow%20Up/Miica_Lublin-36version_peque%C3%B1a_sncamo.jpg";
@@ -142,11 +142,13 @@ export default function About() {
             {/* LEAD */}
 
             <p className="about__lead">
-              Blow Up is an Argentine contemporary circus and dance company
-              founded in 2023, created and directed by
-              <strong> Micaela Moreno (Mikix)</strong> and
-              <strong> Mauro García (Corpo)</strong>, partners both on and off
-              stage since 2016.
+              At Blow Up, we are dancers and multidisciplinary artists who blend
+              the magic and virtuosity of circus arts with the rhythm, style,
+              and expressive language of Hip Hop culture. Rooted in its spirit
+              and philosophy, our work goes beyond technique, using movement and
+              music to create performances that are visually striking, full of
+              energy, and deeply moving. Founded in 2023 by Micaela Moreno
+              (Mikix) and Mauro García (Corpo).
             </p>
 
             {/* IMAGE */}
