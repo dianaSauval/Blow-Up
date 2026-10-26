@@ -1,30 +1,16 @@
 /* ============================================================
    ABOUT — BLOW UP COMPANY
-
-   Fluid responsive layout
-   Desktop / Notebook / Tablet / Mobile
-
-   La mayoría de las medidas se adaptan con:
-   - clamp()
-   - minmax()
-   - CSS Grid
-   - unidades relativas
-
-   Solo usamos breakpoints cuando realmente cambia
-   la arquitectura de la composición.
-============================================================ */
+   Diseño editorial · Responsive fluido
+   ============================================================ */
 
 /* ============================================================
-   ROOT
-============================================================ */
+   01. ROOT
+   ============================================================ */
 
 .about {
   position: relative;
-
   width: 100%;
-  max-width: 100%;
   min-width: 0;
-
   overflow-x: clip;
 
   background: var(--color-bg);
@@ -34,31 +20,25 @@
 }
 
 /* ============================================================
-   CONTAINERS
-============================================================ */
+   02. CONTAINERS
+   ============================================================ */
 
 .about .about__container,
 .about .about-team__container {
-  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-width));
-
-  max-width: var(--container-width);
+  width: min(calc(100% - var(--page-padding) * 2), 96rem);
 
   margin-inline: auto;
-
   min-width: 0;
 }
 
 /* ============================================================
-   COMPANY SECTION
-============================================================ */
+   03. COMPANY SECTION
+   ============================================================ */
 
 .about .about__company {
   position: relative;
 
-  width: 100%;
-  min-width: 0;
-
-  padding-block: clamp(4rem, 6vw, 7rem) clamp(5rem, 8vw, 9rem);
+  padding-block: clamp(4rem, 7vw, 7rem) clamp(5rem, 9vw, 9rem);
 
   background:
     radial-gradient(
@@ -75,26 +55,22 @@
 }
 
 /* ============================================================
-   COMPANY MASTER GRID
+   04. COMPANY GRID
 
    Desktop:
+   Texto a la izquierda
+   Imagen a la derecha
 
-   eyebrow | photo
-   title   | photo
-   lead    | photo
-   copy    | photo
-   button  | photo
-
-   Esto permite que la imagen vertical acompañe
-   automáticamente la altura real del contenido.
-============================================================ */
+   Mobile:
+   Todo en una sola columna
+   ============================================================ */
 
 .about .about__company-grid {
   display: grid;
 
   grid-template-columns:
     minmax(0, 1fr)
-    minmax(19rem, 0.72fr);
+    minmax(0, 0.82fr);
 
   grid-template-areas:
     "eyebrow visual"
@@ -103,31 +79,29 @@
     "copy    visual"
     "button  visual";
 
-  column-gap: clamp(3rem, 6vw, 7rem);
-
-  width: 100%;
-  min-width: 0;
+  column-gap: clamp(2rem, 5vw, 6rem);
 
   align-items: start;
+  min-width: 0;
 }
 
 /* ============================================================
-   EYEBROW
-============================================================ */
+   05. COMPANY EYEBROW
+   ============================================================ */
 
 .about .about__eyebrow {
   grid-area: eyebrow;
 
   display: block;
 
-  margin: 0 0 clamp(1rem, 1.7vw, 1.5rem);
+  margin-bottom: clamp(1rem, 1.7vw, 1.5rem);
 
   color: rgba(9, 9, 9, 0.46);
 }
 
 /* ============================================================
-   TITLE
-============================================================ */
+   06. COMPANY TITLE
+   ============================================================ */
 
 .about .about__title {
   grid-area: title;
@@ -136,22 +110,19 @@
   flex-direction: column;
 
   width: 100%;
-  max-width: 100%;
   min-width: 0;
 
-  margin: 0 0 clamp(2.2rem, 3vw, 3.2rem);
+  margin: 0 0 clamp(2rem, 3vw, 3.2rem);
 
   font-family: var(--font-display);
 
-  font-size: var(--fs-2xl);
-
+  font-size: clamp(2.1rem, 4.4vw, 5rem);
   font-weight: 700;
 
-  line-height: 0.88;
+  line-height: 0.9;
   letter-spacing: -0.055em;
 
   text-transform: uppercase;
-
   color: var(--color-black);
 }
 
@@ -167,23 +138,23 @@
 }
 
 /* ============================================================
-   LEAD
-============================================================ */
+   07. COMPANY LEAD
+   ============================================================ */
 
 .about .about__lead {
   grid-area: lead;
 
-  width: min(100%, 44rem);
+  width: min(100%, 42rem);
 
   margin: 0 0 clamp(2rem, 3vw, 3rem);
 
   font-family: var(--font-display);
 
-  font-size: var(--fs-lg);
+  font-size: clamp(1.2rem, 1rem + 0.8vw, 1.7rem);
 
   font-weight: 350;
 
-  line-height: 1.14;
+  line-height: 1.2;
   letter-spacing: -0.03em;
 
   color: var(--color-black);
@@ -194,36 +165,33 @@
 }
 
 /* ============================================================
-   COMPANY COPY
-============================================================ */
+   08. COMPANY COPY
+   ============================================================ */
 
 .about .about__copy {
   grid-area: copy;
 
   display: grid;
 
-  gap: clamp(0.85rem, 1.2vw, 1.15rem);
+  gap: clamp(1rem, 1.4vw, 1.3rem);
 
   width: min(100%, 42rem);
 
   padding-top: clamp(1.4rem, 2vw, 2rem);
 
-  border-top: 1px solid rgba(5, 5, 5, 0.13);
+  border-top: 1px solid var(--line-dark);
 }
 
 .about .about__copy p {
   width: 100%;
-  max-width: 100%;
-
   margin: 0;
 
   font-family: var(--font-primary);
-
   font-size: var(--fs-base);
 
-  line-height: 1.67;
+  line-height: 1.72;
 
-  color: rgba(9, 9, 9, 0.64);
+  color: rgba(9, 9, 9, 0.68);
 }
 
 .about .about__copy em {
@@ -234,55 +202,43 @@
 }
 
 /* ============================================================
-   COMPANY IMAGE
-============================================================ */
+   09. COMPANY VISUAL
+   ============================================================ */
 
 .about .about__visual {
   grid-area: visual;
 
-  align-self: stretch;
-
   width: 100%;
   min-width: 0;
 
-  display: flex;
-  flex-direction: column;
+  align-self: start;
 }
 
 /* ============================================================
-   IMAGE WRAPPER
-============================================================ */
+   10. IMAGE WRAPPER
+
+   La imagen conserva su proporción.
+   No depende de la altura del texto.
+   ============================================================ */
 
 .about .about__image-wrapper {
   position: relative;
 
-  flex: 1;
-
   width: 100%;
-  min-width: 0;
-
-  /*
-   * No tiene height fija.
-   * Crece junto con el contenido de la columna izquierda.
-   *
-   * El mínimo garantiza presencia visual,
-   * pero no obliga a la página a entrar en 100vh.
-   */
-  min-height: clamp(38rem, 68vw, 60rem);
+  aspect-ratio: 4 / 5;
 
   isolation: isolate;
 }
 
 /* ============================================================
-   IMAGE
-============================================================ */
+   11. COMPANY IMAGE
+   ============================================================ */
 
 .about .about__image {
   position: absolute;
 
-  z-index: 2;
-
   inset: 0;
+  z-index: 2;
 
   display: block;
 
@@ -292,10 +248,9 @@
   max-width: none;
 
   object-fit: contain;
+  object-position: center;
 
-  object-position: center center;
-
-  padding: clamp(2rem, 4vw, 4rem);
+  padding: clamp(1.5rem, 3vw, 3.5rem);
 
   background:
     radial-gradient(
@@ -310,14 +265,12 @@
     ),
     linear-gradient(135deg, #376c5d 0%, #225547 45%, #173d35 100%);
 
-  filter: none;
-
   box-shadow: 0 1.3rem 3.6rem rgba(5, 5, 5, 0.055);
 }
 
 /* ============================================================
-   DECORATIVE SHAPES
-============================================================ */
+   12. DECORATIVE SHAPES
+   ============================================================ */
 
 .about .about__shape {
   position: absolute;
@@ -329,26 +282,26 @@
   pointer-events: none;
 }
 
-/* RED */
+/* RED SQUARE */
 
 .about .about__shape--red {
-  top: -0.8rem;
-  left: -0.8rem;
+  top: -0.7rem;
+  left: -0.7rem;
 
-  width: clamp(2.7rem, 4vw, 4.7rem);
+  width: clamp(2rem, 4vw, 4.5rem);
 
   aspect-ratio: 1;
 
   background: var(--blow-red);
 }
 
-/* YELLOW */
+/* YELLOW CIRCLE */
 
 .about .about__shape--yellow {
-  right: -1rem;
+  right: -0.7rem;
   bottom: 22%;
 
-  width: clamp(2.4rem, 3.5vw, 4rem);
+  width: clamp(2rem, 3.5vw, 4rem);
 
   aspect-ratio: 1;
 
@@ -357,21 +310,21 @@
   background: var(--blow-yellow);
 }
 
-/* BLUE */
+/* BLUE LINE */
 
 .about .about__shape--blue {
   right: 12%;
-  bottom: -0.55rem;
+  bottom: -0.5rem;
 
-  width: clamp(3.8rem, 5vw, 6rem);
-  height: clamp(0.5rem, 0.7vw, 0.8rem);
+  width: clamp(3rem, 5vw, 6rem);
+  height: clamp(0.45rem, 0.7vw, 0.8rem);
 
   background: var(--blow-blue);
 }
 
 /* ============================================================
-   IMAGE CAPTION
-============================================================ */
+   13. IMAGE CAPTION
+   ============================================================ */
 
 .about .about__image-caption {
   display: flex;
@@ -384,25 +337,25 @@
 
   width: 100%;
 
-  padding-top: 0.9rem;
+  padding-top: 1rem;
 
   font-family: var(--font-primary);
 
-  font-size: clamp(0.52rem, 0.55vw, 0.63rem);
+  font-size: clamp(0.6rem, 0.65vw, 0.7rem);
 
   font-weight: 600;
 
-  line-height: 1.4;
-  letter-spacing: 0.14em;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
 
   text-transform: uppercase;
 
-  color: rgba(9, 9, 9, 0.4);
+  color: rgba(9, 9, 9, 0.45);
 }
 
 /* ============================================================
-   MEET BUTTON
-============================================================ */
+   14. MEET ARTISTS BUTTON
+   ============================================================ */
 
 .about .about__meet-button {
   grid-area: button;
@@ -412,18 +365,17 @@
   align-items: center;
   justify-content: space-between;
 
-  gap: clamp(2rem, 4vw, 4rem);
+  gap: 2rem;
 
   width: min(100%, 19rem);
 
-  margin-top: clamp(2.2rem, 3vw, 3.3rem);
+  margin-top: clamp(2rem, 3vw, 3rem);
 
-  padding: 0.95rem 0;
+  padding: 1rem 0;
 
   border: 0;
-
-  border-top: 1px solid rgba(5, 5, 5, 0.72);
-  border-bottom: 1px solid rgba(5, 5, 5, 0.72);
+  border-top: 1px solid var(--color-black);
+  border-bottom: 1px solid var(--color-black);
 
   background: transparent;
 
@@ -432,12 +384,10 @@
   font-family: var(--font-primary);
 
   font-size: var(--fs-xs);
-
   font-weight: 700;
 
-  line-height: 1;
-
-  letter-spacing: 0.17em;
+  line-height: 1.2;
+  letter-spacing: 0.15em;
 
   text-transform: uppercase;
 
@@ -449,22 +399,20 @@
 }
 
 .about .about__meet-button:hover {
-  opacity: 0.55;
-
+  opacity: 0.6;
   padding-inline: 0.35rem;
 }
 
 .about .about__meet-arrow {
   flex-shrink: 0;
 
-  font-size: 1rem;
-
+  font-size: 1.1rem;
   line-height: 1;
 }
 
 /* ============================================================
-   TEAM
-============================================================ */
+   15. TEAM SECTION
+   ============================================================ */
 
 .about .about-team {
   position: relative;
@@ -472,9 +420,9 @@
   width: 100%;
   min-width: 0;
 
-  padding-block: clamp(5rem, 8vw, 5rem) clamp(5.5rem, 9vw, 10rem);
+  padding-block: clamp(4.5rem, 8vw, 8rem) clamp(5rem, 10vw, 10rem);
 
-  border-top: 1px solid rgba(5, 5, 5, 0.1);
+  border-top: 1px solid var(--line-dark);
 
   background:
     linear-gradient(to bottom, rgba(255, 255, 255, 0.15), transparent 20rem),
@@ -486,8 +434,8 @@
 }
 
 /* ============================================================
-   TEAM TOP
-============================================================ */
+   16. TEAM HEADER
+   ============================================================ */
 
 .about .about-team__top {
   display: flex;
@@ -495,12 +443,12 @@
   align-items: flex-end;
   justify-content: space-between;
 
-  gap: clamp(2rem, 5vw, 6rem);
+  gap: clamp(1rem, 5vw, 5rem);
 
   width: 100%;
   min-width: 0;
 
-  margin-bottom: clamp(3.5rem, 6vw, 4rem);
+  margin-bottom: clamp(3rem, 5vw, 5rem);
 }
 
 .about .about-team__heading {
@@ -508,34 +456,33 @@
 }
 
 /* ============================================================
-   TEAM EYEBROW
-============================================================ */
+   17. TEAM EYEBROW
+   ============================================================ */
 
 .about .about-team__eyebrow {
   display: block;
 
-  margin-bottom: clamp(1rem, 1.5vw, 1.3rem);
+  margin-bottom: clamp(1rem, 1.5vw, 1.4rem);
 
-  color: rgba(9, 9, 9, 0.44);
+  color: rgba(9, 9, 9, 0.46);
 }
 
 /* ============================================================
-   TEAM TITLE
-============================================================ */
+   18. TEAM TITLE
+   ============================================================ */
 
 .about .about-team__title {
   width: 100%;
-  max-width: 100%;
+  min-width: 0;
 
   margin: 0;
 
   font-family: var(--font-display);
 
-  font-size: var(--fs-2xl);
-
+  font-size: clamp(2.1rem, 4.4vw, 5rem);
   font-weight: 700;
 
-  line-height: 0.87;
+  line-height: 0.9;
   letter-spacing: -0.06em;
 
   text-transform: uppercase;
@@ -548,8 +495,8 @@
 }
 
 /* ============================================================
-   TEAM COUNTER
-============================================================ */
+   19. TEAM COUNTER
+   ============================================================ */
 
 .about .about-team__counter {
   display: flex;
@@ -565,14 +512,12 @@
   font-family: var(--font-primary);
 
   font-size: var(--fs-xs);
-
   font-weight: 600;
 
   line-height: 1;
-
   letter-spacing: 0.13em;
 
-  color: rgba(9, 9, 9, 0.34);
+  color: rgba(9, 9, 9, 0.4);
 }
 
 .about .about-team__counter-current {
@@ -580,29 +525,26 @@
 }
 
 .about .about-team__counter-line {
-  display: block;
-
   width: clamp(2rem, 3.5vw, 4rem);
-
   height: 1px;
 
   background: rgba(5, 5, 5, 0.2);
 }
 
 /* ============================================================
-   ARTIST
-============================================================ */
+   20. ACTIVE ARTIST LAYOUT
+   ============================================================ */
 
 .about .about-team__artist {
   display: grid;
 
   grid-template-columns:
-    minmax(18rem, 0.82fr)
-    minmax(0, 1.18fr);
+    minmax(0, 0.85fr)
+    minmax(0, 1.15fr);
 
-  align-items: center;
+  align-items: start;
 
-  gap: clamp(3.5rem, 7vw, 8rem);
+  gap: clamp(2.5rem, 7vw, 8rem);
 
   width: 100%;
   min-width: 0;
@@ -613,23 +555,22 @@
 @keyframes aboutArtistReveal {
   from {
     opacity: 0;
-
     transform: translateY(9px);
   }
 
   to {
     opacity: 1;
-
     transform: translateY(0);
   }
 }
 
 /* ============================================================
-   ARTIST VISUAL
-============================================================ */
+   21. ARTIST VISUAL
+   ============================================================ */
 
 .about .about-team__visual {
-  width: min(100%, 30rem);
+  width: 100%;
+  max-width: 31rem;
 
   min-width: 0;
 
@@ -637,24 +578,21 @@
 }
 
 /* ============================================================
-   ARTIST IMAGE FRAME
-============================================================ */
+   22. ARTIST IMAGE FRAME
+   ============================================================ */
 
 .about .about-team__visual-frame {
   position: relative;
 
   width: 100%;
-
   aspect-ratio: 4 / 5;
-
-  min-width: 0;
 
   isolation: isolate;
 }
 
 /* ============================================================
-   ARTIST IMAGE / PLACEHOLDER
-============================================================ */
+   23. ARTIST IMAGE
+   ============================================================ */
 
 .about .about-team__image,
 .about .about-team__placeholder {
@@ -666,31 +604,27 @@
 
   width: 100%;
   height: 100%;
-
-  max-width: 100%;
-
-  aspect-ratio: 4 / 5;
 }
 
 .about .about-team__image {
   object-fit: cover;
 
-  box-shadow: 0 1rem 3rem rgba(5, 5, 5, 0.055);
+  box-shadow: 0 1rem 3rem rgba(5, 5, 5, 0.06);
 }
 
 /* ============================================================
-   ARTIST IMAGE DECORATION
-============================================================ */
+   24. IMAGE ACCENT
+   ============================================================ */
 
 .about .about-team__visual-accent {
   position: absolute;
 
   z-index: 1;
 
-  left: -0.65rem;
+  left: -0.6rem;
   bottom: 12%;
 
-  width: clamp(2.7rem, 4vw, 4.5rem);
+  width: clamp(2.5rem, 4vw, 4.5rem);
 
   aspect-ratio: 1;
 
@@ -698,21 +632,20 @@
 }
 
 /* ============================================================
-   PLACEHOLDER
-============================================================ */
+   25. ARTIST PLACEHOLDER
+   ============================================================ */
 
 .about .about-team__placeholder {
-  position: relative;
-
   display: flex;
   flex-direction: column;
+
   justify-content: space-between;
 
-  padding: clamp(1.4rem, 2.2vw, 2.3rem);
+  padding: clamp(1.4rem, 2vw, 2.3rem);
 
   overflow: hidden;
 
-  border: 1px solid rgba(5, 5, 5, 0.12);
+  border: 1px solid var(--line-dark);
 
   background:
     linear-gradient(
@@ -725,16 +658,12 @@
 
 .about .about-team__placeholder-number {
   position: relative;
-
   z-index: 2;
 
   font-family: var(--font-primary);
 
-  font-size: 0.62rem;
-
+  font-size: var(--fs-xs);
   font-weight: 700;
-
-  line-height: 1;
 
   letter-spacing: 0.14em;
 
@@ -743,7 +672,6 @@
 
 .about .about-team__placeholder-name {
   position: relative;
-
   z-index: 2;
 
   max-width: 85%;
@@ -751,11 +679,10 @@
   font-family: var(--font-display);
 
   font-size: var(--fs-xl);
-
   font-weight: 650;
 
-  line-height: 0.94;
-  letter-spacing: -0.045em;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
 
   text-transform: uppercase;
 
@@ -769,7 +696,6 @@
   right: -18%;
 
   width: 67%;
-
   aspect-ratio: 1;
 
   border-radius: 50%;
@@ -780,30 +706,28 @@
 }
 
 /* ============================================================
-   ARTIST VISUAL LABEL
-============================================================ */
+   26. ARTIST VISUAL LABEL
+   ============================================================ */
 
 .about .about-team__visual-label {
-  margin-top: 0.9rem;
+  margin-top: 1rem;
 
   font-family: var(--font-primary);
 
-  font-size: 0.56rem;
-
+  font-size: clamp(0.6rem, 0.65vw, 0.7rem);
   font-weight: 600;
 
-  line-height: 1.3;
-
-  letter-spacing: 0.15em;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
 
   text-transform: uppercase;
 
-  color: rgba(9, 9, 9, 0.38);
+  color: rgba(9, 9, 9, 0.42);
 }
 
 /* ============================================================
-   ARTIST INFO
-============================================================ */
+   27. ARTIST INFORMATION
+   ============================================================ */
 
 .about .about-team__info {
   width: 100%;
@@ -813,15 +737,15 @@
 }
 
 /* ============================================================
-   IDENTITY
-============================================================ */
+   28. ARTIST IDENTITY
+   ============================================================ */
 
 .about .about-team__identity {
   width: 100%;
 
-  padding-bottom: clamp(1.5rem, 2.4vw, 2.4rem);
+  padding-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
 
-  border-bottom: 1px solid rgba(5, 5, 5, 0.12);
+  border-bottom: 1px solid var(--line-dark);
 }
 
 .about .about-team__role {
@@ -832,63 +756,62 @@
   font-family: var(--font-primary);
 
   font-size: var(--fs-xs);
-
   font-weight: 700;
 
   line-height: 1.4;
-
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
 
   text-transform: uppercase;
-
-  color: rgba(9, 9, 9, 0.44);
-}
-
-.about .about-team__name {
-  width: 100%;
-  max-width: 100%;
-
-  margin: 0;
-
-  font-family: var(--font-display);
-
-  font-size: var(--fs-xl);
-
-  font-weight: 650;
-
-  line-height: 0.94;
-  letter-spacing: -0.052em;
-
-  color: var(--color-black);
-
-  overflow-wrap: normal;
-  word-break: normal;
-}
-
-.about .about-team__nickname {
-  display: block;
-
-  margin-top: 0.75rem;
-
-  font-family: var(--font-primary);
-
-  font-size: var(--fs-sm);
-
-  font-weight: 500;
-
-  line-height: 1.4;
 
   color: rgba(9, 9, 9, 0.45);
 }
 
 /* ============================================================
-   BIOGRAPHY
-============================================================ */
+   29. ARTIST NAME
+   ============================================================ */
+
+.about .about-team__name {
+  width: 100%;
+  min-width: 0;
+
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(1.5rem, 2.6vw, 2.8rem);
+  font-weight: 650;
+
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+
+  color: var(--color-black);
+
+  overflow-wrap: break-word;
+}
+
+.about .about-team__nickname {
+  display: block;
+
+  margin-top: 0.8rem;
+
+  font-family: var(--font-primary);
+
+  font-size: var(--fs-sm);
+  font-weight: 500;
+
+  line-height: 1.4;
+
+  color: rgba(9, 9, 9, 0.5);
+}
+
+/* ============================================================
+   30. ARTIST BIOGRAPHY
+   ============================================================ */
 
 .about .about-team__bio {
   display: grid;
 
-  gap: clamp(0.8rem, 1.2vw, 1.1rem);
+  gap: clamp(1rem, 1.4vw, 1.3rem);
 
   width: 100%;
 
@@ -905,9 +828,9 @@
 
   font-size: var(--fs-base);
 
-  line-height: 1.68;
+  line-height: 1.72;
 
-  color: rgba(9, 9, 9, 0.64);
+  color: rgba(9, 9, 9, 0.68);
 }
 
 .about .about-team__coming-soon {
@@ -917,15 +840,15 @@
 }
 
 /* ============================================================
-   CONTROLS
-============================================================ */
+   31. ARTIST CONTROLS
+   ============================================================ */
 
 .about .about-team__controls {
   display: flex;
 
   align-items: center;
 
-  gap: 1.1rem;
+  gap: clamp(0.75rem, 2vw, 1.2rem);
 
   width: fit-content;
 
@@ -933,16 +856,17 @@
 }
 
 /* ============================================================
-   ARROWS
-============================================================ */
+   32. ARROWS
+   ============================================================ */
 
 .about .about-team__arrow {
   display: grid;
 
   place-items: center;
 
-  width: clamp(2.7rem, 3vw, 3.15rem);
+  flex-shrink: 0;
 
+  width: clamp(2.8rem, 3vw, 3.2rem);
   aspect-ratio: 1;
 
   padding: 0;
@@ -954,8 +878,7 @@
 
   color: var(--color-black);
 
-  font-size: 0.95rem;
-
+  font-size: 1rem;
   line-height: 1;
 
   cursor: pointer;
@@ -967,7 +890,7 @@
 }
 
 .about .about-team__arrow:hover {
-  border-color: rgba(5, 5, 5, 0.55);
+  border-color: rgba(5, 5, 5, 0.6);
 
   background: rgba(5, 5, 5, 0.04);
 
@@ -975,8 +898,8 @@
 }
 
 /* ============================================================
-   DOTS
-============================================================ */
+   33. NAVIGATION DOTS
+   ============================================================ */
 
 .about .about-team__dots {
   display: flex;
@@ -995,7 +918,7 @@
   border: 0;
   border-radius: 999px;
 
-  background: rgba(5, 5, 5, 0.18);
+  background: rgba(5, 5, 5, 0.2);
 
   cursor: pointer;
 
@@ -1011,44 +934,48 @@
 }
 
 /* ============================================================
-   ARTIST INDEX
-============================================================ */
+   34. ARTIST INDEX
+
+   Auto-fit:
+   Las columnas se acomodan solas.
+   ============================================================ */
 
 .about .about-team__index {
   display: grid;
 
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
 
   width: 100%;
 
-  margin-top: clamp(4rem, 7vw, 7rem);
+  margin-top: clamp(3.5rem, 7vw, 7rem);
 
-  border-top: 1px solid rgba(5, 5, 5, 0.13);
+  border-top: 1px solid var(--line-dark);
 }
 
 /* ============================================================
-   INDEX ITEM
-============================================================ */
+   35. INDEX ITEMS
+   ============================================================ */
 
 .about .about-team__index-item {
   position: relative;
 
   display: flex;
   flex-direction: column;
+
   align-items: flex-start;
 
-  gap: 0.6rem;
+  gap: 0.65rem;
 
   min-width: 0;
 
-  padding: 1.15rem clamp(0.75rem, 1.3vw, 1.3rem) 1.3rem;
+  padding: 1.2rem clamp(0.75rem, 1.3vw, 1.3rem) 1.4rem;
 
   border: 0;
   border-right: 1px solid rgba(5, 5, 5, 0.1);
 
   background: transparent;
 
-  color: rgba(9, 9, 9, 0.36);
+  color: rgba(9, 9, 9, 0.4);
 
   text-align: left;
 
@@ -1056,20 +983,24 @@
 
   transition:
     color var(--transition-normal),
-    opacity var(--transition-normal);
-}
-
-.about .about-team__index-item:first-child {
-  padding-left: 0;
+    background-color var(--transition-normal);
 }
 
 .about .about-team__index-item:last-child {
   border-right: 0;
 }
 
+.about .about-team__index-item:hover {
+  color: var(--color-black);
+}
+
+.about .about-team__index-item--active {
+  color: var(--color-black);
+}
+
 /* ============================================================
-   ACTIVE LINE
-============================================================ */
+   36. INDEX ACTIVE LINE
+   ============================================================ */
 
 .about .about-team__index-item::before {
   content: "";
@@ -1080,9 +1011,9 @@
   left: 0;
 
   width: 0;
-  height: 1px;
+  height: 2px;
 
-  background: var(--color-black);
+  background: var(--blow-red);
 
   transition: width 400ms var(--ease-blow);
 }
@@ -1092,18 +1023,16 @@
 }
 
 /* ============================================================
-   INDEX TYPOGRAPHY
-============================================================ */
+   37. INDEX TYPOGRAPHY
+   ============================================================ */
 
 .about .about-team__index-item span:first-child {
   font-family: var(--font-primary);
 
   font-size: var(--fs-xs);
-
   font-weight: 600;
 
   line-height: 1;
-
   letter-spacing: 0.13em;
 }
 
@@ -1113,63 +1042,30 @@
   width: 100%;
   min-width: 0;
 
-  overflow: hidden;
-
   font-family: var(--font-primary);
 
   font-size: var(--fs-sm);
-
   font-weight: 600;
 
-  line-height: 1.3;
-
-  letter-spacing: 0.05em;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
 
   text-transform: uppercase;
 
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.about .about-team__index-item:hover,
-.about .about-team__index-item--active {
-  color: var(--color-black);
+  overflow-wrap: break-word;
 }
 
 /* ============================================================
-   RESPONSIVE
-   TABLET / SMALL NOTEBOOK
+   38. RESPONSIVE — STRUCTURAL BREAKPOINT
 
-   Este es el breakpoint estructural importante.
+   Se cambia de dos columnas a una cuando
+   deja de haber espacio suficiente.
 
-   No estamos arreglando un tamaño concreto:
-   estamos diciendo que cuando deja de haber espacio real
-   para dos columnas cómodas, la composición cambia.
-============================================================ */
+   El resto del CSS sigue siendo fluido.
+   ============================================================ */
 
-@media (max-width: 900px) {
-  .about {
-    scroll-margin-top: 5rem;
-  }
-
-  /* ==========================================================
-     COMPANY
-  ========================================================== */
-
-  .about .about__company {
-    padding-block: clamp(4.5rem, 9vw, 6rem) clamp(5rem, 10vw, 7rem);
-  }
-
-  /*
-   * Orden móvil/tablet:
-   *
-   * eyebrow
-   * title
-   * lead
-   * image
-   * copy
-   * button
-   */
+@media (max-width: 52rem) {
+  /* COMPANY GRID */
 
   .about .about__company-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -1181,296 +1077,100 @@
       "visual"
       "copy"
       "button";
-
-    column-gap: 0;
   }
 
-  .about .about__eyebrow {
-    margin-bottom: 1rem;
-  }
+  /* COMPANY TITLE */
 
   .about .about__title {
-    width: min(100%, 43rem);
-
-    margin-bottom: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.1rem, 7vw, 4.5rem);
   }
+
+  /* COMPANY LEAD */
 
   .about .about__lead {
     width: min(100%, 42rem);
 
-    margin-bottom: clamp(2.7rem, 6vw, 4rem);
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
   }
 
-  /* IMAGE */
+  /* COMPANY IMAGE */
 
   .about .about__visual {
     width: min(100%, 39rem);
 
     margin-inline: auto;
 
-    margin-bottom: clamp(3rem, 7vw, 4.5rem);
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
   }
 
-  .about .about__image-wrapper {
-    flex: none;
-
-    min-height: 0;
-
-    aspect-ratio: 4 / 5;
-  }
+  /* COMPANY COPY */
 
   .about .about__copy {
-    width: min(100%, 43rem);
+    width: min(100%, 42rem);
 
     margin-inline: auto;
   }
+
+  /* COMPANY BUTTON */
 
   .about .about__meet-button {
-    width: min(100%, 43rem);
-
-    max-width: none;
+    width: min(100%, 42rem);
 
     margin-inline: auto;
   }
 
-  /* ==========================================================
-     TEAM
-  ========================================================== */
-
-  .about .about-team {
-    padding-block: clamp(4.8rem, 9vw, 7rem) clamp(5rem, 10vw, 7.5rem);
-
-    scroll-margin-top: 5rem;
-  }
-
-  .about .about-team__top {
-    margin-bottom: clamp(3rem, 7vw, 4.5rem);
-  }
+  /* TEAM ARTIST */
 
   .about .about-team__artist {
     grid-template-columns: minmax(0, 1fr);
 
-    gap: clamp(3rem, 7vw, 4.5rem);
+    gap: clamp(2.5rem, 6vw, 4rem);
   }
+
+  /* TEAM VISUAL */
 
   .about .about-team__visual {
     width: min(100%, 31rem);
 
-    max-width: none;
-
     justify-self: center;
-
-    margin-inline: auto;
   }
+
+  /* TEAM INFORMATION */
 
   .about .about-team__info {
     width: min(100%, 44rem);
 
-    max-width: none;
-
     margin-inline: auto;
   }
-}
 
-/* ============================================================
-   MOBILE
-============================================================ */
-
-@media (max-width: 560px) {
-  .about {
-    scroll-margin-top: 4.6rem;
-  }
-
-  /* ==========================================================
-     COMPANY
-  ========================================================== */
-
-  .about .about__company {
-    padding-block: clamp(3.8rem, 13vw, 4.6rem) clamp(4.5rem, 14vw, 5.5rem);
-  }
-
-  .about .about__title {
-    margin-bottom: 2rem;
-
-    line-height: 0.9;
-
-    letter-spacing: -0.05em;
-  }
-
-  .about .about__lead {
-    margin-bottom: 2.6rem;
-
-    line-height: 1.19;
-  }
-
-  /* IMAGE */
-
-  .about .about__visual {
-    width: 100%;
-
-    margin-bottom: 2.8rem;
-  }
-
-  .about .about__image-wrapper {
-    aspect-ratio: 4 / 5;
-  }
-
-  .about .about__shape--red {
-    top: -0.45rem;
-    left: -0.25rem;
-
-    width: 2.7rem;
-  }
-
-  .about .about__shape--yellow {
-    right: -0.15rem;
-
-    width: 2.5rem;
-  }
-
-  .about .about__shape--blue {
-    right: 10%;
-    bottom: -0.35rem;
-
-    width: 3.9rem;
-    height: 0.5rem;
-  }
-
-  .about .about__image-caption {
-    display: grid;
-
-    justify-content: initial;
-
-    gap: 0.25rem;
-
-    padding-top: 0.85rem;
-  }
-
-  /* COPY */
-
-  .about .about__copy {
-    gap: 0.95rem;
-
-    padding-top: 1.3rem;
-  }
-
-  .about .about__copy p {
-    line-height: 1.66;
-  }
-
-  /* CTA */
-
-  .about .about__meet-button {
-    width: 100%;
-
-    margin-top: 2rem;
-  }
-
-  /* ==========================================================
-     TEAM
-  ========================================================== */
-
-  .about .about-team {
-    padding-block: 4.3rem 5rem;
-
-    scroll-margin-top: 4.6rem;
-  }
-
-  .about .about-team__top {
-    align-items: flex-start;
-
-    margin-bottom: 2.8rem;
-  }
+  /* TEAM TITLE */
 
   .about .about-team__title {
-    line-height: 0.9;
+    font-size: clamp(2.1rem, 7vw, 4.5rem);
   }
+
+  /* TEAM COUNTER */
 
   .about .about-team__counter {
     display: none;
   }
 
-  .about .about-team__artist {
-    gap: 2.5rem;
-  }
-
-  .about .about-team__visual {
-    width: 100%;
-  }
-
-  .about .about-team__identity {
-    padding-bottom: 1.5rem;
-  }
-
-  .about .about-team__bio {
-    gap: 0.9rem;
-
-    padding-top: 1.5rem;
-  }
-
-  .about .about-team__bio p {
-    line-height: 1.66;
-  }
-
-  /* CONTROLS */
+  /* TEAM CONTROLS */
 
   .about .about-team__controls {
     justify-content: space-between;
 
     width: 100%;
-
-    margin-top: 2.2rem;
-  }
-
-  .about .about-team__arrow {
-    width: 2.85rem;
-  }
-
-  /* INDEX */
-
-  .about .about-team__index {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    margin-top: 3.5rem;
-  }
-
-  .about .about-team__index-item {
-    border-bottom: 1px solid rgba(5, 5, 5, 0.1);
-  }
-
-  .about .about-team__index-item:nth-child(2) {
-    border-right: 0;
-  }
-
-  .about .about-team__index-item:nth-child(3) {
-    padding-left: 0;
-  }
-
-  .about .about-team__index-item:nth-child(3),
-  .about .about-team__index-item:nth-child(4) {
-    border-bottom: 0;
   }
 }
 
 /* ============================================================
-   VERY SMALL MOBILE
-============================================================ */
-
-@media (max-width: 360px) {
-  .about .about__title,
-  .about .about-team__title {
-    letter-spacing: -0.045em;
-  }
-}
-
-/* ============================================================
-   TOUCH DEVICES
-============================================================ */
+   39. TOUCH DEVICES
+   ============================================================ */
 
 @media (hover: none) {
   .about .about__meet-button:hover {
     opacity: 1;
-
     padding-inline: 0;
   }
 
@@ -1484,8 +1184,8 @@
 }
 
 /* ============================================================
-   REDUCED MOTION
-============================================================ */
+   40. REDUCED MOTION
+   ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
   .about .about-team__artist {
