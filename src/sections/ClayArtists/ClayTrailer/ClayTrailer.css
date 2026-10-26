@@ -238,7 +238,7 @@
 .clay-trailer__play {
   position: absolute;
 
-  top: 50%;
+  top: 70%;
   left: 78%;
 
   z-index: 5;
@@ -286,7 +286,7 @@
   position: absolute;
 
   left: 78%;
-  top: 66%;
+  top: 80%;
 
   z-index: 5;
 
