@@ -369,7 +369,7 @@
 
   width: min(100%, 19rem);
 
-  margin-top: clamp(2rem, 3vw, 3rem);
+  margin-top: clamp(1.5rem, 3vw, 3rem);
 
   padding: 1rem 0;
 
